@@ -32,6 +32,9 @@ func components():
     return c
 
 func _on_intelligence_detected(planet):
+    if planet.has_moon_trap:
+        return
+
     for a in anchors:
         for child in a.get_children():
             if child is TrapLauncher:

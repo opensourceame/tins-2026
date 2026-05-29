@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://dvewtmm6d837k"]
 
 [ext_resource type="Script" uid="uid://dd1hcajcvlc0a" path="res://hud/item_queue.gd" id="1_8sq4i"]
-[ext_resource type="PackedScene" uid="uid://dhj14hsfg1qgl" path="res://detector_dish.tscn" id="1_37p78"]
-[ext_resource type="PackedScene" uid="uid://cvdw12drwoc02" path="res://hud/place_item.tscn" id="1_64ctp"]
 [ext_resource type="Script" uid="uid://ckjkairqnp32d" path="res://hud/hud.gd" id="1_640wx"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1601605167]
@@ -26,23 +24,3 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="PlaceItem" parent="ItemQueue/VBoxContainer" unique_id=75211346 instance=ExtResource("1_64ctp")]
-layout_mode = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="ItemQueue/VBoxContainer/PlaceItem" unique_id=1803385402]
-position = Vector2(12, 28)
-polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)
-
-[node name="PlaceItem4" parent="ItemQueue/VBoxContainer" unique_id=645623417 instance=ExtResource("1_64ctp")]
-layout_mode = 2
-
-[node name="DetectorDish" parent="ItemQueue/VBoxContainer/PlaceItem4" unique_id=1305556712 instance=ExtResource("1_37p78")]
-position = Vector2(132, 102)
-
-[node name="PlaceItem5" parent="ItemQueue/VBoxContainer" unique_id=1201600971 instance=ExtResource("1_64ctp")]
-layout_mode = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="ItemQueue/VBoxContainer/PlaceItem5" unique_id=101775311]
-position = Vector2(12, 28)
-polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)

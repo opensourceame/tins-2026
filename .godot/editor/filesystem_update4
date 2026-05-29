@@ -26,3 +26,5 @@ res://moon_trap.gd
 res://hud/item_queue.gd
 res://hud/hud.gd
 res://habitat.gd
+res://background/stars.gd
+res://hud/place_item.gd
