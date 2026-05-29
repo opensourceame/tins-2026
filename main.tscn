@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuurv4iclj7d" path="res://habitat.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sckxa40vknyj" path="res://solar_system.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b8vig0ra0nmnl" path="res://solar_system/broadcasting_component.tscn" id="5_7mycd"]
 
 [node name="ROOT" type="Node2D" unique_id=2062991433]
 script = ExtResource("1_ig7tw")
@@ -21,6 +22,10 @@ position = Vector2(440, 2)
 position = Vector2(49, 446)
 rotation = 1.3736713
 
+[node name="Habitat3" parent="World/Spica" unique_id=408869750 instance=ExtResource("3_h2yge")]
+position = Vector2(-373, 242)
+rotation = -0.31415927
+
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
 position = Vector2(-451, -367)
 
@@ -29,6 +34,8 @@ position = Vector2(1890, -616)
 
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
 position = Vector2(2212, 2425)
+
+[node name="BroadcastingComponent" parent="World/SolarSystem3" unique_id=816191014 instance=ExtResource("5_7mycd")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(1337.2241, 703.71356)

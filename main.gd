@@ -2,8 +2,10 @@ class_name Game
 extends Node2D
 
 @onready var world: CanvasLayer = $World
+@onready var hud: CanvasLayer = $HUD
 
-const ZOOM_OUT: float = 0.1
+const ZOOM_OUT_SCALE: float = 0.1
+const ZOOM_TIME: float = 0.3
 
 var zoomed_out: bool = false
 var center: Vector2
@@ -21,6 +23,14 @@ func _input(event: InputEvent):
             tween.kill()
         tween = create_tween()
         tween.set_parallel(true)
-        var s = ZOOM_OUT if zoomed_out else 1.0
-        tween.tween_property(world, "scale", Vector2(s, s), 0.5)
-        tween.tween_property(world, "offset", center * (1.0 - s), 0.5)
+        var s = ZOOM_OUT_SCALE if zoomed_out else 1.0
+        tween.tween_property(world, "scale", Vector2(s, s), ZOOM_TIME)
+        tween.tween_property(world, "offset", center * (1.0 - s), ZOOM_TIME)
+        tween.tween_callback(toggle_hud)
+
+
+func toggle_hud():
+    if zoomed_out:
+        hud.hide()
+    else:
+        hud.show()
