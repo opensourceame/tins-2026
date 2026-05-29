@@ -6,3 +6,4 @@ res://main.gd
 res://hud.tscn
 res://solar_system.tscn
 res://solar_system.gd
+res://hud/place_item.tscn

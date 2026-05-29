@@ -12,11 +12,40 @@ script = ExtResource("1_di34l")
 [node name="Anchor" parent="Anchors" unique_id=1972042639 instance=ExtResource("2_jclrv")]
 position = Vector2(0, -192)
 
+[node name="Anchor8" parent="Anchors" unique_id=434655271 instance=ExtResource("2_jclrv")]
+position = Vector2(-144, 144)
+
 [node name="Anchor2" parent="Anchors" unique_id=1295630286 instance=ExtResource("2_jclrv")]
 position = Vector2(0, 192)
 
+[node name="Anchor3" parent="Anchors" unique_id=2135077121 instance=ExtResource("2_jclrv")]
+position = Vector2(-192, 0)
+
+[node name="Anchor4" parent="Anchors" unique_id=1984754184 instance=ExtResource("2_jclrv")]
+position = Vector2(192, 0)
+
+[node name="Anchor5" parent="Anchors" unique_id=975696669 instance=ExtResource("2_jclrv")]
+position = Vector2(144, 136)
+
+[node name="Anchor6" parent="Anchors" unique_id=1455119958 instance=ExtResource("2_jclrv")]
+position = Vector2(-136, -144)
+
+[node name="Anchor7" parent="Anchors" unique_id=1109059028 instance=ExtResource("2_jclrv")]
+position = Vector2(144, -144)
+
 [node name="Sphere" type="Polygon2D" parent="." unique_id=556770028]
 color = Color(0.17103916, 0.17103916, 0.17103916, 1)
+polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
+
+[node name="Sphere2" type="Polygon2D" parent="." unique_id=1189229788]
+scale = Vector2(0.81848, 0.81848)
+color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
+
+[node name="Sphere3" type="Polygon2D" parent="." unique_id=1696923819]
+rotation = 0.77009076
+scale = Vector2(0.6289128, 0.6289128)
+color = Color(0.30876932, 0.3087694, 0.30876926, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
 
 [node name="DetectorDish" parent="." unique_id=1305556712 instance=ExtResource("1_eorob")]

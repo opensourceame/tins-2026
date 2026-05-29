@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvewtmm6d837k"]
 
 [ext_resource type="PackedScene" uid="uid://dhj14hsfg1qgl" path="res://detector_dish.tscn" id="1_37p78"]
+[ext_resource type="PackedScene" uid="uid://cvdw12drwoc02" path="res://hud/place_item.tscn" id="1_64ctp"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1601605167]
 
@@ -22,18 +23,17 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PlaceItem" type="Control" parent="Container/VBoxContainer" unique_id=312958226]
-custom_minimum_size = Vector2(250, 250)
+[node name="PlaceItem" parent="Container/VBoxContainer" unique_id=75211346 instance=ExtResource("1_64ctp")]
 layout_mode = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem" unique_id=1107734345]
+[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem" unique_id=1803385402]
+position = Vector2(12, 28)
 polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)
 
-[node name="PlaceItem3" type="Control" parent="Container/VBoxContainer" unique_id=1054860068]
-custom_minimum_size = Vector2(250, 250)
+[node name="PlaceItem4" parent="Container/VBoxContainer" unique_id=645623417 instance=ExtResource("1_64ctp")]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Container/VBoxContainer/PlaceItem3" unique_id=950564779]
+[node name="CenterContainer" type="CenterContainer" parent="Container/VBoxContainer/PlaceItem4" unique_id=950564779]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,11 +41,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DetectorDish" parent="Container/VBoxContainer/PlaceItem3/CenterContainer" unique_id=1305556712 instance=ExtResource("1_37p78")]
+[node name="DetectorDish" parent="Container/VBoxContainer/PlaceItem4/CenterContainer" unique_id=1305556712 instance=ExtResource("1_37p78")]
+position = Vector2(141, 110)
 
-[node name="PlaceItem2" type="Control" parent="Container/VBoxContainer" unique_id=633908839]
-custom_minimum_size = Vector2(250, 250)
+[node name="PlaceItem5" parent="Container/VBoxContainer" unique_id=1201600971 instance=ExtResource("1_64ctp")]
 layout_mode = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem2" unique_id=1803385402]
+[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem5" unique_id=101775311]
+position = Vector2(12, 28)
 polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)

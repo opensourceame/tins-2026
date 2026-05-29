@@ -15,10 +15,20 @@ script = ExtResource("1_ig7tw")
 position = Vector2(1338, 701)
 
 [node name="Habitat" parent="World/Spica" unique_id=1005623594 instance=ExtResource("3_h2yge")]
-position = Vector2(552, 0)
+position = Vector2(440, 2)
+
+[node name="Habitat2" parent="World/Spica" unique_id=1203981135 instance=ExtResource("3_h2yge")]
+position = Vector2(49, 446)
+rotation = 1.3736713
 
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
-position = Vector2(368, 303)
+position = Vector2(-451, -367)
+
+[node name="SolarSystem2" parent="World" unique_id=1570619885 instance=ExtResource("4_lquwl")]
+position = Vector2(1890, -616)
+
+[node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
+position = Vector2(2212, 2425)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(1337.2241, 703.71356)
