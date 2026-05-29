@@ -8,8 +8,10 @@ size = Vector2(128, 128)
 [node name="Planet" type="Node2D" unique_id=1028212328]
 script = ExtResource("1_1odxm")
 
-[node name="DetectArea" type="Area2D" parent="." unique_id=330385794]
+[node name="PlanetDetectArea" type="Area2D" parent="." unique_id=330385794]
+collision_layer = 256
+collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=877450189]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetDetectArea" unique_id=877450189]
 shape = SubResource("RectangleShape2D_hbvo3")

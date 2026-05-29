@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cjcp25gc86gve"]
+
+[ext_resource type="Script" uid="uid://b0k8ylr8q08u1" path="res://species/species.gd" id="1_hqrp3"]
+
+[node name="Species" type="Node2D" unique_id=749402488]
+script = ExtResource("1_hqrp3")

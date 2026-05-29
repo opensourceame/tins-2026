@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://soq7wuw3tuth"]
+
+[ext_resource type="Script" uid="uid://ck7ffef6gb4qy" path="res://moon_trap.gd" id="1_wyfkj"]
+
+[node name="MoonTrap" type="CharacterBody2D" unique_id=1343835292]
+script = ExtResource("1_wyfkj")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1828561712]
+scale = Vector2(0.5795552, 1.1848434)
+polygon = PackedVector2Array(-151.84059, -148.54285, 41.41107, -162.04674, 276.0738, -135.03894, 427.9144, -60.767525, 414.1107, 108.03116, 179.44797, 202.55843, -82.82214, 202.55843, -303.68118, 135.03894, -372.69962, 20.255842, -317.48486, -94.52727)

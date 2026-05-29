@@ -1,12 +1,13 @@
+CharacterBody2D
+Polygon2D
+Node2D
+Control
 RayCast2D
 CollisionShape2D
 Area2D
-Node2D
 CenterContainer
-Polygon2D
 Node
 ColorRect
-Control
 VBoxContainer
 Container
 CanvasLayer

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://di28tkds6vooh"]
+
+[ext_resource type="Script" uid="uid://crlvg1j0dvyhi" path="res://spica/trap_launcher.gd" id="1_wbukq"]
+
+[node name="TrapLauncher" type="Node2D" unique_id=596594135]
+script = ExtResource("1_wbukq")
+
+[node name="Body" type="Polygon2D" parent="." unique_id=2068930038]
+scale = Vector2(0.16563927, 0.16563927)
+color = Color(2.2862107e-06, 0.57361007, 0.29421443, 1)
+polygon = PackedVector2Array(0, 0, -192, 0, -384, -200, -256, -256, 4, -173, 256, -256, 384, -192, 192, 0)

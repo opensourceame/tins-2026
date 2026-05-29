@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://byvivccrtt82l"]
 
 [ext_resource type="Script" uid="uid://d2rp0t17k0ufv" path="res://spica.gd" id="1_di34l"]
-[ext_resource type="PackedScene" uid="uid://dhj14hsfg1qgl" path="res://detector_dish.tscn" id="1_eorob"]
 [ext_resource type="PackedScene" uid="uid://lcpojq2pqgj1" path="res://anchor.tscn" id="2_jclrv"]
 
 [node name="Spica" type="Node2D" unique_id=841173338]
@@ -9,11 +8,8 @@ script = ExtResource("1_di34l")
 
 [node name="Anchors" type="Node2D" parent="." unique_id=118959818]
 
-[node name="Anchor" parent="Anchors" unique_id=1972042639 instance=ExtResource("2_jclrv")]
+[node name="Anchor1" parent="Anchors" unique_id=1972042639 instance=ExtResource("2_jclrv")]
 position = Vector2(0, -192)
-
-[node name="Anchor8" parent="Anchors" unique_id=434655271 instance=ExtResource("2_jclrv")]
-position = Vector2(-144, 144)
 
 [node name="Anchor2" parent="Anchors" unique_id=1295630286 instance=ExtResource("2_jclrv")]
 position = Vector2(0, 192)
@@ -33,6 +29,9 @@ position = Vector2(-136, -144)
 [node name="Anchor7" parent="Anchors" unique_id=1109059028 instance=ExtResource("2_jclrv")]
 position = Vector2(144, -144)
 
+[node name="Anchor8" parent="Anchors" unique_id=434655271 instance=ExtResource("2_jclrv")]
+position = Vector2(-144, 144)
+
 [node name="Sphere" type="Polygon2D" parent="." unique_id=556770028]
 color = Color(0.17103916, 0.17103916, 0.17103916, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
@@ -47,6 +46,3 @@ rotation = 0.77009076
 scale = Vector2(0.6289128, 0.6289128)
 color = Color(0.30876932, 0.3087694, 0.30876926, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
-
-[node name="DetectorDish" parent="." unique_id=1305556712 instance=ExtResource("1_eorob")]
-position = Vector2(0, -200)

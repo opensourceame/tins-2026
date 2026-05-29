@@ -1,35 +1,39 @@
 [gd_scene format=3 uid="uid://cuurv4iclj7d"]
 
-[ext_resource type="Script" path="res://habitat.gd" id="1_dtqah"]
+[ext_resource type="Script" uid="uid://d8x66fy0pp2l" path="res://habitat.gd" id="1_dtqah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15mlb"]
-size = Vector2(64, 128)
+size = Vector2(128.3559, 128)
 
 [node name="Habitat" type="Node2D" unique_id=1005623594]
-script = ExtResource("1_dtqah")
 scale = Vector2(0.49815243, 0.49815243)
+script = ExtResource("1_dtqah")
 
 [node name="LivingTube" type="Polygon2D" parent="." unique_id=1545004563]
+rotation = 1.5693394
 color = Color(0.5033745, 0.5033746, 0.5033746, 1)
 polygon = PackedVector2Array(-512, -64, 512, -64, 512, 64, -512, 64)
 
 [node name="DragHandleLeft" type="Area2D" parent="." unique_id=1135507061]
+rotation = -0.0017455168
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleLeft" unique_id=1553110146]
-position = Vector2(-480, 0)
+position = Vector2(0.844214, -449.7171)
+scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_15mlb")
 
 [node name="Attach" type="Polygon2D" parent="DragHandleLeft" unique_id=1312461050]
+rotation = -1.5707964
 color = Color(1, 0.5558862, 0.3762919, 1)
 polygon = PackedVector2Array(-546.0176, -32.118683, -529.95825, -48.178024, -497.8396, -48.178024, -481.78024, -32.118683, -481.78024, 32.118683, -497.8396, 48.178024, -529.95825, 48.178024, -546.0176, 32.118683)
 
 [node name="DragHandleRight" type="Area2D" parent="." unique_id=653274782]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleRight" unique_id=1766758699]
-position = Vector2(480, 0)
+position = Vector2(0, 449.66156)
 shape = SubResource("RectangleShape2D_15mlb")
 
 [node name="Attach" type="Polygon2D" parent="DragHandleRight" unique_id=1964314421]
-position = Vector2(1027.7979, 0)
+rotation = 1.5707964
 color = Color(1, 0.5558862, 0.3762919, 1)
 polygon = PackedVector2Array(-546.0176, -32.118683, -529.95825, -48.178024, -497.8396, -48.178024, -481.78024, -32.118683, -481.78024, 32.118683, -497.8396, 48.178024, -529.95825, 48.178024, -546.0176, 32.118683)

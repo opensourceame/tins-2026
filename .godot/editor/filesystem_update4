@@ -14,3 +14,12 @@ res://planet.gd
 res://TODO.md
 res://detector_dish.tscn
 res://detector_dish.gd
+res://common/signal_bus.gd
+res://spica/trap_launcher.tscn
+res://common/spawner.gd
+res://IDEAS.md
+res://species/species.tscn
+res://species/species.gd
+res://spica/trap_launcher.gd
+res://moon_trap.tscn
+res://moon_trap.gd

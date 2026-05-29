@@ -12,7 +12,7 @@ Skills required to play:
 * placement - ensure complimentary trait species aren’t placed next to each other
 
 
-Race traits
+Species traits
 
 * reckless
 * persuasive
@@ -25,6 +25,7 @@ Spica
 
 * a sphere (circle in 2d) which allows for bits to be attached
 * constantly rotating
+* can attach components - habitats, detector dish, trap launcher
 
 
 DetectorDish
@@ -36,8 +37,5 @@ Detects signals from advancing species (e.g. TV / radio waves)
 Game mechanics
 
 * place bars / tubes on the “zoo”.
-* placement of capturing moon determines race intelligence.  The further away from the home planet the more advanced the species needs 
+* placement of capturing moon determines race intelligence.  The further away from the home planet the more advanced the species needs
 * zoom out to see worlds to send probes to
-
-
-

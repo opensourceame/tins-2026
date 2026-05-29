@@ -9,13 +9,16 @@ var planet_data
 var radius = 0
 
 func _ready():
-    if get_parent().planets.is_empty():
-        await get_parent().planets_generated
-
-    var planets = get_parent().planets.slice(1)
-    if planets.is_empty():
-        return
-    planet_data = planets.pick_random()
+    var parent = get_parent()
+    if parent is Planet:
+        planet_data = parent
+    else:
+        if parent.planets.is_empty():
+            await parent.planets_generated
+        var planets = parent.planets.slice(1)
+        if planets.is_empty():
+            return
+        planet_data = planets.pick_random()
 
 func _physics_process(delta: float) -> void:
     radius += SPEED * delta
@@ -28,4 +31,4 @@ func _draw():
         return
 
     for r in range(0, radius, GAP):
-        draw_circle(planet_data.position, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)
+        draw_circle(Vector2.ZERO, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)
