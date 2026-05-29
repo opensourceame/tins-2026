@@ -2,23 +2,30 @@ class_name BroadcastingComponent
 extends Node2D
 
 const MAX_RADIUS = 500
+const GAP = 20
+const SPEED = 60
 
-var planet
+var planet_data
 var radius = 0
 
 func _ready():
-    await get_parent().add_planets
+    if get_parent().planets.is_empty():
+        await get_parent().planets_generated
 
-    planet = get_parent().planets.pick_random()
+    var planets = get_parent().planets.slice(1)
+    if planets.is_empty():
+        return
+    planet_data = planets.pick_random()
 
 func _physics_process(delta: float) -> void:
+    radius += SPEED * delta
+    if radius > MAX_RADIUS:
+        radius = 0
     queue_redraw()
 
 func _draw():
-    if not planet:
+    if not planet_data:
         return
 
-    for i in range(5):
-        var r = i * 10
-
-        draw_circle(planet.position, radius, Color.DARK_GRAY)
+    for r in range(0, radius, GAP):
+        draw_circle(planet_data.pos, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)

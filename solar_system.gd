@@ -1,6 +1,8 @@
 class_name SolarSystem
 extends Node2D
 
+signal planets_generated
+
 var rotation_speed = 4.0
 
 var MIN_SIZE = 20
@@ -14,6 +16,7 @@ var planets = []
 func _ready():
     add_sun()
     add_planets()
+    planets_generated.emit()
     queue_redraw()
 
 func _physics_process(delta: float) -> void:
@@ -38,6 +41,7 @@ func add_planets():
         angle += randf_range(-0.3, 0.3)
 
         var distance = randf_range(MIN_DISTANCE, MAX_DISTANCE)
+
 
         planets.append({
             "pos": Vector2.RIGHT.rotated(angle) * distance,

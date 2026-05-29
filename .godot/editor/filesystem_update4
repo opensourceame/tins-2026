@@ -9,3 +9,5 @@ res://solar_system.gd
 res://hud/place_item.tscn
 res://solar_system/broadcasting_component.tscn
 res://solar_system/broadcasting_component.gd
+res://planet.tscn
+res://planet.gd

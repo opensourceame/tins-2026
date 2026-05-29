@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://cvdw12drwoc02"]
 
-[node name="PlaceItem" type="Control" unique_id=75211346]
+[node name="PlaceItem" type="CenterContainer" unique_id=1553372442]
 custom_minimum_size = Vector2(200, 200)
-layout_mode = 3
-anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=675083117]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 color = Color(0.08974079, 0.000106393025, 0.25213423, 1)

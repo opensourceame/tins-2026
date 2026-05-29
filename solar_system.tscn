@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://sckxa40vknyj"]
 
 [ext_resource type="Script" uid="uid://u17rranwqomq" path="res://solar_system.gd" id="1_hbvo3"]
+[ext_resource type="PackedScene" uid="uid://dn2dy542e5hg4" path="res://planet.tscn" id="2_hp4wh"]
 
 [node name="SolarSystem" type="Node2D" unique_id=210242942]
 script = ExtResource("1_hbvo3")
+
+[node name="Planet" parent="." unique_id=1028212328 instance=ExtResource("2_hp4wh")]

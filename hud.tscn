@@ -33,16 +33,7 @@ polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)
 [node name="PlaceItem4" parent="Container/VBoxContainer" unique_id=645623417 instance=ExtResource("1_64ctp")]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Container/VBoxContainer/PlaceItem4" unique_id=950564779]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DetectorDish" parent="Container/VBoxContainer/PlaceItem4/CenterContainer" unique_id=1305556712 instance=ExtResource("1_37p78")]
-position = Vector2(141, 110)
+[node name="DetectorDish" parent="Container/VBoxContainer/PlaceItem4" unique_id=1305556712 instance=ExtResource("1_37p78")]
 
 [node name="PlaceItem5" parent="Container/VBoxContainer" unique_id=1201600971 instance=ExtResource("1_64ctp")]
 layout_mode = 2

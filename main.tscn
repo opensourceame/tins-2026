@@ -17,25 +17,28 @@ position = Vector2(1338, 701)
 
 [node name="Habitat" parent="World/Spica" unique_id=1005623594 instance=ExtResource("3_h2yge")]
 position = Vector2(440, 2)
+script = null
 
 [node name="Habitat2" parent="World/Spica" unique_id=1203981135 instance=ExtResource("3_h2yge")]
 position = Vector2(49, 446)
 rotation = 1.3736713
+script = null
 
 [node name="Habitat3" parent="World/Spica" unique_id=408869750 instance=ExtResource("3_h2yge")]
 position = Vector2(-373, 242)
 rotation = -0.31415927
+script = null
 
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
-position = Vector2(-451, -367)
+position = Vector2(675, 235)
 
 [node name="SolarSystem2" parent="World" unique_id=1570619885 instance=ExtResource("4_lquwl")]
-position = Vector2(1890, -616)
+position = Vector2(2203, 462)
 
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
-position = Vector2(2212, 2425)
+position = Vector2(2113.5208, 1230.3383)
 
-[node name="BroadcastingComponent" parent="World/SolarSystem3" unique_id=816191014 instance=ExtResource("5_7mycd")]
+[node name="BroadcastingComponent2" parent="World/SolarSystem3" unique_id=816191014 instance=ExtResource("5_7mycd")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(1337.2241, 703.71356)
