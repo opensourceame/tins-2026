@@ -1,12 +1,13 @@
 class_name BroadcastingComponent
 extends Node2D
 
+const MIN_RADIUS = 60
 const MAX_RADIUS = 500
 const GAP = 20
-const SPEED = 60
+const SPEED = 20
 
 var planet_data
-var radius = 0
+var radius = MIN_RADIUS
 
 func _ready():
     var parent = get_parent()
@@ -30,5 +31,5 @@ func _draw():
     if not planet_data:
         return
 
-    for r in range(0, radius, GAP):
+    for r in range(MIN_RADIUS, radius, GAP):
         draw_circle(Vector2.ZERO, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)

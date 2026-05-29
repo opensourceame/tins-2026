@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dn2dy542e5hg4"]
 
-[ext_resource type="Script" uid="uid://ctmw6fdfmlxjq" path="res://planet.gd" id="1_1odxm"]
+[ext_resource type="Script" uid="uid://ctmw6fdfmlxjq" path="res://solar_system/planet.gd" id="1_1odxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbvo3"]
 size = Vector2(128, 128)
@@ -12,6 +12,7 @@ radius = 96.332756
 script = ExtResource("1_1odxm")
 
 [node name="PlanetDetectArea" type="Area2D" parent="." unique_id=330385794]
+visible = false
 collision_layer = 256
 collision_mask = 256
 monitorable = false
@@ -20,6 +21,9 @@ monitorable = false
 shape = SubResource("RectangleShape2D_hbvo3")
 
 [node name="OrbitArea" type="Area2D" parent="." unique_id=1227362458]
+visible = false
+collision_layer = 65536
+collision_mask = 65536
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrbitArea" unique_id=1367162517]
 shape = SubResource("CircleShape2D_1odxm")

@@ -9,6 +9,7 @@ func _ready():
     pass
 
 func add_item(type):
+    print("ITEM QUEUE: adding ", type)
     var item = PLACE_ITEM.instantiate()
     $VBoxContainer.add_child(item)
     items.append(item)

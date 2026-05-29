@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://byvivccrtt82l"]
 
-[ext_resource type="Script" uid="uid://d2rp0t17k0ufv" path="res://spica.gd" id="1_di34l"]
+[ext_resource type="Script" uid="uid://d2rp0t17k0ufv" path="res://spica/spica.gd" id="1_di34l"]
 [ext_resource type="PackedScene" uid="uid://lcpojq2pqgj1" path="res://anchor.tscn" id="2_jclrv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dt85o"]
+radius = 325.57642
 
 [node name="Spica" type="Node2D" unique_id=841173338]
 script = ExtResource("1_di34l")
+
+[node name="ReturnArea" type="Area2D" parent="." unique_id=218164853]
+collision_layer = 65536
+collision_mask = 65536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnArea" unique_id=1116762857]
+shape = SubResource("CircleShape2D_dt85o")
 
 [node name="Anchors" type="Node2D" parent="." unique_id=118959818]
 

@@ -28,3 +28,14 @@ res://hud/hud.gd
 res://habitat.gd
 res://background/stars.gd
 res://hud/place_item.gd
+res://anchor.tscn
+res://anchor.gd
+res://spica/spica.tscn
+res://spica/spica.gd
+res://spica/detector_dish.tscn
+res://spica/detector_dish.gd
+res://docs/layers.md
+res://solar_system/planet.tscn
+res://solar_system/planet.gd
+res://species/humans.gd
+res://hud/species.gd

@@ -3,7 +3,7 @@ extends Node2D
 
 signal intelligence_detected
 
-const DETECTOR_DISH = preload("res://detector_dish.tscn")
+const DETECTOR_DISH = preload("res://spica/detector_dish.tscn")
 
 @onready var detect_ray: RayCast2D = $DetectRay
 

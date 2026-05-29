@@ -3,7 +3,7 @@ extends Node2D
 
 signal planets_generated
 
-const PLANET = preload("res://planet.tscn")
+const PLANET = preload("res://solar_system/planet.tscn")
 
 var rotation_speed = 4.0
 

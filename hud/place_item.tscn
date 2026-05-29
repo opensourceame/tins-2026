@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.08974079, 0.000106393025, 0.25213423, 1)
 
 [node name="Label" type="Label" parent="." unique_id=375477753]

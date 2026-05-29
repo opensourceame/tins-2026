@@ -10,6 +10,7 @@ var distance_from_sun: int
 var has_advanced_life: bool = false
 var has_moon_trap: bool = false
 var rotation_speed = 10
+var species
 
 const COLOR_RANGES = {
     30: Color.AQUAMARINE,
@@ -28,6 +29,7 @@ func _ready():
         detect_area.monitorable = true
         orbit_area.body_entered.connect(_on_orbit_entered)
         add_child(BROADCASTING_COMPONENT.instantiate())
+        species = Humans.new()
 
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))

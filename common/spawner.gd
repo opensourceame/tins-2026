@@ -1,7 +1,7 @@
 extends Node
 
 const TRAP_LAUNCHER = preload("res://spica/trap_launcher.tscn")
-const DETECTOR_DISH = preload("res://detector_dish.tscn")
+const DETECTOR_DISH = preload("res://spica/detector_dish.tscn")
 const HABITAT       = preload("res://habitat.tscn")
 const MOON_TRAP     = preload("res://moon_trap.tscn")
 

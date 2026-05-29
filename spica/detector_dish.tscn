@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dhj14hsfg1qgl"]
 
-[ext_resource type="Script" uid="uid://8h3ctadxmqtw" path="res://detector_dish.gd" id="1_jhicy"]
+[ext_resource type="Script" uid="uid://8h3ctadxmqtw" path="res://spica/detector_dish.gd" id="1_jhicy"]
 
 [node name="DetectorDish" type="Node2D" unique_id=1305556712]
-position = Vector2(0, 40)
+z_index = 10
 script = ExtResource("1_jhicy")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1527905824]

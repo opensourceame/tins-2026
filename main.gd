@@ -12,6 +12,7 @@ var zoomed_out: bool = false
 var center: Vector2
 var tween: Tween
 var intelligent_planets = []
+var years_elapsed: float = 0.0
 
 var spawn: Node
 
@@ -26,14 +27,17 @@ func _ready():
 
     spawn = SPAWNER_SCRIPT.new()
 
-    spica.add_component(spica.anchors[0], spawn.trap_launcher())
-    spica.add_component(spica.anchors[1], spawn.detector_dish())
-    spica.add_component(spica.anchors[2], spawn.habitat())
-
-    spica.add_component(spica.anchors[3], spawn.habitat())
-    spica.add_component(spica.anchors[4], spawn.habitat())
-
     hud.item_queue.add_item("habitat")
+    hud.item_queue.add_item("trap_launcher")
+    hud.item_queue.add_item("detector_dish")
+    hud.item_queue.add_item("habitat")
+    hud.item_queue.add_item("habitat")
+
+    hud.show_message("welcome")
+
+func _physics_process(delta: float) -> void:
+    years_elapsed += 0.01
+    hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
 
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:

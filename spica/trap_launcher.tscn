@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crlvg1j0dvyhi" path="res://spica/trap_launcher.gd" id="1_wbukq"]
 
 [node name="TrapLauncher" type="Node2D" unique_id=596594135]
+z_index = 10
 script = ExtResource("1_wbukq")
 
 [node name="Body" type="Polygon2D" parent="." unique_id=2068930038]
