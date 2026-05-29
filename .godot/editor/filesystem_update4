@@ -11,3 +11,6 @@ res://solar_system/broadcasting_component.tscn
 res://solar_system/broadcasting_component.gd
 res://planet.tscn
 res://planet.gd
+res://TODO.md
+res://detector_dish.tscn
+res://detector_dish.gd

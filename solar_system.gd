@@ -3,6 +3,8 @@ extends Node2D
 
 signal planets_generated
 
+const PLANET = preload("res://planet.tscn")
+
 var rotation_speed = 4.0
 
 var MIN_SIZE = 20
@@ -14,24 +16,15 @@ var MAX_DISTANCE = 500
 var planets = []
 
 func _ready():
-    add_sun()
     add_planets()
-    planets_generated.emit()
     queue_redraw()
 
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))
 
 func _draw():
-    for planet in planets:
-        draw_circle(planet.pos, planet.size, planet.color)
-
-func add_sun():
-    planets.append({
-        "pos": Vector2.ZERO,
-        "size": randi_range(40, 70),
-        "color": Color.YELLOW,
-    })
+    # draw the sun at the centre
+    draw_circle(Vector2.ZERO, planets[0].size, Color.YELLOW)
 
 func add_planets():
     var count = randi_range(1, 5)
@@ -42,9 +35,12 @@ func add_planets():
 
         var distance = randf_range(MIN_DISTANCE, MAX_DISTANCE)
 
+        var planet: Planet = PLANET.instantiate()
+        planet.distance_from_sun = distance
+        planet.position = Vector2.RIGHT.rotated(angle) * distance
+        planet.size = randi_range(MIN_SIZE, MAX_SIZE)
 
-        planets.append({
-            "pos": Vector2.RIGHT.rotated(angle) * distance,
-            "size": randi_range(MIN_SIZE, MAX_SIZE),
-            "color": Color.RED,
-        })
+        add_child(planet)
+        planets.append(planet)
+
+    planets_generated.emit()

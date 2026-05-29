@@ -9,6 +9,7 @@ size = Vector2(128, 128)
 script = ExtResource("1_1odxm")
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=330385794]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=877450189]
 shape = SubResource("RectangleShape2D_hbvo3")

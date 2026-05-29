@@ -28,4 +28,4 @@ func _draw():
         return
 
     for r in range(0, radius, GAP):
-        draw_circle(planet_data.pos, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)
+        draw_circle(planet_data.position, r, Color(0.268, 0.268, 0.268, 1.5 - 1.0 * radius / MAX_RADIUS), false, 1)
