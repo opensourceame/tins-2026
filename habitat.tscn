@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cuurv4iclj7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15mlb"]
+size = Vector2(64, 128)
+
+[node name="Habitat" type="Node2D" unique_id=1005623594]
+scale = Vector2(0.49815243, 0.49815243)
+
+[node name="LivingTube" type="Polygon2D" parent="." unique_id=1545004563]
+color = Color(0.5033745, 0.5033746, 0.5033746, 1)
+polygon = PackedVector2Array(-512, -64, 512, -64, 512, 64, -512, 64)
+
+[node name="DragHandleLeft" type="Area2D" parent="." unique_id=1135507061]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleLeft" unique_id=1553110146]
+position = Vector2(-480, 0)
+shape = SubResource("RectangleShape2D_15mlb")
+
+[node name="DragHandleRight" type="Area2D" parent="." unique_id=653274782]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleRight" unique_id=1766758699]
+position = Vector2(480, 0)
+shape = SubResource("RectangleShape2D_15mlb")

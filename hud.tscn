@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dvewtmm6d837k"]
+
+[ext_resource type="PackedScene" uid="uid://dhj14hsfg1qgl" path="res://detector_dish.tscn" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1601605167]
+
+[node name="Container" type="Control" parent="." unique_id=135557051]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 1446.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container" unique_id=1424261492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceItem" type="Control" parent="Container/VBoxContainer" unique_id=312958226]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem" unique_id=1107734345]
+polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)
+
+[node name="PlaceItem3" type="Control" parent="Container/VBoxContainer" unique_id=1054860068]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Container/VBoxContainer/PlaceItem3" unique_id=950564779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DetectorDish" parent="Container/VBoxContainer/PlaceItem3/CenterContainer" unique_id=1305556712 instance=ExtResource("1_37p78")]
+
+[node name="PlaceItem2" type="Control" parent="Container/VBoxContainer" unique_id=633908839]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Container/VBoxContainer/PlaceItem2" unique_id=1803385402]
+polygon = PackedVector2Array(34, 102, 168, 22, 190, 84, 52, 148, 32, 118)

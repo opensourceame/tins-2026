@@ -1,0 +1,11 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1780064912
+anchor.tscn::PackedScene::777142290207100852::1780064603::0::1::::<><><>0<>0<><>::
+detector_dish.tscn::PackedScene::7670794181873404135::1780064302::0::1::::<><><>0<>0<><>::
+habitat.tscn::PackedScene::182911088865253791::1780064303::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::1790880795757653::1780063500::1780063526::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+IDEAS.md::TextFile::-1::1780064401::0::1::::<><><>0<>0<><>::
+main.gd::GDScript::3706537738179082730::1780064754::0::1::::Game<>Node2D<><>0<>0<><>::
+main.tscn::PackedScene::5926153398409090926::1780064909::0::1::::<><><>0<>0<><>::uid://bs2qeucwtife5::::res://main.gd<>uid://byvivccrtt82l::::res://spica.tscn<>uid://cuurv4iclj7d::::res://habitat.tscn
+README.md::TextFile::-1::1779740526::0::1::::<><><>0<>0<><>::
+spica.tscn::PackedScene::4114828210390155661::1780064797::0::1::::<><><>0<>0<><>::uid://dhj14hsfg1qgl::::res://detector_dish.tscn<>uid://lcpojq2pqgj1::::res://anchor.tscn
