@@ -9,3 +9,6 @@ script = ExtResource("1_wbukq")
 scale = Vector2(0.16563927, 0.16563927)
 color = Color(2.2862107e-06, 0.57361007, 0.29421443, 1)
 polygon = PackedVector2Array(0, 0, -192, 0, -384, -200, -256, -256, 4, -173, 256, -256, 384, -192, 192, 0)
+
+[node name="BuildMarker" type="Marker2D" parent="." unique_id=1574256737]
+position = Vector2(0, -64)

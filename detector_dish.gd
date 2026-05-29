@@ -29,7 +29,10 @@ func add_detector_dish(anchor):
     detector_dish.intelligence_detected.connect(detected_intelligence)
 
 func detected_intelligence(planet):
-    print("SPICA: detected intelligent planet ", planet)
+    if planet.has_moon_trap:
+        return
+
+    print("SPICA: detected new intelligent planet ", planet)
     intelligent_planets.append(planet)
     if spica:
         spica.register_intelligent_planet(planet)

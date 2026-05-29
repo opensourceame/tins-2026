@@ -33,6 +33,8 @@ func _ready():
     spica.add_component(spica.anchors[3], spawn.habitat())
     spica.add_component(spica.anchors[4], spawn.habitat())
 
+    hud.item_queue.add_item("habitat")
+
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
         if event.keycode == KEY_R:

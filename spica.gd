@@ -1,7 +1,7 @@
 class_name Spica
 extends Node2D
 
-var rotation_speed = 10.0
+var rotation_speed = 30.0
 var intelligent_planets = []
 var anchors = []
 
@@ -31,6 +31,9 @@ func components():
 
     return c
 
-func _on_intelligence_detected():
-    # if there is a trap component, call the build function on it
-    return
+func _on_intelligence_detected(planet):
+    for a in anchors:
+        for child in a.get_children():
+            if child is TrapLauncher:
+                child.build(planet)
+                return

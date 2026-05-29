@@ -31,7 +31,11 @@ Spica
 DetectorDish
 
 Detects signals from advancing species (e.g. TV / radio waves)
+Limited time - breaks down after X seconds
 
+Moon Trap Launcher
+
+Launches Moon Traps.  Moon floats away from Spica, then travels to orbit target planet.
 
 
 Game mechanics

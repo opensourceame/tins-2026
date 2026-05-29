@@ -23,3 +23,6 @@ res://species/species.gd
 res://spica/trap_launcher.gd
 res://moon_trap.tscn
 res://moon_trap.gd
+res://hud/item_queue.gd
+res://hud/hud.gd
+res://habitat.gd

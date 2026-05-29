@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbvo3"]
 size = Vector2(128, 128)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1odxm"]
+radius = 96.332756
+
 [node name="Planet" type="Node2D" unique_id=1028212328]
 script = ExtResource("1_1odxm")
 
@@ -15,3 +18,9 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetDetectArea" unique_id=877450189]
 shape = SubResource("RectangleShape2D_hbvo3")
+
+[node name="OrbitArea" type="Area2D" parent="." unique_id=1227362458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbitArea" unique_id=1367162517]
+shape = SubResource("CircleShape2D_1odxm")
+debug_color = Color(9.62615e-08, 0.62907267, 0.4893219, 0.41960785)

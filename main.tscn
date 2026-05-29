@@ -13,14 +13,8 @@ script = ExtResource("1_ig7tw")
 [node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
 position = Vector2(1338, 701)
 
-[node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
-position = Vector2(186, -423)
-
-[node name="SolarSystem2" parent="World" unique_id=1570619885 instance=ExtResource("4_lquwl")]
-position = Vector2(2383, -355)
-
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
-position = Vector2(2113.5208, 1230.3383)
+position = Vector2(2304, 783)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(1337.2241, 703.71356)

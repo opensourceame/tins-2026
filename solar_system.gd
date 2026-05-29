@@ -36,7 +36,7 @@ func add_planets():
         var distance = randf_range(MIN_DISTANCE, MAX_DISTANCE)
 
         var planet: Planet = PLANET.instantiate()
-        planet.has_advanced_life = randf() > 0.1
+        planet.has_advanced_life = randf() > 0.3
         planet.distance_from_sun = distance
         planet.position = Vector2.RIGHT.rotated(angle) * distance
         planet.size = randi_range(MIN_SIZE, MAX_SIZE)

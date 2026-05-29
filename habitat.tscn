@@ -2,38 +2,24 @@
 
 [ext_resource type="Script" uid="uid://d8x66fy0pp2l" path="res://habitat.gd" id="1_dtqah"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_15mlb"]
-size = Vector2(128.3559, 128)
-
 [node name="Habitat" type="Node2D" unique_id=1005623594]
 scale = Vector2(0.49815243, 0.49815243)
 script = ExtResource("1_dtqah")
 
 [node name="LivingTube" type="Polygon2D" parent="." unique_id=1545004563]
+position = Vector2(5.982571e-08, -513.899)
 rotation = 1.5693394
 color = Color(0.5033745, 0.5033746, 0.5033746, 1)
 polygon = PackedVector2Array(-512, -64, 512, -64, 512, 64, -512, 64)
 
-[node name="DragHandleLeft" type="Area2D" parent="." unique_id=1135507061]
-rotation = -0.0017455168
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=356235090]
+color = Color(0.21546689, 0.42633316, 0.55226845, 1)
+polygon = PackedVector2Array(-64.237366, -947.50116, -96.35605, -1027.7979, -96.35605, -1108.0946, -48.178024, -1188.3912, 48.178024, -1188.3912, 96.35605, -1108.0946, 96.35605, -1027.7979, 64.237366, -947.50116)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleLeft" unique_id=1553110146]
-position = Vector2(0.844214, -449.7171)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_15mlb")
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=180569048]
+color = Color(0.36094868, 0.36094868, 0.36094865, 1)
+polygon = PackedVector2Array(64.237366, -947.50116, 48.178024, -931.4418, 64.237366, -465.7209, 48.178024, 0, 64.237366, 0, 80.29671, -465.7209)
 
-[node name="Attach" type="Polygon2D" parent="DragHandleLeft" unique_id=1312461050]
-rotation = -1.5707964
-color = Color(1, 0.5558862, 0.3762919, 1)
-polygon = PackedVector2Array(-546.0176, -32.118683, -529.95825, -48.178024, -497.8396, -48.178024, -481.78024, -32.118683, -481.78024, 32.118683, -497.8396, 48.178024, -529.95825, 48.178024, -546.0176, 32.118683)
-
-[node name="DragHandleRight" type="Area2D" parent="." unique_id=653274782]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragHandleRight" unique_id=1766758699]
-position = Vector2(0, 449.66156)
-shape = SubResource("RectangleShape2D_15mlb")
-
-[node name="Attach" type="Polygon2D" parent="DragHandleRight" unique_id=1964314421]
-rotation = 1.5707964
-color = Color(1, 0.5558862, 0.3762919, 1)
-polygon = PackedVector2Array(-546.0176, -32.118683, -529.95825, -48.178024, -497.8396, -48.178024, -481.78024, -32.118683, -481.78024, 32.118683, -497.8396, 48.178024, -529.95825, 48.178024, -546.0176, 32.118683)
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1886232600]
+color = Color(0.585062, 0.585062, 0.5850621, 1)
+polygon = PackedVector2Array(-64.237366, -947.50116, -48.178024, -931.4418, -64.237366, -465.7209, -48.178024, 0, -64.237366, 0, -80.29671, -465.7209)
