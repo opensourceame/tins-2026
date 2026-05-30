@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckuboo3y2jbfy"]
+
+[ext_resource type="Script" uid="uid://cr8wmuwegthxv" path="res://solar_system/planet_label.gd" id="1_4kgf2"]
+
+[node name="PlanetLabel" type="Node2D" unique_id=536757357]
+script = ExtResource("1_4kgf2")
+
+[node name="Label" type="Label" parent="." unique_id=1283209245]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "planet"

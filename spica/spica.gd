@@ -34,7 +34,7 @@ func add_component(anchor, component):
     components.append(component)
     component.rotation = anchor.position.angle() + deg_to_rad(90)
 
-func get_components():
+func Xget_components():
     var c = []
     for a in anchors:
         if a.component:
@@ -42,14 +42,13 @@ func get_components():
 
     return c
 
-func _on_intelligence_detected(planet):
-    if planet.has_moon_trap:
-        return
-
+func trap_launcher():
     for c in components:
         if c is TrapLauncher:
-            c.build(planet)
-            return
+            return c
+
+func _on_intelligence_detected(planet):
+    pass
 
 func _on_return_area_entered(trap):
     if not trap is MoonTrap:

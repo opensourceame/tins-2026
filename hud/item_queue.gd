@@ -18,6 +18,9 @@ func add_item(type, data = {}):
     item.data = data
     item.label.text = type.replace("_", "\n") + ("\n" + env if env else "")
 
+    if type == "moon_trap":
+        item.label.text += "\n" + data.get("target").planet_name
+
     if Game.ENERGY_REQUIRED[type]:
         item.energy_label.text = "⚡️ " + str(Game.ENERGY_REQUIRED[type])
 

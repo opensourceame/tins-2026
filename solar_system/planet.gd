@@ -1,6 +1,7 @@
 class_name Planet
 extends Node2D
 
+@onready var game: = get_tree().current_scene
 @onready var detect_area: Area2D = $PlanetDetectArea
 @onready var orbit_area: Area2D = $OrbitArea
 
@@ -11,6 +12,7 @@ var has_advanced_life: bool = false
 var has_moon_trap: bool = false
 var rotation_speed = 60
 var species
+var planet_name: String
 
 const COLOR_RANGES = {
     30: Color.AQUAMARINE,
@@ -30,9 +32,13 @@ func _ready():
         orbit_area.body_entered.connect(_on_orbit_entered)
         add_child(BROADCASTING_COMPONENT.instantiate())
         species = Species.new().init_random()
+        if game.planet_names.size() > 0:
+            planet_name = game.planet_names.pop_back()
+
+
 
 func _physics_process(delta: float) -> void:
-    rotate(deg_to_rad(delta * rotation_speed))
+    orbit_area.rotate(deg_to_rad(delta * rotation_speed))
 
 func _draw():
     draw_circle(Vector2.ZERO, size, color)

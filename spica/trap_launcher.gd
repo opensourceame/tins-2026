@@ -10,9 +10,6 @@ var trap: MoonTrap
 var building: bool = false
 var build_cooldown = 0.0
 
-func _ready():
-    SignalBus.intelligence_detected.connect(_on_intelligence_detected)
-
 func _physics_process(delta: float) -> void:
     if build_cooldown > 0:
         build_cooldown -= delta
@@ -45,8 +42,3 @@ func _on_build_finished():
     tween.tween_callback(trap.launch)
 
     build_cooldown = TRAP_BUILD_COOLDOWN
-
-func _on_intelligence_detected(planet):
-    pass
-    #if planet == target_planet:
-        #trap.launch(planet)

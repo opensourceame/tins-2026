@@ -6,3 +6,16 @@ res://main.tscn
 res://main.gd
 res://hud/place_item.tscn
 res://hud/item_queue.gd
+res://moon_trap.gd
+res://hud/place_item.gd
+res://spica/trap_launcher.gd
+res://spica/spica.gd
+res://common/signal_bus.gd
+res://solar_system/planet.tscn
+res://solar_system/planet.gd
+res://TODO.md
+res://spica/spica.tscn
+res://hud/hud.gd
+res://sun.gd
+res://solar_system/planet_label.tscn
+res://solar_system/planet_label.gd

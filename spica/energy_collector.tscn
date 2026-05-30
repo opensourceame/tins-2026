@@ -82,7 +82,6 @@ shape = SubResource("RectangleShape2D_uehy8")
 debug_color = Color(0.42069438, 0.8461874, 1, 0.41960785)
 
 [node name="CollectArea" type="Area2D" parent="." unique_id=1145323020]
-visible = false
 collision_layer = 131072
 collision_mask = 131072
 

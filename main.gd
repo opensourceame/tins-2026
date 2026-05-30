@@ -24,7 +24,15 @@ const ENERGY_REQUIRED = {
     "habitat": 500,
     "trap_launcher": 500,
     "detector_dish": 250,
+    "moon_trap": 200,
 }
+
+var planet_names = [
+    "Zephyra", "Arkanis", "Thalassa", "Vortigern", "Calypsos",
+    "Draconis", "Eryndor", "Fenris", "Gorath", "Heliopolis",
+    "Iridia", "Jotunheim", "Krynn", "Lyra", "Myrkr",
+    "Nyx", "Oblivion", "Pandora", "Quor", "Ryloth"
+]
 
 func _ready():
     print("GAME: starting")
@@ -79,8 +87,10 @@ func toggle_hud():
 
 func on_intelligence_detected(planet):
     if not planet in intelligent_planets:
-        print("GAME: intelligent planet detected - ", planet)
+        print("GAME: intelligent planet detected - ", planet.planet_name)
         intelligent_planets.append(planet)
+        hud.item_queue.add_item("moon_trap", { "target": planet })
+        hud.queue_message("intelligent life detected on " + planet.planet_name)
 
 func on_energy_collected():
     if energy < 1000:

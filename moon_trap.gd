@@ -6,11 +6,18 @@ enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
 @onready var moon: Node2D = $Moon
 @onready var particle_trail: GPUParticles2D = $ParticleTrail
 
-func _ready():
-    pass
+var target:
+    set(value):
+        target = value
+        if target and is_inside_tree():
+            target_distance = global_position.distance_to(target.global_position)
+var target_distance: float
 
-var target
+func _ready():
+    if target and target_distance == 0.0:
+        target_distance = global_position.distance_to(target.global_position)
 var current_direction: Vector2
+var distance_to_target: float
 var current_state = State.IDLE
 var orbit_timer: Timer
 var species
@@ -57,6 +64,7 @@ func speed():
             return 50
 
 func launch():
+    distance_to_target = global_position.distance_to(target.global_position)
     current_state = State.LAUNCHED
 
 func orbit(planet):

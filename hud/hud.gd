@@ -10,7 +10,6 @@ var message_queue = []
 var message_being_displayed = false
 
 func _ready():
-    SignalBus.intelligence_detected.connect(intelligence_alert)
     SignalBus.moon_trap_returning.connect(alert_trap_returning)
     SignalBus.habitat_capacity_changed.connect(capacity_changed)
 
@@ -51,11 +50,6 @@ func message_display_ready():
 func alert_trap_returning(trap):
     queue_message("moon trap is returning with " + trap.species.name())
 
-func intelligence_alert(planet):
-    if planet.has_moon_trap:
-        return
-
-    queue_message("intelligent life detected on planet XYZ123")
 
 func capacity_changed(habitat):
     %CapacityLabel.text = "capacity: " + str(game.spica.get_capacity())

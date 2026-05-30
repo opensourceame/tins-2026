@@ -4,6 +4,7 @@ extends Control
 var type
 var data = {}
 
+@onready var game: = get_tree().current_scene
 @onready var label: Label = $Label
 @onready var energy_label: Label = $EnergyLabel
 
@@ -42,6 +43,9 @@ func _gui_input(event):
                 component = Spawner.trap_launcher()
             "detector_dish":
                 component = Spawner.detector_dish()
+            "moon_trap":
+                if game.spica.trap_launcher():
+                    game.spica.trap_launcher().build(data.get("target"))
 
         SignalBus.energy_consumed.emit(type)
 

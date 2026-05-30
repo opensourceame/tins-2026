@@ -1,12 +1,14 @@
 class_name Sun
 extends StaticBody2D
 
+@onready var particles: GPUParticles2D = $Particles
 @onready var circle: Polygon2D = $Circle
 
 const PULSE_TIME = 3.0
 
 
 func _ready():
+    particles.emitting = true
     pulse_in()
 
 func pulse_in():
