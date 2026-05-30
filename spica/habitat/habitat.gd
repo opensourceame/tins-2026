@@ -6,20 +6,35 @@ const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
 @onready var label: Label = $Label
 @onready var spine: Node2D = $Spine
 @onready var grow_timer: Timer = $GrowTimer
+@onready var color_rect: ColorRect = $ColorRect
 
 var capacity = 0
+var environment: String = "air":
+    set(value):
+        environment = value
+        update_environment()
 
 func _ready():
     label.text = name
+    update_environment()
 
     grow_timer.timeout.connect(increment_capacity)
     grow_timer.start()
+
+func update_environment():
+    match environment:
+        "water":
+            modulate = Color(0.4, 0.6, 1.0)
+        "sulphuric":
+            modulate = Color(0.5, 1.0, 0.4)
+        _:
+            modulate = Color.WHITE
 
 func capture(species, amount):
     capacity -= amount
 
 func has_space():
-    capacity > 0
+    return capacity > 0
 
 func increment_capacity():
     if capacity > 9:

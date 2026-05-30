@@ -2,30 +2,32 @@
 
 [ext_resource type="Script" uid="uid://c40aissqv7vyd" path="res://spica/energy_collector.gd" id="1_6lfwl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uehy8"]
+size = Vector2(128, 80)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lfwl"]
-size = Vector2(256, 32)
+size = Vector2(256, 49)
 
 [node name="EnergyCollector" type="StaticBody2D" unique_id=1804949656]
 script = ExtResource("1_6lfwl")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=618213008]
+[node name="Top" type="Polygon2D" parent="." unique_id=618213008]
 position = Vector2(0, -128)
-color = Color(0.7320181, 0.15820032, 0.23711568, 1)
-polygon = PackedVector2Array(-128, -128, -128, -136, -120, -128, -112, -136, -104, -128, -96, -136, -88, -128, -80, -136, -72, -128, -64, -136, -56, -128, -48, -136, -40, -128, -32, -136, -24, -128, -16, -136, -8, -128, 0, -136, 8, -128, 16, -136, 24, -128, 32, -136, 40, -128, 48, -136, 56, -128, 64, -136, 72, -128, 80, -136, 88, -128, 96, -136, 104, -128, 112, -136, 120, -128, 128, -136, 128, -128, 120, -112, 64, -112, 24, -64, 40, 0, -40, 0, -24, -64, -64, -112, -120, -112)
+color = Color(0.8483247, 0.65190804, 3.85046e-07, 1)
+polygon = PackedVector2Array(-128, -128, -128, -136, -120, -128, -112, -136, -104, -128, -96, -136, -88, -128, -80, -136, -72, -128, -64, -136, -56, -128, -48, -136, -40, -128, -32, -136, -24, -128, -16, -136, -8, -128, 0, -136, 8, -128, 16, -136, 24, -128, 32, -136, 40, -128, 48, -136, 56, -128, 64, -136, 72, -128, 80, -136, 88, -128, 96, -136, 104, -128, 112, -136, 120, -128, 128, -136, 128, -128, 120, -112, 64, -112, -64, -112, -120, -112)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1098110124]
-position = Vector2(0, -256)
-shape = SubResource("RectangleShape2D_6lfwl")
-
-[node name="CollectArea" type="Area2D" parent="." unique_id=478140057]
+[node name="Polygon2D6" type="Polygon2D" parent="." unique_id=1301649817]
 position = Vector2(0, -128)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=1724636821]
-position = Vector2(0, -128)
-shape = SubResource("RectangleShape2D_6lfwl")
+color = Color(0.45008665, 0.19163278, 0.13310355, 1)
+polygon = PackedVector2Array(-32, 0, -16, -64, -56, -112, 56, -112, 16, -64, 32, 0)
 
 [node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1000203067]
 color = Color(0.51142144, 0.27894917, 0.17434588, 1)
+polygon = PackedVector2Array(-32, -128, 32, -128, 32, 0, -32, 0)
+
+[node name="Polygon2D5" type="Polygon2D" parent="." unique_id=1274421643]
+scale = Vector2(0.5, 1)
+color = Color(0.7175682, 0.4151239, 0.2781268, 1)
 polygon = PackedVector2Array(-32, -128, 32, -128, 32, 0, -32, 0)
 
 [node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1634913845]
@@ -34,46 +36,56 @@ color = Color(0.5366553, 0.29544133, 0.1832506, 1)
 polygon = PackedVector2Array(32, -128, 40, -128, 40, 0, 32, 0)
 
 [node name="Polygon2D4" type="Polygon2D" parent="." unique_id=1899547497]
-color = Color(0.3708198, 0.19469419, 0.113890134, 1)
+color = Color(0.3579968, 0.18742302, 0.107807584, 1)
 polygon = PackedVector2Array(32, -128, 40, -128, 40, 0, 32, 0)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=117312215]
+[node name="Grid" type="Node2D" parent="." unique_id=117312215]
 
-[node name="Polygon2D" type="Polygon2D" parent="Node2D" unique_id=1772086013]
+[node name="Polygon2D" type="Polygon2D" parent="Grid" unique_id=1772086013]
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Node2D" unique_id=334116322]
+[node name="Polygon2D2" type="Polygon2D" parent="Grid" unique_id=334116322]
 position = Vector2(0, 16)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Node2D" unique_id=988071041]
+[node name="Polygon2D3" type="Polygon2D" parent="Grid" unique_id=988071041]
 position = Vector2(0, 32)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D4" type="Polygon2D" parent="Node2D" unique_id=948751301]
+[node name="Polygon2D4" type="Polygon2D" parent="Grid" unique_id=948751301]
 position = Vector2(0, 48)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D5" type="Polygon2D" parent="Node2D" unique_id=2125303602]
+[node name="Polygon2D5" type="Polygon2D" parent="Grid" unique_id=2125303602]
 position = Vector2(0, 64)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D6" type="Polygon2D" parent="Node2D" unique_id=1857743364]
+[node name="Polygon2D6" type="Polygon2D" parent="Grid" unique_id=1857743364]
 position = Vector2(0, 80)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D7" type="Polygon2D" parent="Node2D" unique_id=592869880]
+[node name="Polygon2D7" type="Polygon2D" parent="Grid" unique_id=592869880]
 position = Vector2(0, 96)
 color = Color(0.31771746, 0.16027614, 0.026188087, 1)
 polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
 
-[node name="Polygon2D8" type="Polygon2D" parent="Node2D" unique_id=2121238366]
-position = Vector2(0, 112)
-color = Color(0.31771746, 0.16027614, 0.026188087, 1)
-polygon = PackedVector2Array(-32, -112, -32, -120, 32, -120, 32, -112)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335056120]
+visible = false
+position = Vector2(0, -240)
+shape = SubResource("RectangleShape2D_uehy8")
+debug_color = Color(0.42069438, 0.8461874, 1, 0.41960785)
+
+[node name="CollectArea" type="Area2D" parent="." unique_id=1145323020]
+visible = false
+collision_layer = 131072
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=1492398382]
+position = Vector2(0, -255.5)
+shape = SubResource("RectangleShape2D_6lfwl")

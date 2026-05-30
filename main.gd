@@ -14,11 +14,17 @@ var tween: Tween
 var intelligent_planets = []
 var years_elapsed: float = 0.0
 var visitors: int = 0
-var energy: int = 0
+var energy: int = 1000
 
 var spawn: Node
 
 const SPAWNER_SCRIPT = preload("res://common/spawner.gd")
+const ENERGY_REQUIRED = {
+    "energy_collector": 100,
+    "habitat": 500,
+    "trap_launcher": 500,
+    "detector_dish": 250,
+}
 
 func _ready():
     print("GAME: starting")
@@ -27,13 +33,15 @@ func _ready():
 
     SignalBus.intelligence_detected.connect(on_intelligence_detected)
     SignalBus.energy_collected.connect(on_energy_collected)
+    SignalBus.energy_consumed.connect(on_energy_consumed)
 
     spawn = SPAWNER_SCRIPT.new()
 
-    hud.item_queue.add_item("habitat")
+    hud.item_queue.add_item("habitat", { "environment": "air" })
+    hud.item_queue.add_item("habitat", { "environment": "water" })
+    hud.item_queue.add_item("habitat", { "environment": "sulphuric" })
     hud.item_queue.add_item("trap_launcher")
     hud.item_queue.add_item("detector_dish")
-    hud.item_queue.add_item("habitat")
     hud.item_queue.add_item("energy_collector")
 
     hud.queue_message("welcome")
@@ -75,4 +83,8 @@ func on_intelligence_detected(planet):
         intelligent_planets.append(planet)
 
 func on_energy_collected():
-    energy += 1
+    if energy < 1000:
+        energy += 1
+
+func on_energy_consumed(consumer):
+    energy -= ENERGY_REQUIRED[consumer]

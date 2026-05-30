@@ -20,7 +20,7 @@ scale_min = 0.0
 scale_max = 6.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iveel"]
-radius = 662.04834
+radius = 900.0
 
 [node name="Sun" type="StaticBody2D" unique_id=315312241]
 script = ExtResource("1_iveel")
@@ -36,6 +36,9 @@ color = Color(0.8396529, 0.63650185, 0.0012359977, 1)
 polygon = PackedVector2Array(297, 1124, 310, 1072, 340, 1046, 378, 1020, 432, 1008, 476, 1017, 510, 1034, 542, 1066, 567, 1122, 550, 1181, 524, 1214, 476, 1245, 428, 1249, 367, 1242, 321, 1203, 299, 1164)
 
 [node name="EnergyCollectArea" type="Area2D" parent="." unique_id=1170334658]
+visible = false
+collision_layer = 131072
+collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyCollectArea" unique_id=147377292]
 shape = SubResource("CircleShape2D_iveel")

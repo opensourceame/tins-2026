@@ -14,6 +14,9 @@ script = ExtResource("1_ig7tw")
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1006583992]
 
+[node name="Sun" parent="World" unique_id=851595133 instance=ExtResource("6_7mycd")]
+position = Vector2(242, 1188)
+
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
 position = Vector2(-929.188, -607.6516)
 
@@ -44,6 +47,3 @@ limit_right = 2559
 limit_bottom = 1440
 
 [node name="HUD" parent="." unique_id=1601605167 instance=ExtResource("4_1bvp3")]
-
-[node name="Sun" parent="." unique_id=851595133 instance=ExtResource("6_7mycd")]
-position = Vector2(169, 1263)
