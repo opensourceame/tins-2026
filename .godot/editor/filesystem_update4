@@ -33,3 +33,4 @@ res://docs/score_mechanic.md
 res://spica/repair_module.tscn
 res://common/spawner.gd
 res://spica/repair_module.gd
+res://spica/habitat/habitat.gd

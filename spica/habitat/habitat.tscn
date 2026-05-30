@@ -25,8 +25,5 @@ theme_override_font_sizes/font_size = 120
 text = "A"
 horizontal_alignment = 1
 
-[node name="GrowTimer" type="Timer" parent="." unique_id=339293363]
-wait_time = 10.0
-
 [node name="Spine" type="Marker2D" parent="." unique_id=2044129133]
 position = Vector2(0, -128.47473)

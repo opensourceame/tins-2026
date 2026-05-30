@@ -5,7 +5,6 @@ const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
 
 @onready var label: Label = $Label
 @onready var spine: Node2D = $Spine
-@onready var grow_timer: Timer = $GrowTimer
 @onready var color_rect: ColorRect = $ColorRect
 
 var capacity = 0
@@ -17,9 +16,6 @@ var environment: String = "air":
 func _ready():
     label.text = name
     update_environment()
-
-    grow_timer.timeout.connect(increment_capacity)
-    grow_timer.start()
 
 func update_environment():
     match environment:
@@ -36,9 +32,9 @@ func capture(species, amount):
 func has_space():
     return capacity > 0
 
-func increment_capacity():
+func grow() -> bool:
     if capacity > 9:
-        return
+        return false
 
     SignalBus.habitat_capacity_changed.emit(self)
 
@@ -47,3 +43,4 @@ func increment_capacity():
     v.position.y = capacity * -96
 
     capacity += 1
+    return true
