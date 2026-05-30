@@ -3,17 +3,20 @@ MAJOR
 
 * detector deteriorates over time
 * trap builder runs out of moons
-* when trap returns, species are added to the zoo
 * moon trap enters into decaying orbit around Spica
-* energy required to build moons
-* building moons gets added to queue instead of instant
 * show distance to planet in item queue
-
+* damage to the Spica should drain energy
+* require manual action for each progressive section of habitat building
+* store capacity according to habitat type (granular)
 
 MINOR
 
 * colour planets
+* energy required to build moons
 
+BUGS
+
+* when trap returns, species are added to the zoo
 
 DONE
 
@@ -30,3 +33,8 @@ DONE
 * moon returns to Spica with species
 * click items in item queue to add to spica
 * define species
+* allow launch to planet again once moon trap has returned
+* show labels always on intelligence planets
+* labels stay full size when zooming out
+* damage drains spica energy
+* building moons gets added to queue instead of instant

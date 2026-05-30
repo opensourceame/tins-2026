@@ -8,6 +8,7 @@ const MIN_MOON_SCALE = 0.1
 @onready var moon: Node2D = $Moon
 @onready var particle_trail: GPUParticles2D = $ParticleTrail
 
+var target_planet
 var target:
     set(value):
         target = value
@@ -83,7 +84,7 @@ func orbit(planet):
 
     call_deferred("reparent", planet)
 
-
+    target_planet = planet
     orbit_timer = Timer.new()
     add_child(orbit_timer)
     orbit_timer.wait_time = randi_range(6, 9)

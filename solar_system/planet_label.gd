@@ -5,7 +5,7 @@ const OFFSET = Vector2(0, -100)
 
 var target: Planet
 
-@onready var label: Label = $Label
+@onready var label: Label = $Control/Label
 @onready var control: Control = $Control
 
 func _ready():

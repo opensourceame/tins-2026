@@ -43,6 +43,8 @@ func _gui_input(event):
                 component = Spawner.trap_launcher()
             "detector_dish":
                 component = Spawner.detector_dish()
+            "repair_module":
+                component = Spawner.repair_module()
             "moon_trap":
                 if not game.spica.trap_launcher():
                     game.hud.queue_message("you need a trap launcher")

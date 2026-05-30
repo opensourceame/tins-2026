@@ -29,3 +29,7 @@ res://spica/habitat/habitat.tscn
 res://hud.tscn
 res://background/stars.gd
 res://background/stars.tscn
+res://docs/score_mechanic.md
+res://spica/repair_module.tscn
+res://common/spawner.gd
+res://spica/repair_module.gd

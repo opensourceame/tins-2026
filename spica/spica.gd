@@ -5,12 +5,13 @@ extends StaticBody2D
 @onready var return_area: Area2D = $ReturnArea
 @onready var crash_area: Area2D = $CrashArea
 
-var rotation_speed = 30.0
+var rotation_speed =15.0
 var intelligent_planets = []
 var anchors = []
 var components = []
 var captured_species = []
 var capacity = 0
+var damage = 3
 
 func _ready():
     for a in $Anchors.get_children():
@@ -20,6 +21,8 @@ func _ready():
 
     crash_area.body_entered.connect(_on_body_entered)
     return_area.body_entered.connect(_on_return_area_entered)
+
+    SignalBus.spica_damage.emit(0)
 
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))
@@ -33,14 +36,6 @@ func add_component(anchor, component):
     anchor.attach_component(component)
     components.append(component)
     component.rotation = anchor.position.angle() + deg_to_rad(90)
-
-func Xget_components():
-    var c = []
-    for a in anchors:
-        if a.component:
-            c.append(a.component)
-
-    return c
 
 func trap_launcher():
     for c in components:
@@ -62,9 +57,15 @@ func _on_return_area_entered(trap):
     else:
         crash_moon_trap(trap)
 
+    SignalBus.moon_trap_returned.emit(trap)
+
 func crash_moon_trap(trap):
     trap.crash_into_spica()
     game.hud.queue_message("no space for these victims")
+
+    damage += randi_range(3, 5)
+
+    SignalBus.spica_damage.emit()
 
 func can_accomodate(trap):
     return get_capacity() > 0
@@ -76,8 +77,6 @@ func get_capacity():
             total += c.capacity
 
     return total
-
-
 
 func capture_species(trap):
     print("SPICA: trapped ", trap.species)

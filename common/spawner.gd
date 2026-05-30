@@ -5,6 +5,7 @@ const DETECTOR_DISH    = preload("res://spica/detector_dish.tscn")
 const ENERGY_COLLECTOR = preload("res://spica/energy_collector.tscn")
 const HABITAT          = preload("res://spica/habitat/habitat.tscn")
 const MOON_TRAP        = preload("res://moon_trap.tscn")
+const REPAIR_MODULE    = preload("res://spica/repair_module.tscn")
 
 func trap_launcher():
     return TRAP_LAUNCHER.instantiate()
@@ -20,3 +21,6 @@ func moon_trap():
 
 func energy_collector():
     return ENERGY_COLLECTOR.instantiate()
+
+func repair_module():
+    return REPAIR_MODULE.instantiate()

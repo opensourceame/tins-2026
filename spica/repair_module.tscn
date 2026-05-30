@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ceaxtlnpv8oh5"]
+
+[ext_resource type="Script" uid="uid://cqukxpsexxdfk" path="res://spica/repair_module.gd" id="1_6xw6h"]
+
+[node name="RepairModule" type="StaticBody2D" unique_id=912079961]
+script = ExtResource("1_6xw6h")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1045049094]
+color = Color(0.40596905, 0, 0.08607813, 1)
+polygon = PackedVector2Array(-64, 0, -64, -16, -56, -24, -48, -40, -40, -48, -32, -64, 40, -64, 48, -48, 56, -40, 64, -24, 72, -16, 72, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=265731982]
+color = Color(0.7802366, 0.70448524, 0, 1)
+polygon = PackedVector2Array(-64, -16, -56, -24, 64, -24, 72, -16)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1599961246]
+position = Vector2(0, -24)
+color = Color(0.7802366, 0.70448524, 0, 1)
+polygon = PackedVector2Array(-48, -16, -40, -24, 48, -24, 56, -16)
+
+[node name="RepairTimer" type="Timer" parent="." unique_id=1733025968]
+wait_time = 5.0

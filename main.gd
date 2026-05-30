@@ -7,6 +7,7 @@ extends Node2D
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
+const MAX_ENERGY: int = 3000
 
 var zoomed_out: bool = false
 var center: Vector2
@@ -14,7 +15,7 @@ var tween: Tween
 var intelligent_planets = []
 var years_elapsed: float = 0.0
 var visitors: int = 0
-var energy: int = 5000
+var energy: float = MAX_ENERGY
 
 var spawn: Node
 
@@ -25,6 +26,7 @@ const ENERGY_REQUIRED = {
     "trap_launcher": 500,
     "detector_dish": 250,
     "moon_trap": 200,
+    "repair_module": 300,
 }
 
 var planet_names = [
@@ -42,6 +44,8 @@ func _ready():
     SignalBus.intelligence_detected.connect(on_intelligence_detected)
     SignalBus.energy_collected.connect(on_energy_collected)
     SignalBus.energy_consumed.connect(on_energy_consumed)
+    SignalBus.moon_trap_returned.connect(on_moon_trap_returned)
+    SignalBus.spica_damage.connect(on_spica_damage)
 
     spawn = SPAWNER_SCRIPT.new()
 
@@ -59,6 +63,7 @@ func _physics_process(delta: float) -> void:
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
 
     visitors += 1
+    energy -= spica.damage * delta
 
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
@@ -89,17 +94,33 @@ func toggle_hud():
         hud.show()
 
 
-
 func on_intelligence_detected(planet):
     if not planet in intelligent_planets:
         print("GAME: intelligent planet detected - ", planet.planet_name)
         intelligent_planets.append(planet)
-        hud.item_queue.add_item("moon_trap", { "target": planet })
+        queue_trap_item(planet)
         hud.queue_message("intelligent life detected on " + planet.planet_name)
 
 func on_energy_collected():
-    if energy < 1000:
+    if energy < MAX_ENERGY:
         energy += 1
 
 func on_energy_consumed(consumer):
     energy -= ENERGY_REQUIRED[consumer]
+
+func on_moon_trap_returned(trap):
+    var timer = Timer.new()
+    add_child(timer)
+    timer.one_shot = true
+    timer.wait_time = 5.0
+    timer.timeout.connect(queue_trap_item.bind(trap.target_planet))
+    timer.start()
+
+func queue_trap_item(planet):
+    hud.item_queue.add_item("moon_trap", { "target": planet })
+
+func on_spica_damage():
+    for c in spica.components:
+        if c is RepairModule:
+            return
+    hud.item_queue.add_item("repair_module")
