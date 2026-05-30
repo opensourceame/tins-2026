@@ -5,7 +5,27 @@
 [node name="PlanetLabel" type="Node2D" unique_id=536757357]
 script = ExtResource("1_4kgf2")
 
-[node name="Label" type="Label" parent="." unique_id=1283209245]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Control" type="Control" parent="." unique_id=1793852775]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 189.0
+offset_bottom = 47.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1709627325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control" unique_id=1283209245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
 text = "planet"

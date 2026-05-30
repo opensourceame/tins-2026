@@ -9,7 +9,11 @@ script = ExtResource("1_wbukq")
 [node name="Body" type="Polygon2D" parent="." unique_id=2068930038]
 scale = Vector2(0.16563927, 0.16563927)
 color = Color(2.2862107e-06, 0.57361007, 0.29421443, 1)
-polygon = PackedVector2Array(0, 0, -192, 0, -384, -200, -256, -256, 4, -173, 256, -256, 384, -192, 192, 0)
+polygon = PackedVector2Array(0, 0, -192, 0, -384, -200, -386.3818, -386.3818, -338.08408, -386.3818, -338.08408, -241.48863, 4, -173, 338.08408, -241.48863, 338.08408, -386.3818, 386.3818, -386.3818, 384, -192, 192, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Body" unique_id=759143664]
+color = Color(0.110049196, 0.3235907, 0.18518633, 1)
+polygon = PackedVector2Array(-241.48863, -289.78635, 0, -193.1909, 241.48863, -289.78635, 144.89317, -48.297726, -144.89317, -48.297726)
 
 [node name="BuildMarker" type="Marker2D" parent="." unique_id=1574256737]
 position = Vector2(0, -64)

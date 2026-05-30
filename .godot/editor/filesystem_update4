@@ -23,3 +23,9 @@ res://moon_trap.tscn
 res://spica/detector_dish.tscn
 res://damage.tscn
 res://solar_system/solar_system.gd
+res://IDEAS.md
+res://spica/trap_launcher.tscn
+res://spica/habitat/habitat.tscn
+res://hud.tscn
+res://background/stars.gd
+res://background/stars.tscn

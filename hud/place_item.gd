@@ -44,11 +44,17 @@ func _gui_input(event):
             "detector_dish":
                 component = Spawner.detector_dish()
             "moon_trap":
-                if game.spica.trap_launcher():
-                    game.spica.trap_launcher().build(data.get("target"))
+                if not game.spica.trap_launcher():
+                    game.hud.queue_message("you need a trap launcher")
+                    return
+                var launcher = game.spica.trap_launcher()
+                if not launcher.is_ready():
+                    return
 
-        SignalBus.energy_consumed.emit(type)
+                launcher.build(data.get("target"))
 
         if component:
             spica.add_component(anchor, component)
-            queue_free()
+
+        queue_free()
+        SignalBus.energy_consumed.emit(type)

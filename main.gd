@@ -54,8 +54,6 @@ func _ready():
 
     hud.queue_message("welcome")
 
-
-
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
@@ -66,6 +64,12 @@ func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
         if event.keycode == KEY_R:
             get_tree().reload_current_scene()
+        if event.keycode == KEY_1:
+            Engine.time_scale = 1.0
+        if event.keycode == KEY_2:
+            Engine.time_scale = 2.0
+        if event.keycode == KEY_3:
+            Engine.time_scale = 5.0
         if event.keycode == KEY_Z:
             zoomed_out = not zoomed_out
             if tween and tween.is_valid():
@@ -83,6 +87,7 @@ func toggle_hud():
         hud.hide()
     else:
         hud.show()
+
 
 
 func on_intelligence_detected(planet):

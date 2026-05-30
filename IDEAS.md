@@ -1,3 +1,6 @@
+Questions:
+
+* when should more building of habitats appear?
 
 
 * when two alien species combine with complimentary traits they increase their chances of escaping

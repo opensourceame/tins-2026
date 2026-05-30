@@ -22,6 +22,7 @@ const COLOR_RANGES = {
 }
 
 const BROADCASTING_COMPONENT = preload("res://solar_system/broadcasting_component.tscn")
+const PLANET_LABEL = preload("res://solar_system/planet_label.tscn")
 
 func _ready():
     calculate_color()
@@ -35,13 +36,19 @@ func _ready():
         if game.planet_names.size() > 0:
             planet_name = game.planet_names.pop_back()
 
+        add_label()
 
 
 func _physics_process(delta: float) -> void:
-    orbit_area.rotate(deg_to_rad(delta * rotation_speed))
+    rotate(deg_to_rad(delta * rotation_speed))
 
 func _draw():
     draw_circle(Vector2.ZERO, size, color)
+
+func add_label():
+    var label = PLANET_LABEL.instantiate()
+    label.target = self
+    game.get_node("World").call_deferred("add_child", label)
 
 func calculate_color():
     for threshold in COLOR_RANGES:

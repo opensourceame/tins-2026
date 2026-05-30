@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs2qeucwtife5" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://byvivccrtt82l" path="res://spica/spica.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://7j8ubc0m33mt" path="res://background/stars.gd" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bood0qx8p14yl" path="res://background/stars.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sckxa40vknyj" path="res://solar_system/solar_system.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cb85l082jl45q" path="res://sun.tscn" id="6_7mycd"]
@@ -14,17 +14,16 @@ script = ExtResource("1_ig7tw")
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1006583992]
 
+[node name="Stars" parent="World" unique_id=149245613 instance=ExtResource("2_7mycd")]
+
 [node name="Sun" parent="World" unique_id=851595133 instance=ExtResource("6_7mycd")]
 position = Vector2(855, 1104)
 
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
 position = Vector2(-929.188, -607.6516)
 
-[node name="Stars" type="Node2D" parent="World" unique_id=2002691229]
-script = ExtResource("2_lquwl")
-
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
-position = Vector2(2526, 731)
+position = Vector2(3144, 913)
 
 [node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
 z_index = 5

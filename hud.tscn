@@ -185,3 +185,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "energy: 0"
+
+[node name="Control3" type="Control" parent="." unique_id=1130484763]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control3" unique_id=726454435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "keys:  Z for zoom, 1, 2, 3 for game speed"
+horizontal_alignment = 1
+vertical_alignment = 1
