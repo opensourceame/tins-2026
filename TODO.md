@@ -1,18 +1,22 @@
 MAJOR
 
-
 * detector deteriorates over time
+* species goes extinct - no chance of capturing more aliens
 * trap builder runs out of moons
 * moon trap enters into decaying orbit around Spica
 * show distance to planet in item queue
 * damage to the Spica should drain energy
 * require manual action for each progressive section of habitat building
-* store capacity according to habitat type (granular)
+* ability to sell off detection dish
 
 MINOR
 
 * colour planets
 * energy required to build moons
+* animate breaks in the habitat when overcrowded
+* detection dish should consume energy
+* more species
+
 
 BUGS
 
@@ -38,3 +42,7 @@ DONE
 * labels stay full size when zooming out
 * damage drains spica energy
 * building moons gets added to queue instead of instant
+* store capacity according to habitat type (granular)
+* warn about overcrowding
+* break habitat off the Spica if it's overcrowded for too long
+* black hole that emits energy instead of a sun

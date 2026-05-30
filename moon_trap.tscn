@@ -8,7 +8,7 @@ radius = 8.0
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wyfkj"]
 particle_flag_disable_z = true
 inherit_velocity_ratio = 0.32
-gravity = Vector3(0, 98, 0)
+gravity = Vector3(0, 0, 0)
 
 [node name="MoonTrap" type="CharacterBody2D" unique_id=1343835292]
 collision_layer = 65536

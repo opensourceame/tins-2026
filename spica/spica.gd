@@ -5,7 +5,7 @@ extends StaticBody2D
 @onready var return_area: Area2D = $ReturnArea
 @onready var crash_area: Area2D = $CrashArea
 
-var rotation_speed =15.0
+var rotation_speed = 15.0
 var intelligent_planets = []
 var anchors = []
 var components = []
@@ -97,6 +97,12 @@ func refresh_capacities():
                 _:
                     capacity_air += available
 
+func get_habitat_for(environment: String) -> Habitat:
+    for c in components:
+        if c is Habitat and c.environment == environment:
+            return c
+    return null
+
 func _on_habitat_capacity_changed(_habitat):
     refresh_capacities()
 
@@ -104,8 +110,8 @@ func capture_species(trap):
     print("SPICA: trapped ", trap.species)
     captured_species.append(trap.species)
     for c in components:
-        if c is Habitat and c.environment == trap.species.environment and c.captured < c.capacity:
-            c.captured += 1
+        if c is Habitat and c.environment == trap.species.environment and c.has_space():
+            c.capture(trap.species, randi_range(7, 10))
             break
     trap.returned()
 

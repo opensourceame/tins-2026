@@ -75,6 +75,20 @@ func _input(event: InputEvent):
             Engine.time_scale = 2.0
         if event.keycode == KEY_3:
             Engine.time_scale = 5.0
+        if event.keycode == KEY_W:
+            var habitat = spica.get_habitat_for("water")
+            if habitat:
+                habitat.grow()
+                var count = habitat.capacity + 1
+                for i in count:
+                    var fish = Fishoids.new()
+                    spica.captured_species.append(fish)
+                    habitat.capture(fish, 11)
+                    SignalBus.species_captured.emit(fish)
+                spica.refresh_capacities()
+                SignalBus.habitat_capacity_changed.emit(null)
+            else:
+                hud.queue_message("no water habitat")
         if event.keycode == KEY_Z:
             zoomed_out = not zoomed_out
             if tween and tween.is_valid():

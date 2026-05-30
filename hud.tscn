@@ -226,6 +226,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "keys:  Z for zoom, 1, 2, 3 for game speed"
+text = "keys:  Z for zoom, 1, 2, 3 for game speed, R to restart"
 horizontal_alignment = 1
 vertical_alignment = 1

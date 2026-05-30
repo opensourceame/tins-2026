@@ -1,10 +1,10 @@
-Timer
 Polygon2D
+Node2D
+Timer
 StaticBody2D
 Label
 Control
 ColorRect
-Node2D
 CollisionShape2D
 Area2D
 HBoxContainer

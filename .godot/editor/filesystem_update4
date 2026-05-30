@@ -34,3 +34,6 @@ res://spica/repair_module.tscn
 res://common/spawner.gd
 res://spica/repair_module.gd
 res://spica/habitat/habitat.gd
+res://hud/species.gd
+res://spica/habitat/vertebra.gd
+res://spica/habitat/vertebra.tscn
