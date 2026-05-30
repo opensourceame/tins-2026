@@ -25,7 +25,7 @@
 
 # BUGS
 
-* when trap returns, species are added to the zoo
+* unable to create new habitats
 
 # DONE
 

@@ -66,6 +66,8 @@ func _ready():
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()
 
+    #game_over()
+
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
@@ -73,10 +75,14 @@ func _physics_process(delta: float) -> void:
     visitors += visitor_interest / 100.0
     energy   -= spica.damage * delta
 
+    check_game_over()
+
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
         if event.keycode == KEY_R:
             get_tree().reload_current_scene()
+        if event.keycode == KEY_G:
+            game_over()
         if event.keycode == KEY_1:
             Engine.time_scale = 1.0
         if event.keycode == KEY_2:
@@ -130,6 +136,9 @@ func on_energy_collected():
 func on_energy_consumed(consumer):
     energy -= ENERGY_REQUIRED[consumer]
 
+    if energy < 1:
+        game_over()
+
 func on_moon_trap_returned(trap):
     var timer = Timer.new()
     add_child(timer)
@@ -147,7 +156,7 @@ func on_spica_damage():
             return
     hud.item_queue.add_item("repair_module")
 
-func on_species_captured():
+func on_species_captured(trap):
     if visitor_interest > 9:
         return
 
@@ -159,8 +168,11 @@ func lose_interest():
     if visitor_interest < 3:
         hud.queue_message("Customers are losing interest in your zoo!")
 
+func check_game_over():
     if visitor_interest < 0:
+        game_over()
+    if energy < 0:
         game_over()
 
 func game_over():
-    pass
+    get_tree().change_scene_to_file("res://screens/game_over.tscn")

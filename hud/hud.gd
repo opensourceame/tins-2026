@@ -35,7 +35,8 @@ func show_next_message():
 
     var timer = Timer.new()
     add_child(timer)
-    timer.wait_time = 3.0
+    timer.one_shot  = true
+    timer.wait_time = 4.0
     timer.timeout.connect(hide_message)
     timer.start()
 

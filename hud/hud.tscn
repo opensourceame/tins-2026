@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckjkairqnp32d" path="res://hud/hud.gd" id="1_w8tcp"]
 [ext_resource type="Script" uid="uid://dd1hcajcvlc0a" path="res://hud/item_queue.gd" id="2_svhta"]
 [ext_resource type="Script" uid="uid://dsf1g446pdngb" path="res://hud/species.gd" id="3_fjv1a"]
+[ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="3_svhta"]
 [ext_resource type="Theme" uid="uid://b5oqcotryjtm5" path="res://hud/hud_theme.tres" id="4_0ivg5"]
 
 [sub_resource type="Theme" id="Theme_8sq4i"]
@@ -31,7 +32,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Message" type="Control" parent="." unique_id=296554277]
-visible = false
 custom_minimum_size = Vector2(800, 300)
 layout_mode = 3
 anchors_preset = 8
@@ -55,7 +55,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme = ExtResource("3_svhta")
+theme_override_colors/font_color = Color(1, 0.5519944, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
 text = "message"
 horizontal_alignment = 1
 vertical_alignment = 1

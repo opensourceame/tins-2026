@@ -4,6 +4,7 @@ extends Node2D
 enum State { AVAILABLE, OVERCROWDED, COLLAPSED }
 
 const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
+const COLLAPSE_TIME = 15.0
 
 @onready var game: Game = get_tree().current_scene
 @onready var label: Label = $Label
@@ -78,7 +79,7 @@ func check_overcrowding():
 
     var timer = Timer.new()
     add_child(timer)
-    timer.wait_time = 4.0
+    timer.wait_time = COLLAPSE_TIME
     timer.one_shot = true
     timer.timeout.connect(check_habitat_collapse)
     timer.start()

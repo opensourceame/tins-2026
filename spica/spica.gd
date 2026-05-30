@@ -56,8 +56,9 @@ func _on_return_area_entered(trap):
     if not trap.is_returning():
         return
 
-    if can_accomodate(trap):
-        capture_species(trap)
+    if can_accomodate(trap.species):
+        capture_species(trap.species)
+        trap.returned()
     else:
         crash_moon_trap(trap)
 
@@ -71,8 +72,8 @@ func crash_moon_trap(trap):
 
     SignalBus.spica_damage.emit()
 
-func can_accomodate(trap):
-    return get_capacity_for(trap.species.environment) > 0
+func can_accomodate(species):
+    return get_capacity_for(species.environment) > 0
 
 func get_capacity_for(env: String) -> int:
     match env:
@@ -114,16 +115,14 @@ func get_habitat_for(environment: String) -> Habitat:
 func _on_habitat_capacity_changed(_habitat):
     refresh_capacities()
 
-func capture_species(trap):
-    print("SPICA: trapped ", trap.species)
-    captured_species.append(trap.species)
-    for c in components:
-        if c is Habitat and c.environment == trap.species.environment and c.has_space():
-            c.capture(trap.species, randi_range(7, 10))
-            break
-    trap.returned()
+func capture_species(species):
+    print("SPICA: trapped ", species)
+    captured_species.append(species)
 
-    SignalBus.species_captured.emit(trap)
+    var habitat = get_habitat_for(species.environment)
+    habitat.capture(species, randi_range(7, 10))
+
+    SignalBus.species_captured.emit(species)
     SignalBus.habitat_capacity_changed.emit(null)
 
 func _on_body_entered(body):

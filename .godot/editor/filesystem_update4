@@ -41,3 +41,4 @@ res://species/species.gd
 res://hud/hud.tscn
 res://screens/game_over.tscn
 res://screens/settings.tscn
+res://screens/game_over.gd

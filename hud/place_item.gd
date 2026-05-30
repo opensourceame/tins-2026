@@ -1,14 +1,19 @@
 class_name PlaceItem
 extends Control
 
+enum State { ENABLED, DISABLED }
 var type
 var data = {}
+var current_state = State.ENABLED
 
 @onready var game: = get_tree().current_scene
 @onready var label: Label = $Label
 @onready var energy_label: Label = $EnergyLabel
 
 func _gui_input(event):
+    if current_state == State.DISABLED:
+        return
+
     if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
         var game = get_tree().current_scene
         var spica = game.spica
@@ -31,7 +36,7 @@ func _gui_input(event):
                         break
 
                 if habitat:
-                    if habitat.capacity > 9:
+                    if habitat.capacity > 99:
                         game.hud.queue_message("habitat full")
                         return
                     habitat.grow()
@@ -58,15 +63,18 @@ func _gui_input(event):
 
                 var item_type = type
                 var item_data = data
+
+                SignalBus.energy_consumed.emit(type)
+
+                disable_me()
+
                 var timer = Timer.new()
-                game.add_child(timer)
-                timer.one_shot = true
                 timer.wait_time = 10.0
-                timer.timeout.connect(func():
-                    if habitat.capacity < 10:
-                        game.hud.item_queue.add_item(item_type, item_data)
-                )
+                timer.timeout.connect(enable_me)
+                add_child(timer)
                 timer.start()
+                return
+
             "energy_collector":
                 for a in spica.anchors:
                     if not a.has_component():
@@ -114,3 +122,11 @@ func _gui_input(event):
 
         queue_free()
         SignalBus.energy_consumed.emit(type)
+
+func disable_me():
+    modulate = Color.BLACK
+    current_state = State.DISABLED
+
+func enable_me():
+    modulate = Color.WHITE
+    current_state = State.ENABLED
