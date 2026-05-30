@@ -6,24 +6,22 @@
 
 * detector deteriorates over time
 * species goes extinct - no chance of capturing more aliens
-* trap builder runs out of moons
-* moon trap enters into decaying orbit around Spica
-* show distance to planet in item queue
-* damage to the Spica should drain energy
-* require manual action for each progressive section of habitat building
-* ability to sell off detection dish
+* ability to sell off / diable detection dish
 * game over when run out of energy
 * sound effects
 
 # MINOR
 
 * colour planets
-* energy required to build moons
 * animate breaks in the habitat when overcrowded
 * detection dish should consume energy
 * after rapairs damage particle animations should stop
 * planets can have species captured X (4?) times before species goes extinct
 
+# AESTHETICS
+
+* improve habitat
+* Spica core
 
 # BUGS
 
@@ -57,3 +55,6 @@
 * more species
 * modulate bright when energy capture is active
 * keep habitat build items permanent and disable when building
+* require manual action for each progressive section of habitat building
+* damage to the Spica should drain energy
+* energy required to build moons

@@ -28,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0008509, 1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -242,7 +243,7 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_0ivg5")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 text = "CAPACITIES"
 
 [node name="Control2" type="Control" parent="Control2/HBoxContainer" unique_id=1646413092]
@@ -263,8 +264,8 @@ offset_right = 71.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "energy: 0"
+theme_override_font_sizes/font_size = 50
+text = "⚡️ 0"
 
 [node name="Control3" type="Control" parent="Control2/HBoxContainer" unique_id=1909364967]
 custom_minimum_size = Vector2(200, 0)

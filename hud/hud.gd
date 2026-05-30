@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
         show_next_message()
 
     $Control/VBoxContainer/Visitors/Label.text = str(int(game.visitors)) + ' visitors'
-    %EnergyLabel.text = "energy: " + str(int(game.energy))
+    %EnergyLabel.text = "⚡️ " + str(int(game.energy))
 
     update_visitor_interest()
 

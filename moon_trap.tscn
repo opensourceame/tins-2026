@@ -6,6 +6,7 @@
 radius = 8.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wyfkj"]
+lifetime_randomness = 0.16
 particle_flag_disable_z = true
 inherit_velocity_ratio = 0.32
 gravity = Vector3(0, 0, 0)
@@ -38,5 +39,5 @@ polygon = PackedVector2Array(-24, 56, -8, 64, 8, 64, 32, 56, 48, 48, 56, 32, 56,
 shape = SubResource("CircleShape2D_wyfkj")
 
 [node name="ParticleTrail" type="GPUParticles2D" parent="." unique_id=1255494323]
-amount = 10
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_wyfkj")
