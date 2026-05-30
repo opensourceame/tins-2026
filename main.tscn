@@ -23,10 +23,6 @@ position = Vector2(2304, 783)
 z_index = 5
 position = Vector2(1338, 701)
 
-[node name="Spica2" parent="World" unique_id=1217066261 instance=ExtResource("2_0xm2m")]
-z_index = 5
-position = Vector2(1338, 701)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(982, 624)
 limit_left = -1

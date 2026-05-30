@@ -1,7 +1,7 @@
 class_name MoonTrap
 extends CharacterBody2D
 
-enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED }
+enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
 
 @onready var moon: Node2D = $Moon
 
@@ -15,24 +15,33 @@ func _physics_process(delta: float) -> void:
     if not target:
         return
 
-    if current_state == State.LAUNCHED:
+    if is_moving():
         current_direction = (target.global_position - global_position).normalized()
-
-        velocity = current_direction * 400
-
-        moon.scale *= 0.999
-
+        velocity = current_direction * speed()
         move_and_slide()
 
-    if current_state == State.RETURNING:
-        current_direction = (target.global_position - global_position).normalized()
+    moon.scale *= scale_change()
 
-        velocity = current_direction * 200
+func is_moving():
+    return current_state == State.LAUNCHED or current_state == State.RETURNING
 
-        moon.scale *= 1.001
+func scale_change():
+    match current_state:
+        State.LAUNCHED:
+            return 0.999
+        State.RETURNING:
+            return 1.011
+        _:
+            return 1.0
 
-        move_and_slide()
-
+func speed():
+    match current_state:
+        State.IDLE:
+            return 0
+        State.LAUNCHED:
+            return 400
+        State.RETURNING:
+            return 200
 
 func launch():
     current_state = State.LAUNCHED
@@ -44,7 +53,7 @@ func orbit(planet):
     current_state = State.ORBITING
     species = planet.species
 
-    reparent(planet)
+    call_deferred("reparent", planet)
 
     var tween = create_tween()
     tween.tween_property(moon, "scale", Vector2(0.1, 0.1), 2.0)
@@ -63,6 +72,13 @@ func return_home():
     reparent(get_tree().current_scene.world)
 
     current_state = State.RETURNING
+
+    var tween = create_tween()
+    tween.tween_property(moon, "scale", Vector2(0.5, 0.5), 2.0)
+
+func crash_into_spica():
+    current_state = State.CRASHING
+
 
 func is_returning():
     return current_state == State.RETURNING

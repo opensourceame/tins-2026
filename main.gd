@@ -33,7 +33,7 @@ func _ready():
     hud.item_queue.add_item("habitat")
     hud.item_queue.add_item("habitat")
 
-    hud.show_message("welcome")
+    hud.queue_message("welcome")
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01

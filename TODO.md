@@ -12,6 +12,7 @@ MAJOR
 MINOR
 
 * colour planets
+* queue HUD messages
 
 
 DONE

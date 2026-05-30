@@ -24,7 +24,7 @@ func _gui_input(event):
             "habitat":
                 component = Spawner.habitat()
                 var i = 1
-                for c in spica.components():
+                for c in spica.components:
                     if c is Habitat:
                         i += 1
 

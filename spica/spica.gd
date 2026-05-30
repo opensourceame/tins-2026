@@ -7,6 +7,7 @@ extends Node2D
 var rotation_speed = 30.0
 var intelligent_planets = []
 var anchors = []
+var components = []
 var captured_species = []
 
 func _ready():
@@ -27,9 +28,10 @@ func register_intelligent_planet(planet):
 
 func add_component(anchor, component):
     anchor.attach_component(component)
+    components.append(component)
     component.rotation = anchor.position.angle() + deg_to_rad(90)
 
-func components():
+func get_components():
     var c = []
     for a in anchors:
         if a.component:
@@ -41,7 +43,7 @@ func _on_intelligence_detected(planet):
     if planet.has_moon_trap:
         return
 
-    for c in components():
+    for c in components:
         if c is TrapLauncher:
             c.build(planet)
             return
@@ -59,10 +61,11 @@ func _on_return_area_entered(trap):
         crash_moon_trap(trap)
 
 func crash_moon_trap(trap):
-    game.hud.show_message("no space for these victims")
+    trap.crash_into_spica()
+    game.hud.queue_message("no space for these victims")
 
 func can_accomodate(trap):
-    for c in components():
+    for c in components:
         if c is Habitat:
             if c.has_space():
                 return true
