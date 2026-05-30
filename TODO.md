@@ -13,6 +13,7 @@
 * require manual action for each progressive section of habitat building
 * ability to sell off detection dish
 * game over when run out of energy
+* sound effects
 
 # MINOR
 
@@ -21,6 +22,7 @@
 * animate breaks in the habitat when overcrowded
 * detection dish should consume energy
 * after rapairs damage particle animations should stop
+* planets can have species captured X (4?) times before species goes extinct
 
 
 # BUGS
@@ -53,3 +55,5 @@
 * black hole that emits energy instead of a sun
 * improve labels on command list
 * more species
+* modulate bright when energy capture is active
+* keep habitat build items permanent and disable when building
