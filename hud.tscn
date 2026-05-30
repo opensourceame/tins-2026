@@ -169,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_640wx")
 theme_override_font_sizes/font_size = 36
-text = "capacity: 0"
+text = "A: 0  W: 0  S: 0"
 
 [node name="Control2" type="Control" parent="Control2/HBoxContainer" unique_id=1646413092]
 custom_minimum_size = Vector2(300, 0)

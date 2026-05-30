@@ -8,6 +8,8 @@ const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
 @onready var color_rect: ColorRect = $ColorRect
 
 var capacity = 0
+var captured = 0
+
 var environment: String = "air":
     set(value):
         environment = value
@@ -36,11 +38,14 @@ func grow() -> bool:
     if capacity > 9:
         return false
 
-    SignalBus.habitat_capacity_changed.emit(self)
-
     var v = VERTEBRA.instantiate()
     spine.add_child(v)
+    v.scale.y = 0.1
     v.position.y = capacity * -96
 
+    var tween = create_tween()
+    tween.tween_property(v, "scale.y", 1.0, 2.0)
+
     capacity += 1
+    SignalBus.habitat_capacity_changed.emit(self)
     return true

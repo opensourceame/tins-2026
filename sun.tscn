@@ -10,8 +10,8 @@ particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 96.96
-emission_ring_inner_radius = 0.0
+emission_ring_radius = 122.3
+emission_ring_inner_radius = 125.0
 emission_ring_cone_angle = 90.0
 inherit_velocity_ratio = 0.249
 radial_velocity_min = 179.26997
@@ -21,6 +21,7 @@ radial_accel_min = 37.17
 radial_accel_max = 37.17
 scale_min = 0.0
 scale_max = 6.75
+color = Color(0.8503064, 0.70365727, 3.85046e-07, 1)
 
 [node name="Sun" type="StaticBody2D" unique_id=315312241]
 script = ExtResource("1_iveel")
@@ -40,6 +41,7 @@ lifetime = 2.6799999999999997
 process_material = SubResource("ParticleProcessMaterial_lquwl")
 
 [node name="Circle" type="Polygon2D" parent="." unique_id=851595133]
+visible = false
 position = Vector2(-416, -1200)
 scale = Vector2(0.969697, 1.0622407)
 color = Color(0.8396529, 0.63650185, 0.0012359977, 1)

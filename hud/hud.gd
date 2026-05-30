@@ -52,8 +52,9 @@ func message_display_ready():
 func alert_trap_returning(trap):
     queue_message("moon trap is returning with " + trap.species.name())
 
-func capacity_changed(habitat):
-    %CapacityLabel.text = "capacity: " + str(game.spica.get_capacity())
+func capacity_changed(_habitat):
+    var s = game.spica
+    %CapacityLabel.text = "A: " + str(s.capacity_air) + "  W: " + str(s.capacity_water) + "  S: " + str(s.capacity_sulphuric)
 
 func spica_damage():
     %DamageLabel.text = "damage: " + str(game.spica.damage)
