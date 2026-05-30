@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://common/signal_bus.gd"
 Spawner="*uid://ch8linahqitvw"
+SettingsManager="*res://common/settings_manager.gd"
 
 [display]
 

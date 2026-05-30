@@ -8,7 +8,7 @@ extends Node2D
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
-const MAX_ENERGY: int = 3000
+static var MAX_ENERGY: int = 3000
 
 var zoomed_out: bool = false
 var center: Vector2
@@ -41,6 +41,10 @@ var planet_names = [
 
 func _ready():
     print("GAME: starting")
+
+    visitor_interest = SettingsManager.start_visitor_interest
+    MAX_ENERGY = SettingsManager.max_energy
+    energy = MAX_ENERGY
 
     center = get_viewport().get_visible_rect().size * 0.5
 
