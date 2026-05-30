@@ -14,7 +14,7 @@ var tween: Tween
 var intelligent_planets = []
 var years_elapsed: float = 0.0
 var visitors: int = 0
-var energy: int = 1000
+var energy: int = 5000
 
 var spawn: Node
 

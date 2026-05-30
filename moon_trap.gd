@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
 
+const MIN_MOON_SCALE = 0.1
+
 @onready var moon: Node2D = $Moon
 @onready var particle_trail: GPUParticles2D = $ParticleTrail
 
@@ -46,9 +48,9 @@ func is_moving():
 func scale_change():
     match current_state:
         State.LAUNCHED:
-            return 0.999
+            return 1.0
         State.RETURNING:
-            return 1.011
+            return 1.0
         _:
             return 1.0
 
@@ -67,6 +69,11 @@ func launch():
     distance_to_target = global_position.distance_to(target.global_position)
     current_state = State.LAUNCHED
 
+    var travel_time = distance_to_target / speed()
+    var tween = create_tween()
+    tween.tween_property(moon, "scale", Vector2(0.1, 0.1), travel_time)
+
+
 func orbit(planet):
     if current_state == State.ORBITING:
         return
@@ -76,8 +83,6 @@ func orbit(planet):
 
     call_deferred("reparent", planet)
 
-    var tween = create_tween()
-    tween.tween_property(moon, "scale", Vector2(0.1, 0.1), 2.0)
 
     orbit_timer = Timer.new()
     add_child(orbit_timer)
@@ -94,8 +99,9 @@ func return_home():
 
     current_state = State.RETURNING
 
+    var travel_time = distance_to_target / speed()
     var tween = create_tween()
-    tween.tween_property(moon, "scale", Vector2(0.5, 0.5), 2.0)
+    tween.tween_property(moon, "scale", Vector2(0.5, 0.5), travel_time)
 
 func crash_into_spica():
     current_state = State.CRASHING

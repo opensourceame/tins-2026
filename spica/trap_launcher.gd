@@ -1,8 +1,8 @@
 class_name TrapLauncher
 extends Node2D
 
-const TRAP_BUILD_TIME     = 5.0
-const TRAP_BUILD_COOLDOWN = 10.0
+const TRAP_BUILD_TIME     = 1.0
+const TRAP_BUILD_COOLDOWN = 1.0
 
 @onready var build_marker: Marker2D = $BuildMarker
 

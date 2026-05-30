@@ -59,16 +59,16 @@ position = Vector2(-144, 144)
 [node name="Body" type="Node2D" parent="." unique_id=1375095481]
 
 [node name="Sphere" type="Polygon2D" parent="Body" unique_id=556770028]
-color = Color(0.17103916, 0.17103916, 0.17103916, 1)
+color = Color(0.21537602, 0.040698573, 0.41349816, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
 
 [node name="Sphere2" type="Polygon2D" parent="Body" unique_id=1189229788]
 scale = Vector2(0.81848, 0.81848)
-color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+color = Color(0.29425457, 0.1642614, 0.32369065, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
 
 [node name="Sphere3" type="Polygon2D" parent="Body" unique_id=1696923819]
 rotation = 0.77009076
 scale = Vector2(0.6289128, 0.6289128)
-color = Color(0.30876932, 0.3087694, 0.30876926, 1)
+color = Color(0.3006144, 0.28638962, 0.4502192, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)

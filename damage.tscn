@@ -2,13 +2,18 @@
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s11oa"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 4.68
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 43.23
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 initial_velocity_min = 145.56
 initial_velocity_max = 145.56
 gravity = Vector3(0, 98, 0)
 scale_min = 4.29
 scale_max = 4.29
+color = Color(0.7162962, 0.71629626, 0.7162961, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1519330035]
 

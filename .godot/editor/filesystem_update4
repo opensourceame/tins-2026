@@ -19,3 +19,7 @@ res://hud/hud.gd
 res://sun.gd
 res://solar_system/planet_label.tscn
 res://solar_system/planet_label.gd
+res://moon_trap.tscn
+res://spica/detector_dish.tscn
+res://damage.tscn
+res://solar_system/solar_system.gd
