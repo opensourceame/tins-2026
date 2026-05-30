@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bs2qeucwtife5" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://byvivccrtt82l" path="res://spica/spica.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bood0qx8p14yl" path="res://background/stars.tscn" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud/hud.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sckxa40vknyj" path="res://solar_system/solar_system.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cb85l082jl45q" path="res://sun.tscn" id="6_7mycd"]
 

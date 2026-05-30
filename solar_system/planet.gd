@@ -11,8 +11,9 @@ var distance_from_sun: int
 var has_advanced_life: bool = false
 var has_moon_trap: bool = false
 var rotation_speed = 60
-var species
 var planet_name: String
+var environment: String = "oxygen"
+var species: Species
 
 const COLOR_RANGES = {
     30: Color.AQUAMARINE,
@@ -24,19 +25,28 @@ const COLOR_RANGES = {
 const BROADCASTING_COMPONENT = preload("res://solar_system/broadcasting_component.tscn")
 const PLANET_LABEL = preload("res://solar_system/planet_label.tscn")
 
+const SPECIES_BY_ENV = {
+    "oxygen":    [preload("res://species/humans.gd"),    preload("res://species/wibbles.gd")],
+    "water":     [preload("res://species/fishoids.gd"),  preload("res://species/guppiez.gd")],
+    "sulphuric": [preload("res://species/bzzaps.gd")],
+    "plasma":    [preload("res://species/plasmoids.gd"), preload("res://species/embers.gd")],
+}
+
 func _ready():
     calculate_color()
     queue_redraw()
 
-    if has_advanced_life:
-        detect_area.monitorable = true
-        orbit_area.body_entered.connect(_on_orbit_entered)
-        add_child(BROADCASTING_COMPONENT.instantiate())
-        species = Species.new().init_random()
-        if game.planet_names.size() > 0:
-            planet_name = game.planet_names.pop_back()
+    if not has_advanced_life:
+        return
 
-        add_label()
+    detect_area.monitorable = true
+    orbit_area.body_entered.connect(_on_orbit_entered)
+    add_child(BROADCASTING_COMPONENT.instantiate())
+    if game.planet_names.size() > 0:
+        planet_name = game.planet_names.pop_back()
+
+    set_random_environment()
+    add_label()
 
 
 func _physics_process(delta: float) -> void:
@@ -49,6 +59,11 @@ func add_label():
     var label = PLANET_LABEL.instantiate()
     label.target = self
     game.get_node("World").call_deferred("add_child", label)
+
+func set_random_environment():
+    var environments = ["oxygen", "water", "sulphuric", "plasma"]
+    environment = environments.pick_random()
+    species = SPECIES_BY_ENV[environment].pick_random().new()
 
 func calculate_color():
     for threshold in COLOR_RANGES:

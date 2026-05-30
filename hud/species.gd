@@ -24,5 +24,7 @@ func _icon_for(species):
             return "💦"
         "sulphuric":
             return "🌕"
+        "plasma":
+            return "🌀"
         _:
             return "💨"

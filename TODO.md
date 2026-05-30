@@ -1,4 +1,8 @@
-MAJOR
+# OUT OF SCOPE FOR GAMEJAM
+
+*
+
+# MAJOR
 
 * detector deteriorates over time
 * species goes extinct - no chance of capturing more aliens
@@ -8,21 +12,23 @@ MAJOR
 * damage to the Spica should drain energy
 * require manual action for each progressive section of habitat building
 * ability to sell off detection dish
+* game over when run out of energy
 
-MINOR
+# MINOR
 
 * colour planets
 * energy required to build moons
 * animate breaks in the habitat when overcrowded
 * detection dish should consume energy
 * more species
+* improve labels on command list
 
 
-BUGS
+# BUGS
 
 * when trap returns, species are added to the zoo
 
-DONE
+# DONE
 
 * attaching components to spica
 * detecting broadcast signals from planets

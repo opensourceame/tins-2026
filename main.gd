@@ -49,9 +49,10 @@ func _ready():
 
     spawn = SPAWNER_SCRIPT.new()
 
-    hud.item_queue.add_item("habitat", { "environment": "air" })
+    hud.item_queue.add_item("habitat", { "environment": "oxygen" })
     hud.item_queue.add_item("habitat", { "environment": "water" })
     hud.item_queue.add_item("habitat", { "environment": "sulphuric" })
+    hud.item_queue.add_item("habitat", { "environment": "plasma" })
     hud.item_queue.add_item("trap_launcher")
     hud.item_queue.add_item("detector_dish")
     hud.item_queue.add_item("energy_collector")

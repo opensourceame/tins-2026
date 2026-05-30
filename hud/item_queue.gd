@@ -16,13 +16,30 @@ func add_item(type, data = {}):
     var env = data.get("environment")
     item.type = type
     item.data = data
-    item.label.text = type.replace("_", "\n") + ("\n" + env if env else "")
+    item.label.text = type.replace("_", "\n")
+
+    if env:
+        item.label.text += " " + env_icon(env)
 
     if type == "moon_trap":
-        item.label.text += "\n" + data.get("target").planet_name
+        var t = data.get("target")
+        item.label.text = "🌖 " +t.planet_name + " " + env_icon(t.environment)
 
     if Game.ENERGY_REQUIRED[type]:
         item.energy_label.text = "⚡️ " + str(Game.ENERGY_REQUIRED[type])
 
     #$VBoxContainer.add_child(HSeparator.new())
     item.add_child(HSeparator.new())
+
+func env_icon(env):
+    match env:
+        "water":
+            return "💦"
+        "oxygen":
+            return "💨"
+        "sulphuric":
+            return "🌕"
+        "plasma":
+            return "🌀"
+        _:
+            return ""

@@ -13,7 +13,7 @@ var capacity = 0
 var captured = 0
 var vertebrae = 0
 
-var environment: String = "air":
+var environment: String = "oxygen":
     set(value):
         environment = value
         update_environment()
@@ -28,6 +28,8 @@ func update_environment():
             modulate = Color(0.4, 0.6, 1.0)
         "sulphuric":
             modulate = Color(0.5, 1.0, 0.4)
+        "plasma":
+            modulate = Color(1.0, 0.3, 0.6)
         _:
             modulate = Color.WHITE
 

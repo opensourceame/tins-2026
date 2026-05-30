@@ -22,7 +22,7 @@ func _gui_input(event):
 
         match type:
             "habitat":
-                var target_env = data.get("environment", "air")
+                var target_env = data.get("environment", "oxygen")
                 var habitat: Habitat
 
                 for c in spica.components:

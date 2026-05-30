@@ -10,9 +10,10 @@ var intelligent_planets = []
 var anchors = []
 var components = []
 var captured_species = []
-var capacity_air = 0
-var capacity_water = 0
+var capacity_oxygen    = 0
+var capacity_water     = 0
 var capacity_sulphuric = 0
+var capacity_plasma    = 0
 var damage = 0
 
 func _ready():
@@ -79,13 +80,18 @@ func get_capacity_for(env: String) -> int:
             return capacity_water
         "sulphuric":
             return capacity_sulphuric
+        "plasma":
+            return capacity_plasma
+        "oxygen":
+            return capacity_oxygen
         _:
-            return capacity_air
+            return 0
 
 func refresh_capacities():
-    capacity_air = 0
+    capacity_oxygen = 0
     capacity_water = 0
     capacity_sulphuric = 0
+    capacity_plasma = 0
     for c in components:
         if c is Habitat:
             var available = c.capacity - c.captured
@@ -94,8 +100,10 @@ func refresh_capacities():
                     capacity_water += available
                 "sulphuric":
                     capacity_sulphuric += available
-                _:
-                    capacity_air += available
+                "plasma":
+                    capacity_plasma += available
+                "oxygen":
+                    capacity_oxygen += available
 
 func get_habitat_for(environment: String) -> Habitat:
     for c in components:
