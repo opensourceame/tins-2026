@@ -1,8 +1,10 @@
 class_name HUD
 extends CanvasLayer
 
+@onready var game = get_tree().current_scene
 @onready var item_queue: ItemQueue = $ItemQueue
 @onready var message: Control = $Message
+@onready var capacity_label: Label = %CapacityLabel
 
 var message_queue = []
 var message_being_displayed = false
@@ -10,10 +12,14 @@ var message_being_displayed = false
 func _ready():
     SignalBus.intelligence_detected.connect(intelligence_alert)
     SignalBus.moon_trap_returning.connect(alert_trap_returning)
+    SignalBus.habitat_capacity_changed.connect(capacity_changed)
 
 func _physics_process(delta: float) -> void:
     if message_queue.size() > 0 and not message_being_displayed:
         show_next_message()
+
+    $Control/VBoxContainer/Visitors/Label.text = str(game.visitors) + ' visitors'
+    %EnergyLabel.text = "energy: " + str(game.energy)
 
 func queue_message(text):
     message_queue.append(text)
@@ -50,3 +56,6 @@ func intelligence_alert(planet):
         return
 
     queue_message("intelligent life detected on planet XYZ123")
+
+func capacity_changed(habitat):
+    %CapacityLabel.text = "capacity: " + str(game.spica.get_capacity())

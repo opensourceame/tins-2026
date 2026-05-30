@@ -9,7 +9,7 @@ var color: Color = Color.RED
 var distance_from_sun: int
 var has_advanced_life: bool = false
 var has_moon_trap: bool = false
-var rotation_speed = 10
+var rotation_speed = 60
 var species
 
 const COLOR_RANGES = {
@@ -45,6 +45,12 @@ func calculate_color():
 
 func _on_orbit_entered(body):
     if not body is MoonTrap:
+        return
+
+    if body.is_returning():
+        return
+
+    if body.is_orbiting():
         return
 
     has_moon_trap = true

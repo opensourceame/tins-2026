@@ -27,6 +27,9 @@ Spica
 * constantly rotating
 * can attach components - habitats, detector dish, trap launcher
 
+Habitat
+
+* difference
 
 DetectorDish
 
@@ -36,6 +39,10 @@ Limited time - breaks down after X seconds
 Moon Trap Launcher
 
 Launches Moon Traps.  Moon floats away from Spica, then travels to orbit target planet.
+
+Moon Trap
+
+* decaying orbit on return gives time to decide what to build
 
 
 Game mechanics

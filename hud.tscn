@@ -91,6 +91,17 @@ theme_override_font_sizes/font_size = 80
 text = "1000 years"
 horizontal_alignment = 2
 
+[node name="Visitors" type="Control" parent="Control/VBoxContainer" unique_id=248585175]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Visitors" unique_id=122609238]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "1234 visitors"
+
 [node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=228174204]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -111,4 +122,66 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
-text = "Daleks"
+
+[node name="Control2" type="Control" parent="." unique_id=107916139]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2" unique_id=744062703]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 42.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="Control2/HBoxContainer" unique_id=1360751159]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="CapacityLabel" type="Label" parent="Control2/HBoxContainer/Control" unique_id=1192660003]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -21.0
+offset_right = 76.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "capacity: 0"
+
+[node name="Control2" type="Control" parent="Control2/HBoxContainer" unique_id=1646413092]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="Control2/HBoxContainer/Control2" unique_id=461073288]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -22.5
+offset_right = 71.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "energy: 0"

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://7j8ubc0m33mt" path="res://background/stars.gd" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sckxa40vknyj" path="res://solar_system/solar_system.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cb85l082jl45q" path="res://sun.tscn" id="6_7mycd"]
 
 [node name="ROOT" type="Node2D" unique_id=2062991433]
 script = ExtResource("1_ig7tw")
@@ -12,6 +13,9 @@ script = ExtResource("1_ig7tw")
 [node name="Background" type="CanvasLayer" parent="." unique_id=2092498231]
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1006583992]
+
+[node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
+position = Vector2(-929.188, -607.6516)
 
 [node name="Stars" type="Node2D" parent="World" unique_id=2002691229]
 script = ExtResource("2_lquwl")
@@ -21,7 +25,16 @@ position = Vector2(2304, 783)
 
 [node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
 z_index = 5
-position = Vector2(1338, 701)
+position = Vector2(1336, 701)
+
+[node name="SolarSystem2" parent="World" unique_id=108115157 instance=ExtResource("4_lquwl")]
+position = Vector2(-620.4896, 2197.3716)
+
+[node name="SolarSystem4" parent="World" unique_id=911011653 instance=ExtResource("4_lquwl")]
+position = Vector2(3124.4148, 2640.1602)
+
+[node name="SolarSystem5" parent="World" unique_id=524022045 instance=ExtResource("4_lquwl")]
+position = Vector2(1163.196, -929.2998)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(982, 624)
@@ -31,3 +44,6 @@ limit_right = 2559
 limit_bottom = 1440
 
 [node name="HUD" parent="." unique_id=1601605167 instance=ExtResource("4_1bvp3")]
+
+[node name="Sun" parent="." unique_id=851595133 instance=ExtResource("6_7mycd")]
+position = Vector2(169, 1263)

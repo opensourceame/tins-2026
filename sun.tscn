@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cb85l082jl45q"]
+
+[ext_resource type="Script" uid="uid://dag5p1orl2umf" path="res://sun.gd" id="1_iveel"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lquwl"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 96.96
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+inherit_velocity_ratio = 0.249
+radial_velocity_min = 179.26997
+radial_velocity_max = 179.26997
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 37.17
+radial_accel_max = 37.17
+scale_min = 0.0
+scale_max = 6.75
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iveel"]
+radius = 662.04834
+
+[node name="Sun" type="StaticBody2D" unique_id=315312241]
+script = ExtResource("1_iveel")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=585835159]
+amount = 500
+lifetime = 2.6799999999999997
+process_material = SubResource("ParticleProcessMaterial_lquwl")
+
+[node name="Circle" type="Polygon2D" parent="." unique_id=851595133]
+position = Vector2(-430, -1121)
+color = Color(0.8396529, 0.63650185, 0.0012359977, 1)
+polygon = PackedVector2Array(297, 1124, 310, 1072, 340, 1046, 378, 1020, 432, 1008, 476, 1017, 510, 1034, 542, 1066, 567, 1122, 550, 1181, 524, 1214, 476, 1245, 428, 1249, 367, 1242, 321, 1203, 299, 1164)
+
+[node name="EnergyCollectArea" type="Area2D" parent="." unique_id=1170334658]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyCollectArea" unique_id=147377292]
+shape = SubResource("CircleShape2D_iveel")

@@ -29,7 +29,8 @@ func _gui_input(event):
                         i += 1
 
                 component.name = str(i)
-
+            "energy_collector":
+                component = Spawner.energy_collector()
             "trap_launcher":
                 component = Spawner.trap_launcher()
             "detector_dish":

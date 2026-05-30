@@ -1,14 +1,16 @@
 class_name Spica
-extends Node2D
+extends StaticBody2D
 
 @onready var game = get_tree().current_scene
 @onready var return_area: Area2D = $ReturnArea
+@onready var crash_area: Area2D = $CrashArea
 
 var rotation_speed = 30.0
 var intelligent_planets = []
 var anchors = []
 var components = []
 var captured_species = []
+var capacity = 0
 
 func _ready():
     for a in $Anchors.get_children():
@@ -16,6 +18,7 @@ func _ready():
 
     SignalBus.intelligence_detected.connect(_on_intelligence_detected)
 
+    crash_area.body_entered.connect(_on_body_entered)
     return_area.body_entered.connect(_on_return_area_entered)
 
 func _physics_process(delta: float) -> void:
@@ -65,10 +68,17 @@ func crash_moon_trap(trap):
     game.hud.queue_message("no space for these victims")
 
 func can_accomodate(trap):
+    return get_capacity() > 0
+
+func get_capacity():
+    var total = 0
     for c in components:
         if c is Habitat:
-            if c.has_space():
-                return true
+            total += c.capacity
+
+    return total
+
+
 
 func capture_species(trap):
     print("SPICA: trapped ", trap.species)
@@ -76,3 +86,16 @@ func capture_species(trap):
     trap.returned()
 
     SignalBus.species_captured.emit(trap)
+
+func _on_body_entered(body):
+    if body is MoonTrap and body.is_crashing():
+        body.queue_free()
+
+    animate_damage(body.global_position - global_position)
+
+    game.hud.queue_message("trap crashed")
+
+func animate_damage(pos: Vector2):
+    var damage = load("res://damage.tscn").instantiate()
+    add_child(damage)
+    damage.position = pos

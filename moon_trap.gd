@@ -4,6 +4,10 @@ extends CharacterBody2D
 enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
 
 @onready var moon: Node2D = $Moon
+@onready var particle_trail: GPUParticles2D = $ParticleTrail
+
+func _ready():
+    pass
 
 var target
 var current_direction: Vector2
@@ -12,6 +16,8 @@ var orbit_timer: Timer
 var species
 
 func _physics_process(delta: float) -> void:
+    particle_trail.emitting = current_state in [State.LAUNCHED, State.RETURNING, State.CRASHING]
+
     if not target:
         return
 
@@ -23,7 +29,12 @@ func _physics_process(delta: float) -> void:
     moon.scale *= scale_change()
 
 func is_moving():
-    return current_state == State.LAUNCHED or current_state == State.RETURNING
+    match current_state:
+        State.IDLE, State.ORBITING, State.RETURNED:
+            return false
+        _:
+            return true
+
 
 func scale_change():
     match current_state:
@@ -42,6 +53,8 @@ func speed():
             return 400
         State.RETURNING:
             return 200
+        State.CRASHING:
+            return 50
 
 func launch():
     current_state = State.LAUNCHED
@@ -60,7 +73,7 @@ func orbit(planet):
 
     orbit_timer = Timer.new()
     add_child(orbit_timer)
-    orbit_timer.wait_time = randi_range(3, 5)
+    orbit_timer.wait_time = randi_range(6, 9)
     orbit_timer.timeout.connect(return_home)
     orbit_timer.start()
 
@@ -78,10 +91,16 @@ func return_home():
 
 func crash_into_spica():
     current_state = State.CRASHING
-
+    modulate = Color.RED
 
 func is_returning():
     return current_state == State.RETURNING
+
+func is_crashing():
+    return current_state == State.CRASHING
+
+func is_orbiting():
+    return current_state == State.ORBITING
 
 func returned():
     current_state = State.RETURNED

@@ -6,8 +6,8 @@ MAJOR
 * detector deteriorates over time
 * trap builder runs out of moons
 * when trap returns, species are added to the zoo
-* if no habitats free, moon crashes into the spica
-
+* moon trap enters into decaying orbit around Spica
+* energy required to build moons
 
 MINOR
 
@@ -24,3 +24,5 @@ DONE
 * signal bus
 * generic messaging
 * basic year elapsed display
+* energy collector
+* if no habitats free, moon crashes into the spica

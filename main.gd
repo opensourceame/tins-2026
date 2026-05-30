@@ -13,6 +13,8 @@ var center: Vector2
 var tween: Tween
 var intelligent_planets = []
 var years_elapsed: float = 0.0
+var visitors: int = 0
+var energy: int = 0
 
 var spawn: Node
 
@@ -24,6 +26,7 @@ func _ready():
     center = get_viewport().get_visible_rect().size * 0.5
 
     SignalBus.intelligence_detected.connect(on_intelligence_detected)
+    SignalBus.energy_collected.connect(on_energy_collected)
 
     spawn = SPAWNER_SCRIPT.new()
 
@@ -31,13 +34,17 @@ func _ready():
     hud.item_queue.add_item("trap_launcher")
     hud.item_queue.add_item("detector_dish")
     hud.item_queue.add_item("habitat")
-    hud.item_queue.add_item("habitat")
+    hud.item_queue.add_item("energy_collector")
 
     hud.queue_message("welcome")
+
+
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
+
+    visitors += 1
 
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
@@ -66,3 +73,6 @@ func on_intelligence_detected(planet):
     if not planet in intelligent_planets:
         print("GAME: intelligent planet detected - ", planet)
         intelligent_planets.append(planet)
+
+func on_energy_collected():
+    energy += 1
