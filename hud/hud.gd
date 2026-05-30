@@ -19,8 +19,10 @@ func _physics_process(delta: float) -> void:
     if message_queue.size() > 0 and not message_being_displayed:
         show_next_message()
 
-    $Control/VBoxContainer/Visitors/Label.text = str(game.visitors) + ' visitors'
+    $Control/VBoxContainer/Visitors/Label.text = str(int(game.visitors)) + ' visitors'
     %EnergyLabel.text = "energy: " + str(int(game.energy))
+
+    update_visitor_interest()
 
 func queue_message(text):
     message_queue.append(text)
@@ -58,3 +60,12 @@ func capacity_changed(_habitat):
 
 func spica_damage():
     %DamageLabel.text = "damage: " + str(game.spica.damage)
+
+func update_visitor_interest():
+    var i = 0
+    for node in %InterestProgressBar.get_children():
+        if game.visitor_interest > i:
+            node.modulate = Color.GREEN
+        else:
+            node.modulate = Color.BLACK
+        i += 1

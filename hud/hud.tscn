@@ -95,6 +95,77 @@ theme_override_font_sizes/font_size = 80
 text = "1000 years"
 horizontal_alignment = 2
 
+[node name="Years2" type="Control" parent="Control/VBoxContainer" unique_id=1337718301]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Years2" unique_id=1362242409]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -413.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "visitor interest"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VisitorInterest" type="Control" parent="Control/VBoxContainer" unique_id=790834728]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="InterestProgressBar" type="HBoxContainer" parent="Control/VBoxContainer/VisitorInterest" unique_id=1150570924]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1239781343]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=308261614]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1276181207]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1259121412]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=500897882]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1553263496]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect7" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=989856757]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect8" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1080157143]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect9" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1924001013]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect10" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1555775058]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
 [node name="Visitors" type="Control" parent="Control/VBoxContainer" unique_id=248585175]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2

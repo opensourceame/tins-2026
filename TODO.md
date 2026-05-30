@@ -20,8 +20,7 @@
 * energy required to build moons
 * animate breaks in the habitat when overcrowded
 * detection dish should consume energy
-* more species
-* improve labels on command list
+* after rapairs damage particle animations should stop
 
 
 # BUGS
@@ -52,3 +51,5 @@
 * warn about overcrowding
 * break habitat off the Spica if it's overcrowded for too long
 * black hole that emits energy instead of a sun
+* improve labels on command list
+* more species

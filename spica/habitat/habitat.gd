@@ -1,7 +1,8 @@
 class_name Habitat
 extends Node2D
 
-enum State { AVAILABLE, OVERCROWDED }
+enum State { AVAILABLE, OVERCROWDED, COLLAPSED }
+
 const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
 
 @onready var game: Game = get_tree().current_scene
@@ -12,6 +13,7 @@ const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
 var capacity = 0
 var captured = 0
 var vertebrae = 0
+var current_state: = State.AVAILABLE
 
 var environment: String = "oxygen":
     set(value):
@@ -90,6 +92,11 @@ func check_habitat_collapse():
     if not is_over_capacity():
         return
 
+    if current_state == State.COLLAPSED:
+        return
+
+    current_state = State.COLLAPSED
+
     var rigid_body = RigidBody2D.new()
     game.world.add_child(rigid_body)
     rigid_body.global_position = global_position
@@ -106,5 +113,7 @@ func check_habitat_collapse():
     game.spica.components.erase(self)
     game.spica.refresh_capacities()
     SignalBus.habitat_capacity_changed.emit(self)
+
+    game.hud.item_queue.add_item("habitat", { "environment": environment })
 
     reparent(rigid_body)

@@ -4,6 +4,7 @@ extends Node2D
 @onready var world: CanvasLayer = $World
 @onready var hud: CanvasLayer = $HUD
 @onready var spica: Spica = $World/Spica
+@onready var visitor_interest_timer: Timer = $VisitorInterestTimer
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
@@ -14,8 +15,10 @@ var center: Vector2
 var tween: Tween
 var intelligent_planets = []
 var years_elapsed: float = 0.0
-var visitors: int = 0
-var energy: float = MAX_ENERGY
+var visitors: float = 0.0
+
+@export var visitor_interest: int = 3
+@export var energy: float = MAX_ENERGY
 
 var spawn: Node
 
@@ -46,6 +49,7 @@ func _ready():
     SignalBus.energy_consumed.connect(on_energy_consumed)
     SignalBus.moon_trap_returned.connect(on_moon_trap_returned)
     SignalBus.spica_damage.connect(on_spica_damage)
+    SignalBus.species_captured.connect(on_species_captured)
 
     spawn = SPAWNER_SCRIPT.new()
 
@@ -59,12 +63,15 @@ func _ready():
 
     hud.queue_message("welcome")
 
+    visitor_interest_timer.timeout.connect(lose_interest)
+    visitor_interest_timer.start()
+
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
 
-    visitors += 1
-    energy -= spica.damage * delta
+    visitors += visitor_interest / 100.0
+    energy   -= spica.damage * delta
 
 func _input(event: InputEvent):
     if event is InputEventKey and event.pressed:
@@ -139,3 +146,21 @@ func on_spica_damage():
         if c is RepairModule:
             return
     hud.item_queue.add_item("repair_module")
+
+func on_species_captured():
+    if visitor_interest > 9:
+        return
+
+    visitor_interest += 1
+
+func lose_interest():
+    visitor_interest -= 1
+
+    if visitor_interest < 3:
+        hud.queue_message("Customers are losing interest in your zoo!")
+
+    if visitor_interest < 0:
+        game_over()
+
+func game_over():
+    pass
