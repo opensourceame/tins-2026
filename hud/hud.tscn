@@ -12,26 +12,6 @@ default_font_size = 36
 [node name="HUD" type="CanvasLayer" unique_id=1601605167]
 script = ExtResource("1_w8tcp")
 
-[node name="ItemQueue" type="Control" parent="." unique_id=135557051]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 296.0
-offset_bottom = 1446.0
-size_flags_horizontal = 0
-size_flags_vertical = 3
-script = ExtResource("2_svhta")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ItemQueue" unique_id=1424261492]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.0008509, 1)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
 [node name="Message" type="Control" parent="." unique_id=296554277]
 custom_minimum_size = Vector2(800, 300)
 layout_mode = 3
@@ -64,7 +44,7 @@ text = "message"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="." unique_id=631157263]
+[node name="RightBar" type="Control" parent="." unique_id=631157263]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 3
 anchors_preset = 11
@@ -74,7 +54,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1667902562]
+[node name="VBoxContainer" type="VBoxContainer" parent="RightBar" unique_id=1667902562]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,12 +62,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Years" type="Control" parent="Control/VBoxContainer" unique_id=840990189]
+[node name="Years" type="Control" parent="RightBar/VBoxContainer" unique_id=840990189]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Years" unique_id=1340040383]
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Years" unique_id=1340040383]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -99,12 +79,12 @@ theme_override_font_sizes/font_size = 80
 text = "1000 years"
 horizontal_alignment = 2
 
-[node name="Years2" type="Control" parent="Control/VBoxContainer" unique_id=1337718301]
+[node name="Years2" type="Control" parent="RightBar/VBoxContainer" unique_id=1337718301]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Years2" unique_id=1362242409]
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Years2" unique_id=1362242409]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -117,11 +97,11 @@ text = "visitor interest"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="VisitorInterest" type="Control" parent="Control/VBoxContainer" unique_id=790834728]
+[node name="VisitorInterest" type="Control" parent="RightBar/VBoxContainer" unique_id=790834728]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="InterestProgressBar" type="HBoxContainer" parent="Control/VBoxContainer/VisitorInterest" unique_id=1150570924]
+[node name="InterestProgressBar" type="HBoxContainer" parent="RightBar/VBoxContainer/VisitorInterest" unique_id=1150570924]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -130,73 +110,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1239781343]
+[node name="ColorRect" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1239781343]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=308261614]
+[node name="ColorRect2" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=308261614]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect3" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1276181207]
+[node name="ColorRect3" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1276181207]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect4" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1259121412]
+[node name="ColorRect4" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1259121412]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect5" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=500897882]
+[node name="ColorRect5" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=500897882]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect6" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1553263496]
+[node name="ColorRect6" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1553263496]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect7" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=989856757]
+[node name="ColorRect7" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=989856757]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect8" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1080157143]
+[node name="ColorRect8" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1080157143]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect9" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1924001013]
+[node name="ColorRect9" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1924001013]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="ColorRect10" type="ColorRect" parent="Control/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1555775058]
+[node name="ColorRect10" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1555775058]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 
-[node name="Visitors" type="Control" parent="Control/VBoxContainer" unique_id=248585175]
+[node name="Visitors" type="Control" parent="RightBar/VBoxContainer" unique_id=248585175]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Visitors" unique_id=122609238]
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Visitors" unique_id=122609238]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
 text = "1234 visitors"
 
-[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=228174204]
+[node name="Control" type="Control" parent="RightBar/VBoxContainer" unique_id=228174204]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Control" unique_id=374405015]
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Control" unique_id=374405015]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
 text = "Captured species:"
 
-[node name="Species" type="Control" parent="Control/VBoxContainer" unique_id=295739418]
+[node name="Species" type="Control" parent="RightBar/VBoxContainer" unique_id=295739418]
 layout_mode = 2
 script = ExtResource("3_fjv1a")
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Species" unique_id=1290490472]
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Species" unique_id=1290490472]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -304,3 +284,47 @@ theme_override_font_sizes/font_size = 32
 text = "keys:  Z for zoom, 1, 2, 3 for game speed, R to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=165768283]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="PermanentItems" type="Control" parent="HBoxContainer" unique_id=135557051]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("2_svhta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PermanentItems" unique_id=1424261492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0008509, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemQueue" type="Control" parent="HBoxContainer" unique_id=1625810702]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("2_svhta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ItemQueue" unique_id=180169571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0008509, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3

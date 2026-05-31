@@ -10,6 +10,7 @@ const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
 static var MAX_ENERGY: int = 3000
 
+var skip_tutorial: bool = false
 var zoomed_out: bool = false
 var center: Vector2
 var tween: Tween
@@ -45,6 +46,8 @@ func _ready():
     visitor_interest = SettingsManager.start_visitor_interest
     MAX_ENERGY = SettingsManager.max_energy
     energy = MAX_ENERGY
+    spica.damage = SettingsManager.start_damage
+    SignalBus.spica_damage.emit()
 
     center = get_viewport().get_visible_rect().size * 0.5
 
@@ -57,15 +60,18 @@ func _ready():
 
     spawn = SPAWNER_SCRIPT.new()
 
-    hud.item_queue.add_item("habitat", { "environment": "oxygen" })
-    hud.item_queue.add_item("habitat", { "environment": "water" })
-    hud.item_queue.add_item("habitat", { "environment": "sulphuric" })
-    hud.item_queue.add_item("habitat", { "environment": "plasma" })
-    hud.item_queue.add_item("trap_launcher")
-    hud.item_queue.add_item("detector_dish")
-    hud.item_queue.add_item("energy_collector")
+    hud.permanent_items.add_item("habitat", { "environment": "oxygen" })
+    hud.permanent_items.add_item("habitat", { "environment": "water" })
+    hud.permanent_items.add_item("habitat", { "environment": "sulphuric" })
+    hud.permanent_items.add_item("habitat", { "environment": "plasma" })
+    hud.permanent_items.add_item("trap_launcher")
+    hud.permanent_items.add_item("detector_dish")
+    hud.permanent_items.add_item("energy_collector")
 
-    hud.queue_message("welcome")
+    if not skip_tutorial:
+        hud.queue_message("Welcome to the Spica Zoo")
+        hud.queue_message("Keep your visitors happy and the zoo open")
+
 
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()

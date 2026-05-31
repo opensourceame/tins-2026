@@ -1,9 +1,9 @@
+HBoxContainer
 Control
 Label
 CenterContainer
 Timer
 ColorRect
-HBoxContainer
 Polygon2D
 Node2D
 StaticBody2D

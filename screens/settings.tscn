@@ -76,6 +76,38 @@ max_value = 9999.0
 step = 100.0
 value = 3000.0
 
+[node name="InitialDamageRow" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2053762873]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer/InitialDamageRow" unique_id=1759926147]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Initial Damage"
+vertical_alignment = 1
+
+[node name="InitialDamageSpinBox" type="SpinBox" parent="CenterContainer/Panel/VBoxContainer/InitialDamageRow" unique_id=1022707306]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 50.0
+
+[node name="SkipTutorialRow" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=2053762874]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer/SkipTutorialRow" unique_id=1759926148]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Skip Tutorial"
+vertical_alignment = 1
+
+[node name="SkipTutorialCheckBox" type="CheckBox" parent="CenterContainer/Panel/VBoxContainer/SkipTutorialRow" unique_id=1022707307]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+scale = Vector2(2, 2)
+
 [node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer" unique_id=1749496683]
 layout_mode = 2
 size_flags_vertical = 3
