@@ -12,3 +12,5 @@ res://hud/hud.tscn
 res://hud/hud.gd
 res://hud/place_item.tscn
 res://hud/item_queue.gd
+res://solar_system/planet.gd
+res://solar_system/solar_system.gd

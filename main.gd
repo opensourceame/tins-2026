@@ -20,6 +20,7 @@ var visitors: float = 0.0
 
 @export var visitor_interest: int = 3
 @export var energy: float = MAX_ENERGY
+var intelligent_planets_count = 3
 
 var spawn: Node
 
@@ -48,6 +49,8 @@ func _ready():
     energy = MAX_ENERGY
     spica.damage = SettingsManager.start_damage
     SignalBus.spica_damage.emit()
+    skip_tutorial = SettingsManager.skip_tutorial
+    intelligent_planets_count = SettingsManager.intelligent_planets_count
 
     center = get_viewport().get_visible_rect().size * 0.5
 
@@ -72,11 +75,11 @@ func _ready():
         hud.queue_message("Welcome to the Spica Zoo")
         hud.queue_message("Keep your visitors happy and the zoo open")
 
+    run_pre_start_checks()
 
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()
 
-    #game_over()
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
@@ -124,6 +127,28 @@ func _input(event: InputEvent):
             tween.tween_property(world, "offset", center * (1.0 - s), ZOOM_TIME)
             tween.tween_callback(toggle_hud)
 
+func run_pre_start_checks():
+    var eligible = []
+    var count = 0
+    for planet in get_planets():
+        if planet.has_advanced_life:
+            count += 1
+        else:
+            eligible.append(planet)
+
+    while count < intelligent_planets_count and eligible.size() > 0:
+        var planet = eligible.pick_random()
+        eligible.erase(planet)
+        planet.has_advanced_life = true
+        planet.add_intelligent_species()
+        count += 1
+
+func get_planets():
+    var planets = []
+    for child in world.get_children():
+        if child is SolarSystem:
+            planets.append_array(child.planets)
+    return planets
 
 func toggle_hud():
     if zoomed_out:

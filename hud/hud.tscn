@@ -39,8 +39,7 @@ grow_vertical = 2
 theme = ExtResource("3_svhta")
 theme_override_colors/font_color = Color(1, 0.5519944, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 14
-text = "message"
+theme_override_constants/outline_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
