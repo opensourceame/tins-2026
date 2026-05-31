@@ -117,6 +117,15 @@ func _input(event: InputEvent):
             tween.tween_property(world, "scale", Vector2(s, s), ZOOM_TIME)
             tween.tween_property(world, "offset", center * (1.0 - s), ZOOM_TIME)
             tween.tween_callback(toggle_hud)
+        if event.keycode == KEY_S:
+            if SaveManager.quick_save():
+                hud.queue_message("Game saved")
+        if event.keycode == KEY_L and not get_node_or_null("QuickLoad"):
+            var quick_load = preload("res://screens/quick_load.tscn").instantiate()
+            add_child(quick_load)
+        if event.keycode == KEY_P and not get_node_or_null("PauseOverlay"):
+            var pause = preload("res://screens/pause.tscn").instantiate()
+            add_child(pause)
 
 
 func toggle_hud():
