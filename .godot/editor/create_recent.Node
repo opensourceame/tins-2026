@@ -1,9 +1,11 @@
+VBoxContainer
+MarginContainer
+HBoxContainer
 Control
 Label
 CenterContainer
 Timer
 ColorRect
-HBoxContainer
 Polygon2D
 Node2D
 StaticBody2D
@@ -11,4 +13,3 @@ CollisionShape2D
 Area2D
 GPUParticles2D
 Marker2D
-VBoxContainer

@@ -18,15 +18,15 @@ save_strategy = 1
 [node name="Sun" parent="World" unique_id=851595133 instance=ExtResource("6_7mycd")]
 position = Vector2(855, 1104)
 
+[node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
+z_index = 5
+position = Vector2(1764, 852)
+
 [node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
 position = Vector2(-929.188, -607.6516)
 
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
 position = Vector2(3144, 913)
-
-[node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
-z_index = 5
-position = Vector2(1764, 852)
 
 [node name="SolarSystem2" parent="World" unique_id=108115157 instance=ExtResource("4_lquwl")]
 position = Vector2(-620.4896, 2197.3716)

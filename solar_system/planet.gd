@@ -36,18 +36,19 @@ func _ready():
     calculate_color()
     queue_redraw()
 
-    if not has_advanced_life:
-        return
+    if has_advanced_life:
+        add_intelligent_species()
 
+func add_intelligent_species():
     detect_area.monitorable = true
     orbit_area.body_entered.connect(_on_orbit_entered)
-    add_child(BROADCASTING_COMPONENT.instantiate())
     if game.planet_names.size() > 0:
         planet_name = game.planet_names.pop_back()
 
     set_random_environment()
     add_label()
 
+    add_child(BROADCASTING_COMPONENT.instantiate())
 
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))

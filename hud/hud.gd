@@ -2,7 +2,8 @@ class_name HUD
 extends CanvasLayer
 
 @onready var game = get_tree().current_scene
-@onready var item_queue: ItemQueue = $ItemQueue
+@onready var item_queue: ItemQueue = %ItemQueue
+@onready var permanent_items: ItemQueue = %PermanentItems
 @onready var message: Control = $Message
 @onready var capacity_label: Label = %CapacityLabel
 @onready var damage_label: Label = %DamageLabel
@@ -19,7 +20,7 @@ func _physics_process(delta: float) -> void:
     if message_queue.size() > 0 and not message_being_displayed:
         show_next_message()
 
-    $Control/VBoxContainer/Visitors/Label.text = str(int(game.visitors)) + ' visitors'
+    $RightBar/VBoxContainer/Visitors/Label.text = str(int(game.visitors)) + ' visitors'
     %EnergyLabel.text = "⚡️ " + str(int(game.energy))
 
     update_visitor_interest()

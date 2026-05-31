@@ -16,6 +16,7 @@ const ZOOM_TIME: float = 0.3
 
 static var MAX_ENERGY: int = 3000
 
+var skip_tutorial: bool = false
 var zoomed_out: bool = false
 var center: Vector2
 var tween: Tween
@@ -25,6 +26,7 @@ var visitors: float = 0.0
 
 @export var visitor_interest: int = 3
 @export var energy: float = MAX_ENERGY
+var intelligent_planets_count = 3
 
 var spawn: Node
 
@@ -51,6 +53,10 @@ func _ready():
     visitor_interest = SettingsManager.start_visitor_interest
     MAX_ENERGY = SettingsManager.max_energy
     energy = MAX_ENERGY
+    spica.damage = SettingsManager.start_damage
+    SignalBus.spica_damage.emit()
+    skip_tutorial = SettingsManager.skip_tutorial
+    intelligent_planets_count = SettingsManager.intelligent_planets_count
 
     center = get_viewport().get_visible_rect().size * 0.5
 
@@ -63,20 +69,23 @@ func _ready():
 
     spawn = SPAWNER_SCRIPT.new()
 
-    hud.item_queue.add_item("habitat", { "environment": "oxygen" })
-    hud.item_queue.add_item("habitat", { "environment": "water" })
-    hud.item_queue.add_item("habitat", { "environment": "sulphuric" })
-    hud.item_queue.add_item("habitat", { "environment": "plasma" })
-    hud.item_queue.add_item("trap_launcher")
-    hud.item_queue.add_item("detector_dish")
-    hud.item_queue.add_item("energy_collector")
+    hud.permanent_items.add_item("habitat", { "environment": "oxygen" })
+    hud.permanent_items.add_item("habitat", { "environment": "water" })
+    hud.permanent_items.add_item("habitat", { "environment": "sulphuric" })
+    hud.permanent_items.add_item("habitat", { "environment": "plasma" })
+    hud.permanent_items.add_item("trap_launcher")
+    hud.permanent_items.add_item("detector_dish")
+    hud.permanent_items.add_item("energy_collector")
 
-    hud.queue_message("welcome")
+    if not skip_tutorial:
+        hud.queue_message("Welcome to the Spica Zoo")
+        hud.queue_message("Keep your visitors happy and the zoo open")
+
+    run_pre_start_checks()
 
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()
 
-    #game_over()
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
@@ -134,6 +143,28 @@ func _input(event: InputEvent):
             var pause = preload("res://screens/pause.tscn").instantiate()
             add_child(pause)
 
+func run_pre_start_checks():
+    var eligible = []
+    var count = 0
+    for planet in get_planets():
+        if planet.has_advanced_life:
+            count += 1
+        else:
+            eligible.append(planet)
+
+    while count < intelligent_planets_count and eligible.size() > 0:
+        var planet = eligible.pick_random()
+        eligible.erase(planet)
+        planet.has_advanced_life = true
+        planet.add_intelligent_species()
+        count += 1
+
+func get_planets():
+    var planets = []
+    for child in world.get_children():
+        if child is SolarSystem:
+            planets.append_array(child.planets)
+    return planets
 
 func toggle_hud():
     if zoomed_out:
