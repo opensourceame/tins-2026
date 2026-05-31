@@ -284,21 +284,21 @@ text = "keys:  Z for zoom, 1, 2, 3 for game speed, R to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=165768283]
+[node name="LeftBar" type="HBoxContainer" parent="." unique_id=165768283]
 custom_minimum_size = Vector2(400, 0)
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
 
-[node name="PermanentItems" type="Control" parent="HBoxContainer" unique_id=135557051]
+[node name="PermanentItems" type="Control" parent="LeftBar" unique_id=135557051]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 script = ExtResource("2_svhta")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PermanentItems" unique_id=1424261492]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftBar/PermanentItems" unique_id=1424261492]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -309,15 +309,15 @@ scale = Vector2(1.0008509, 1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ItemQueue" type="Control" parent="HBoxContainer" unique_id=1625810702]
+[node name="ItemQueue" type="Control" parent="LeftBar" unique_id=1625810702]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 script = ExtResource("2_svhta")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ItemQueue" unique_id=180169571]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftBar/ItemQueue" unique_id=180169571]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

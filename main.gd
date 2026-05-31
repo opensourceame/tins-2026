@@ -33,11 +33,11 @@ var spawn: Node
 const SPAWNER_SCRIPT = preload("res://common/spawner.gd")
 const ENERGY_REQUIRED = {
     "energy_collector": 100,
-    "habitat": 500,
-    "trap_launcher": 500,
-    "detector_dish": 250,
-    "moon_trap": 200,
-    "repair_module": 300,
+    "habitat":          300,
+    "trap_launcher":    500,
+    "detector_dish":    250,
+    "moon_trap":        200,
+    "repair_module":    300,
 }
 
 var planet_names = [

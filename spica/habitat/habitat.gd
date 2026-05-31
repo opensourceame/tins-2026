@@ -52,8 +52,7 @@ func grow() -> bool:
     var v = VERTEBRA.instantiate()
     spine.add_child(v)
     v.scale.y = 0.1
-    v.position.y = vertebrae * -96
-
+    v.position.y = vertebrae * -192
     vertebrae += 1
 
     var tween = create_tween()

@@ -59,16 +59,39 @@ position = Vector2(-144, 144)
 [node name="Body" type="Node2D" parent="." unique_id=1375095481]
 
 [node name="Sphere" type="Polygon2D" parent="Body" unique_id=556770028]
-color = Color(0.21537602, 0.040698573, 0.41349816, 1)
+color = Color(0.12057269, 0.039518096, 0.21063334, 1)
 polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
 
 [node name="Sphere2" type="Polygon2D" parent="Body" unique_id=1189229788]
 scale = Vector2(0.81848, 0.81848)
 color = Color(0.29425457, 0.1642614, 0.32369065, 1)
-polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
+polygon = PackedVector2Array(-192, -64, -195.48431, 39.096863, -156.38745, 156.38745, -78.193726, 195.48431, 78.193726, 195.48431, 156.38745, 156.38745, 195.48431, 78.193726, 195.48431, -78.193726, 156.38745, -156.38745, 78.193726, -195.48431, -78.193726, -195.48431, -156.38745, -156.38745)
 
 [node name="Sphere3" type="Polygon2D" parent="Body" unique_id=1696923819]
 rotation = 0.77009076
 scale = Vector2(0.6289128, 0.6289128)
 color = Color(0.3006144, 0.28638962, 0.4502192, 1)
-polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 144, 144, 192, 64, 192, -64, 144, -144, 64, -192, -64, -192, -144, -144)
+polygon = PackedVector2Array(-196.75783, -74.97775, -161.88486, -2.478218, -198.9607, 68.919876, -144, 144, -74.97775, 196.75783, -2.478218, 161.88486, 64, 192, 144, 144, 192, 64, 161.88486, 2.478218, 198.9607, -68.919876, 144, -144, 74.97775, -196.75783, 2.478218, -161.88486, -68.919876, -198.9607, -144, -144)
+
+[node name="Polygon2D" type="Polygon2D" parent="Body" unique_id=1227763428]
+color = Color(0.14486825, 0.10577961, 0.10577961, 1)
+polygon = PackedVector2Array(0, -64, -8, -64, -8, -56, -56, -8, -64, -8, -64, 0, -64, 8, -56, 8, -8, 56, -8, 64, 0, 64, 8, 64, 8, 56, 56, 8, 64, 8, 64, 0, 64, -8, 56, -8, 8, -56, 8, -64)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Body" unique_id=994718807]
+color = Color(0.36518145, 0.34349933, 0.36463255, 1)
+polygon = PackedVector2Array(-120, -120, -64, -96, -72, -72, -96, -64)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Body" unique_id=1294363202]
+rotation = 1.5707964
+color = Color(0.36518145, 0.34349933, 0.36463255, 1)
+polygon = PackedVector2Array(-120, -120, -64, -96, -72, -72, -96, -64)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Body" unique_id=670242237]
+rotation = 3.1415927
+color = Color(0.36518145, 0.34349933, 0.36463255, 1)
+polygon = PackedVector2Array(-120, -120, -64, -96, -72, -72, -96, -64)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Body" unique_id=123272651]
+rotation = -1.5707964
+color = Color(0.36518145, 0.34349933, 0.36463255, 1)
+polygon = PackedVector2Array(-120, -120, -64, -96, -72, -72, -96, -64)

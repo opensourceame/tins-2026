@@ -5,7 +5,7 @@ signal planets_generated
 
 const PLANET = preload("res://solar_system/planet.tscn")
 
-var rotation_speed = 4.0
+var rotation_speed: int
 
 var MIN_SIZE = 20
 var MAX_SIZE = 50
@@ -19,6 +19,8 @@ func _ready():
     add_planets()
     queue_redraw()
 
+    rotation_speed = randi_range(2, 10)
+
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))
 
@@ -27,7 +29,7 @@ func _draw():
     draw_circle(Vector2.ZERO, planets[0].size, Color.YELLOW)
 
 func add_planets():
-    var count = randi_range(1, 5)
+    var count = randi_range(2, 5)
 
     for i in range(count):
         var angle = (float(i) / count) * TAU

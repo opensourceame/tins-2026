@@ -29,13 +29,16 @@ position = Vector2(-929.188, -607.6516)
 position = Vector2(3144, 913)
 
 [node name="SolarSystem2" parent="World" unique_id=108115157 instance=ExtResource("4_lquwl")]
-position = Vector2(-620.4896, 2197.3716)
+position = Vector2(318, 2661)
 
 [node name="SolarSystem4" parent="World" unique_id=911011653 instance=ExtResource("4_lquwl")]
-position = Vector2(3124.4148, 2640.1602)
+position = Vector2(5094, 2808)
 
 [node name="SolarSystem5" parent="World" unique_id=524022045 instance=ExtResource("4_lquwl")]
 position = Vector2(1163.196, -929.2998)
+
+[node name="SolarSystem6" parent="World" unique_id=972098454 instance=ExtResource("4_lquwl")]
+position = Vector2(4809, -733)
 
 [node name="Overlays" type="CanvasLayer" parent="." unique_id=2092498231]
 
