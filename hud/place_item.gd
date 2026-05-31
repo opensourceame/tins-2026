@@ -65,7 +65,7 @@ func create_or_grow_habitat(environment):
     var habitat: Habitat
 
     for c in spica.components:
-        if c is Habitat and c.environment == environment:
+        if c and c is Habitat and c.environment == environment:
             habitat = c
             break
 

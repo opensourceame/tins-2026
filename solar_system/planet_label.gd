@@ -1,7 +1,7 @@
 class_name PlanetLabel
 extends Node2D
 
-const OFFSET = Vector2(0, -100)
+const OFFSET = Vector2(100, 0)
 
 var target: Planet
 
