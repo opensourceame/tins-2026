@@ -57,3 +57,4 @@ wait_time = 20.0
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1463561401]
 stream = ExtResource("7_272bh")
+pitch_scale = 0.8
