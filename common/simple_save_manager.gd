@@ -54,6 +54,11 @@ func quick_load(_data: Dictionary):
     _apply_after_load()
 
 
+func delete_all_saves():
+    if FileAccess.file_exists(SAVE_PATH):
+        DirAccess.remove_absolute(SAVE_PATH)
+
+
 func _apply_after_load():
     var game = get_tree().current_scene as Game
     if not game:

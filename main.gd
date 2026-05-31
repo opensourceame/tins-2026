@@ -91,8 +91,8 @@ func _ready():
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()
 
-    audio_player.autoplay = true
-    audio_player.play()
+    if SettingsManager.music_enabled:
+        audio_player.play()
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01

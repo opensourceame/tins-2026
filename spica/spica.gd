@@ -5,7 +5,7 @@ extends StaticBody2D
 @onready var return_area: Area2D = $ReturnArea
 @onready var crash_area: Area2D = $CrashArea
 
-var rotation_speed = 15.0
+var rotation_speed = 10.0
 var intelligent_planets = []
 var anchors = []
 var components = []
@@ -109,7 +109,7 @@ func refresh_capacities():
     capacity_sulphuric = 0
     capacity_plasma = 0
     for c in components:
-        if c is Habitat:
+        if c and c is Habitat:
             var available = c.capacity - c.captured
             match c.environment:
                 "water":

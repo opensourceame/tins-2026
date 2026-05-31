@@ -65,7 +65,7 @@ func capacity_changed(_habitat):
     %CapacityLabel.text = "Capacities: 💨" + str(s.capacity_oxygen) + "  💦: " + str(s.capacity_water) + "  🌕: " + str(s.capacity_sulphuric) + "  🌀: " + str(s.capacity_plasma)
 
 func spica_damage():
-    %DamageLabel.text = "damage: " + str(game.spica.damage)
+    %DamageLabel.text = "⚠️ " + str(game.spica.damage)
 
 func update_species_captured(species = null):
     if not game.spica:

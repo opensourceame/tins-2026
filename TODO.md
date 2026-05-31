@@ -2,15 +2,17 @@
 
 * moon trap can get attacked
 
+# ESSENTIAL FOR JAM
+
+* sound effects
 
 # MAJOR
 
 * detector deteriorates over time
 * species goes extinct - no chance of capturing more aliens
 * ability to sell off / diable detection dish
-* sound effects
+
 * spica gets damaged randomly - e.g. by species trying to escape
-* add delay to completion of building things (dish etc)
 
 
 # MINOR
@@ -69,4 +71,4 @@
 * Spica core look
 * start screen with easy, medium, hard, custom buttons
 * colour planets
-* require build time for objects
+* add delay to completion of building / upgrading things (dish etc)

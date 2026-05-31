@@ -21,6 +21,7 @@ offset_bottom = -48.178024
 color = Color(0.14558512, 0.42133367, 0.42863873, 1)
 
 [node name="Label" type="Label" parent="." unique_id=809655452]
+visible = false
 offset_left = -64.237366
 offset_top = -144.53407
 offset_right = 64.237366

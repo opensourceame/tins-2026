@@ -12,7 +12,7 @@ const PRESETS = {
         "max_energy": 3000,
         "start_damage": 0,
         "intelligent_planets_count": 10,
-        "energy_collection_rate": 0.2,
+        "energy_collection_rate": 0.25,
         "skip_tutorial": false,
     },
     "medium": {

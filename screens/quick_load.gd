@@ -3,15 +3,24 @@ extends Control
 
 @onready var saves_container: VBoxContainer = %Saves
 @onready var back_button: Button = %BackButton
+@onready var clear_all_button: Button = %ClearAllButton
 
 var save_manager: Node
 
 
 func _ready():
     back_button.pressed.connect(_on_back_pressed)
+    clear_all_button.pressed.connect(_on_clear_all_pressed)
 
     if not save_manager:
         return
+
+    _populate_saves()
+
+
+func _populate_saves():
+    for child in saves_container.get_children():
+        child.queue_free()
 
     var saves = save_manager.get_recent_saves()
 
@@ -19,7 +28,6 @@ func _ready():
         var empty_label = Label.new()
         empty_label.text = "No saves found"
         empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-        #empty_label.theme_override_font_sizes["font_size"] = 16
         saves_container.add_child(empty_label)
     else:
         for save in saves:
@@ -44,6 +52,12 @@ func _create_save_entry(save: Dictionary) -> Button:
 func _on_save_selected(save: Dictionary):
     if save_manager:
         save_manager.quick_load(save.get("data", {}))
+
+
+func _on_clear_all_pressed():
+    if save_manager and save_manager.has_method("delete_all_saves"):
+        save_manager.delete_all_saves()
+        _populate_saves()
 
 
 func _on_back_pressed():

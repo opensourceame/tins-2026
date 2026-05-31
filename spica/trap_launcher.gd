@@ -19,6 +19,7 @@ func build(target_planet):
         return
 
     building = true
+    SoundBus.play("build-moon")
     trap = Spawner.moon_trap()
     trap.target = target_planet
     build_marker.add_child(trap)

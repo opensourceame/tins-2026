@@ -65,6 +65,19 @@ func quick_load(data: Dictionary):
     game.add_child(preload("res://screens/pause.tscn").instantiate())
 
 
+func delete_all_saves():
+    var dir = DirAccess.open("user://quick_saves")
+    if not dir:
+        return
+
+    dir.list_dir_begin()
+    var file_name = dir.get_next()
+    while file_name != "":
+        if file_name.ends_with(".json"):
+            dir.remove(file_name)
+        file_name = dir.get_next()
+
+
 func _cleanup_old_saves():
     var saves = get_recent_saves()
     var dir = DirAccess.open("user://quick_saves")

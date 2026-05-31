@@ -11,6 +11,21 @@ var current_state = State.READY
 @onready var label: Label = $Label
 @onready var energy_label: Label = $EnergyLabel
 
+const HIGHLIGHT = Color.WHITE * 2.0
+
+func _ready():
+    mouse_entered.connect(_on_mouse_entered)
+    mouse_exited.connect(_on_mouse_exited)
+    modulate = Color.WHITE
+
+func _on_mouse_entered():
+    if current_state == State.DISABLED:
+        return
+    modulate = HIGHLIGHT
+
+func _on_mouse_exited():
+    modulate = Color.WHITE
+
 func _gui_input(event):
     if not current_state == State.READY:
         return
@@ -176,6 +191,8 @@ func no_space():
 
 func trigger_progress_bar(seconds: float, callback: Callable = Callable()):
     current_state = State.BUSY
+
+    SoundBus.play("start-construction")
 
     var tween = create_tween()
     tween.tween_property(%ProgressBar, "size", Vector2(200, 10), seconds)

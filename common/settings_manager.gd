@@ -8,6 +8,7 @@ var start_damage: int = 0
 var intelligent_planets_count: int = 3
 var energy_collection_rate: float = 0.15
 var skip_tutorial: bool = false
+var music_enabled: bool = true
 
 
 func _ready():
@@ -23,6 +24,7 @@ func save():
     config.set_value("gameplay", "intelligent_planets_count", intelligent_planets_count)
     config.set_value("gameplay", "energy_collection_rate", energy_collection_rate)
     config.set_value("gameplay", "skip_tutorial", skip_tutorial)
+    config.set_value("audio", "music_enabled", music_enabled)
 
     config.save(SETTINGS_PATH)
 
@@ -38,3 +40,4 @@ func load_settings():
     intelligent_planets_count = config.get_value("gameplay", "intelligent_planets_count", intelligent_planets_count)
     energy_collection_rate = config.get_value("gameplay", "energy_collection_rate", energy_collection_rate)
     skip_tutorial = config.get_value("gameplay", "skip_tutorial", skip_tutorial)
+    music_enabled = config.get_value("audio", "music_enabled", music_enabled)

@@ -28,6 +28,10 @@ what they think is a moon they are whipped back to Spica to be added to the zoo'
 
 ### Habitats
 
+Habitats are where the zoo vicims live.  A habitat can be grown as more species are captured.
+Habitats can become overcrowded if a moon-trap brings back more members of the species than there
+is capacity for.  Species can also reproduce in captivity, causing population pressure.
+
 Zoo captives need a habitat that mimics the conditions of their home planet.  There are four types of
 environment:
 
@@ -77,3 +81,16 @@ possible to keep them interested.
 ## Game ending
 
 If you run out of energy, or visitors stop visiting due to lack of interest, the zoo will close.
+
+# Input
+
+Use the mouse to click on things to build in the left menu.
+Click a planet to launch a moon trap at the planet.
+You can change the game time using the keys 1, 2 and 3
+Press R to restart the game
+Press S to save, L to load
+Press G to to to Game Over screen
+
+### For testing
+
+When you have a water habitat you can press W multiple times to generate overcrowded habitat segments until the habitat collapses.

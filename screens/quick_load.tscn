@@ -45,6 +45,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ClearAllButton" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Clear All Saves"
+
 [node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer" unique_id=283579579]
 layout_mode = 2
 size_flags_vertical = 3
