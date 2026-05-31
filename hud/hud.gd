@@ -68,8 +68,11 @@ func spica_damage():
     %DamageLabel.text = "damage: " + str(game.spica.damage)
 
 func update_species_captured(species = null):
+    if not game.spica:
+        return
+
     for node in %SpeciesVBoxContainer.get_children():
-        if species and species.name() == node.name:
+        if node.name in game.spica.captured_species:
             node.modulate = Color.GREEN
         else:
             node.modulate = Color(0.313, 0.313, 0.313, 1.0)

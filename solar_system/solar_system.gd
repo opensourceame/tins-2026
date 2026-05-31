@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))
 
 func _draw():
+    draw_sun()
+
+func draw_sun():
     # draw the sun at the centre
     draw_circle(Vector2.ZERO, planets[0].size, Color.YELLOW)
 

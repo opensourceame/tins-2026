@@ -87,8 +87,7 @@ func _gui_input(event):
             "detector_dish":
                 return add_or_upgrade_detector_dish()
             "repair_module":
-
-                component = Spawner.repair_module()
+                return add_or_upgrade_repair_module()
             "moon_trap":
                 if not game.spica.trap_launcher():
                     game.hud.queue_message("you need a trap launcher")
@@ -98,6 +97,8 @@ func _gui_input(event):
                     return
 
                 launcher.build(data.get("target"))
+
+                SignalBus.energy_consumed.emit("moon_trap")
 
         if component:
             spica.add_component(anchor, component)
@@ -129,6 +130,9 @@ func add_or_upgrade_detector_dish():
 
     SignalBus.energy_consumed.emit("detector_dish")
 
+    if not spica.detector_dish.can_upgrade():
+        queue_free()
+
 func add_or_upgrade_energy_collector():
     if not spica.energy_collector:
         var a = find_free_anchor()
@@ -140,8 +144,26 @@ func add_or_upgrade_energy_collector():
         if not spica.energy_collector.upgrade():
             return
 
-
     SignalBus.energy_consumed.emit("energy_collector")
+
+    if not spica.energy_collector.can_upgrade():
+        queue_free()
+
+func add_or_upgrade_repair_module():
+    if not spica.repair_module:
+        var a = find_free_anchor()
+        if not a:
+            return no_space()
+
+        spica.add_component(a, Spawner.repair_module())
+    else:
+        if not spica.repair_module.upgrade():
+            return
+
+    SignalBus.energy_consumed.emit("repair_module")
+
+    if not spica.repair_module.can_upgrade():
+        queue_free()
 
 func no_space():
     game.hud.queue_message("Spica has no free slots")

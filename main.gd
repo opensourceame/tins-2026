@@ -3,7 +3,7 @@ extends Node2D
 
 enum SaveStrategy { JSON, SIMPLE }
 
-@export var save_strategy: SaveStrategy = SaveStrategy.JSON
+@export var save_strategy: SaveStrategy = SaveStrategy.SIMPLE
 
 @onready var world: CanvasLayer = $World
 @onready var hud: CanvasLayer = $HUD
@@ -79,6 +79,7 @@ func _ready():
     hud.permanent_items.add_item("trap_launcher")
     hud.permanent_items.add_item("detector_dish")
     hud.permanent_items.add_item("energy_collector")
+    hud.permanent_items.add_item("repair_module")
 
     if not skip_tutorial:
         hud.queue_message("Welcome to the Spica Zoo")
@@ -203,10 +204,7 @@ func queue_trap_item(planet):
     hud.item_queue.add_item("moon_trap", { "target": planet })
 
 func on_spica_damage():
-    for c in spica.components:
-        if c is RepairModule:
-            return
-    hud.item_queue.add_item("repair_module")
+    pass
 
 func on_species_captured(species):
     if visitor_interest > 9:

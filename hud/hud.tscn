@@ -277,9 +277,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -400.0
-offset_right = 400.0
-offset_bottom = 42.0
+offset_left = -704.0
+offset_top = 32.0
+offset_right = 704.0
+offset_bottom = 74.0
 grow_horizontal = 2
 theme = SubResource("Theme_8sq4i")
 
@@ -290,17 +291,13 @@ layout_mode = 2
 [node name="CapacityLabel" type="Label" parent="Control2/HBoxContainer/Control" unique_id=1192660003]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.5
-offset_top = -21.0
-offset_right = 76.5
-offset_bottom = 21.0
+offset_left = -137.0
+offset_right = 137.0
+offset_bottom = 69.0
 grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("4_0ivg5")
 theme_override_font_sizes/font_size = 50
 text = "CAPACITIES"
@@ -312,17 +309,13 @@ layout_mode = 2
 [node name="EnergyLabel" type="Label" parent="Control2/HBoxContainer/Control2" unique_id=461073288]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -71.0
-offset_top = -22.5
 offset_right = 71.0
-offset_bottom = 22.5
+offset_bottom = 69.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "⚡️ 0"
 
@@ -338,9 +331,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 20.0
-offset_bottom = 45.0
+offset_bottom = 69.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 50
 
 [node name="Control3" type="Control" parent="." unique_id=1130484763]
 custom_minimum_size = Vector2(0, 100)

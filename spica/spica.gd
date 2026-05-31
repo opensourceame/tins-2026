@@ -17,6 +17,7 @@ var capacity_plasma    = 0
 var damage = 0
 var detector_dish: DetectorDish
 var energy_collector: EnergyCollector
+var repair_module: RepairModule
 
 func _ready():
     for a in $Anchors.get_children():
@@ -48,6 +49,9 @@ func add_component(anchor, component):
 
     if component is DetectorDish:
         detector_dish = component
+
+    if component is RepairModule:
+        repair_module = component
 
 func trap_launcher():
     for c in components:
@@ -124,8 +128,12 @@ func _on_habitat_capacity_changed(_habitat):
     refresh_capacities()
 
 func capture_species(species):
+    var name = species.name()
+    if name not in captured_species:
+        captured_species.append(species.name())
+
     print("SPICA: trapped ", species)
-    captured_species.append(species.name())
+    print(captured_species)
 
     var habitat = get_habitat_for(species.environment)
     habitat.capture(species, randi_range(7, 10))

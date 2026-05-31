@@ -1,6 +1,7 @@
 # OUT OF SCOPE FOR GAMEJAM
 
-*
+* moon trap can get attacked
+
 
 # MAJOR
 
@@ -8,12 +9,14 @@
 * species goes extinct - no chance of capturing more aliens
 * ability to sell off / diable detection dish
 * sound effects
+* spica gets damaged randomly - e.g. by species trying to escape
+* add delay to completion of building things (dish etc)
+
 
 # MINOR
 
 * colour planets
 * animate breaks in the habitat when overcrowded
-* detection dish should consume energy
 * planets can have species captured X (4?) times before species goes extinct
 
 # AESTHETICS + FLUFF
@@ -21,6 +24,7 @@
 * repair module sends out drones which fly around
 
 # BUGS
+
 
 
 # DONE
@@ -61,3 +65,4 @@
 * detection dish can be upgraded
 * improve habitat look
 * Spica core look
+* start screen with easy, medium, hard, custom buttons

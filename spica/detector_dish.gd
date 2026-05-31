@@ -45,6 +45,9 @@ func _physics_process(_delta):
 
     queue_redraw()
 
+func can_upgrade():
+    return detect_distance < MAX_DISTANCE
+
 func update_detect_distance():
     if detect_distance >= MAX_DISTANCE:
         return

@@ -30,8 +30,11 @@ func _on_collect_area_exited(area: Area2D) -> void:
 
 func _physics_process(_delta: float) -> void:
     if collecting:
-        if randf() < efficiency / 7.03  * energy_collection_rate:
+        if randf() < efficiency / 7.03  * energy_collection_rate * Engine.time_scale:
             SignalBus.energy_collected.emit()
+
+func can_upgrade():
+    return efficiency < MAX_EFFICIENCY
 
 func upgrade():
     if efficiency >= MAX_EFFICIENCY:
