@@ -90,7 +90,6 @@ func animate_overcrowding():
     for v in spine.get_children():
         v.animate_damaged()
 
-
 func is_over_capacity():
     return capacity < 0
 

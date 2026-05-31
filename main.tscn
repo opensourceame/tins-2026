@@ -13,37 +13,44 @@ script = ExtResource("1_ig7tw")
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1006583992]
 
+[node name="SolarSystem7" parent="World" unique_id=1622112534 instance=ExtResource("4_lquwl")]
+position = Vector2(5374, 953)
+
 [node name="Stars" parent="World" unique_id=149245613 instance=ExtResource("2_7mycd")]
 
 [node name="Sun" parent="World" unique_id=851595133 instance=ExtResource("6_7mycd")]
 position = Vector2(855, 1104)
 
+[node name="SolarSystem" parent="World/Sun" unique_id=210242942 instance=ExtResource("4_lquwl")]
+position = Vector2(-2486, 990)
+
 [node name="Spica" parent="World" unique_id=841173338 instance=ExtResource("2_0xm2m")]
 z_index = 5
 position = Vector2(1764, 852)
 
-[node name="SolarSystem" parent="World" unique_id=210242942 instance=ExtResource("4_lquwl")]
+[node name="SolarSystem" parent="World" unique_id=1925794854 instance=ExtResource("4_lquwl")]
 position = Vector2(-929.188, -607.6516)
 
 [node name="SolarSystem3" parent="World" unique_id=500073210 instance=ExtResource("4_lquwl")]
-position = Vector2(3144, 913)
+position = Vector2(3040, 905)
 
 [node name="SolarSystem2" parent="World" unique_id=108115157 instance=ExtResource("4_lquwl")]
-position = Vector2(318, 2661)
+position = Vector2(758, 3433)
 
 [node name="SolarSystem4" parent="World" unique_id=911011653 instance=ExtResource("4_lquwl")]
-position = Vector2(3966, 2538)
+position = Vector2(4502, 2852)
 
 [node name="SolarSystem5" parent="World" unique_id=524022045 instance=ExtResource("4_lquwl")]
 position = Vector2(1163.196, -929.2998)
 
 [node name="SolarSystem6" parent="World" unique_id=972098454 instance=ExtResource("4_lquwl")]
-position = Vector2(4227, -659)
+position = Vector2(4427, -1037)
 
 [node name="Overlays" type="CanvasLayer" parent="." unique_id=2092498231]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
 position = Vector2(982, 624)
+scale = Vector2(-3289.3083, 1497.7505)
 limit_left = -1
 limit_top = 0
 limit_right = 2559

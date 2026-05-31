@@ -20,9 +20,6 @@ func add_item(type, data = {}):
     item.data = data
     item.label.text = type.replace("_", "\n")
 
-    if item.find_parent("PermanentItems"):
-        item.get_node("ColorRect").color = Color(0.299, 0.044, 0.044, 1.0)
-
     if env:
         item.label.text += " " + env_icon(env)
 

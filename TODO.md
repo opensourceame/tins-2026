@@ -15,9 +15,11 @@
 
 # MINOR
 
-* colour planets
+
 * animate breaks in the habitat when overcrowded
 * planets can have species captured X (4?) times before species goes extinct
+* habitat occupancy grows after first capture
+
 
 # AESTHETICS + FLUFF
 
@@ -25,7 +27,7 @@
 
 # BUGS
 
-
+* load / save
 
 # DONE
 
@@ -66,3 +68,5 @@
 * improve habitat look
 * Spica core look
 * start screen with easy, medium, hard, custom buttons
+* colour planets
+* require build time for objects

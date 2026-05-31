@@ -1,10 +1,10 @@
 class_name PlaceItem
 extends Control
 
-enum State { ENABLED, DISABLED }
+enum State { READY, BUSY, DISABLED }
 var type
 var data = {}
-var current_state = State.ENABLED
+var current_state = State.READY
 
 @onready var game: = get_tree().current_scene
 @onready var spica = game.spica
@@ -12,7 +12,7 @@ var current_state = State.ENABLED
 @onready var energy_label: Label = $EnergyLabel
 
 func _gui_input(event):
-    if current_state == State.DISABLED:
+    if not current_state == State.READY:
         return
 
     if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -25,65 +25,15 @@ func _gui_input(event):
 
         match type:
             "habitat":
-                var target_env = data.get("environment", "oxygen")
-                var habitat: Habitat
+                var environment = data.get("environment", "oxygen")
 
-                for c in spica.components:
-                    if c is Habitat and c.environment == target_env:
-                        habitat = c
-                        break
-
-                if habitat:
-                    if habitat.capacity > 99:
-                        game.hud.queue_message("habitat full")
-                        return
-                    habitat.grow()
-                else:
-                    for a in spica.anchors:
-                        if not a.has_component():
-                            anchor = a
-                            break
-
-                    if not anchor:
-                        game.hud.queue_message("no space for habitat")
-                        return
-
-                    var new_habitat = Spawner.habitat()
-                    var i = 1
-                    for c in spica.components:
-                        if c is Habitat:
-                            i += 1
-                    new_habitat.name = str(i)
-                    new_habitat.environment = target_env
-                    spica.add_component(anchor, new_habitat)
-                    new_habitat.grow()
-                    habitat = new_habitat
-
-                var item_type = type
-                var item_data = data
-
-                SignalBus.energy_consumed.emit(type)
-
-                disable_me()
-
-                var timer = Timer.new()
-                timer.wait_time = 10.0
-                timer.timeout.connect(enable_me)
-                add_child(timer)
-                timer.start()
-                return
+                return create_or_grow_habitat(environment)
 
             "energy_collector":
                 return add_or_upgrade_energy_collector()
 
             "trap_launcher":
-                for a in spica.anchors:
-                    if not a.has_component():
-                        anchor = a
-                        break
-                if not anchor:
-                    return
-                component = Spawner.trap_launcher()
+                return add_trap_launcher()
             "detector_dish":
                 return add_or_upgrade_detector_dish()
             "repair_module":
@@ -105,65 +55,133 @@ func _gui_input(event):
 
         queue_free()
 
-func disable_me():
-    modulate = Color.BLACK
-    current_state = State.DISABLED
-
-func enable_me():
-    modulate = Color.WHITE
-    current_state = State.ENABLED
-
 func find_free_anchor():
     for a in spica.anchors:
         if not a.has_component():
               return a
 
+
+func create_or_grow_habitat(environment):
+    var habitat: Habitat
+
+    for c in spica.components:
+        if c is Habitat and c.environment == environment:
+            habitat = c
+            break
+
+    trigger_progress_bar(10, func():
+        if habitat:
+            if habitat.capacity > 99:
+                game.hud.queue_message("habitat full")
+                return
+            habitat.grow()
+        else:
+
+            var a = find_free_anchor()
+            if not a:
+                return no_space()
+
+            var new_habitat = Spawner.habitat()
+            #var i = 1
+            #for c in spica.components:
+                #if c is Habitat:
+                    #i += 1
+            #new_habitat.name = str(i)
+            new_habitat.name = environment[0]
+            new_habitat.environment = environment
+            spica.add_component(a, new_habitat)
+            new_habitat.grow()
+            habitat = new_habitat
+
+        var item_type = type
+        var item_data = data
+
+        SignalBus.energy_consumed.emit(type)
+    )
+
 func add_or_upgrade_detector_dish():
     if not spica.detector_dish:
-        var a = find_free_anchor()
-        if not a:
-            return no_space()
+        SignalBus.energy_consumed.emit("detector_dish")
 
-        return spica.add_component(a, Spawner.detector_dish())
-    else:
+        trigger_progress_bar(5.0, func():
+            spica.add_component(find_free_anchor(), Spawner.detector_dish())
+            if not spica.detector_dish.can_upgrade():
+                queue_free()
+        )
+        return
+
+    trigger_progress_bar(5.0, func():
         spica.detector_dish.update_detect_distance()
+        if not spica.detector_dish.can_upgrade():
+            queue_free()
+    )
 
     SignalBus.energy_consumed.emit("detector_dish")
 
-    if not spica.detector_dish.can_upgrade():
-        queue_free()
+
+func add_trap_launcher():
+    if not spica.trap_launcher:
+        SignalBus.energy_consumed.emit("trap_launcher")
+
+        trigger_progress_bar(5.0, func():
+            spica.add_component(find_free_anchor(), Spawner.trap_launcher())
+            queue_free()
+        )
+        return
+
 
 func add_or_upgrade_energy_collector():
     if not spica.energy_collector:
-        var a = find_free_anchor()
-        if not a:
-            return no_space()
 
-        spica.add_component(a, Spawner.energy_collector())
+        #if not a:
+            #return no_space()
+
+        trigger_progress_bar(5.0, func():
+            var a = find_free_anchor()
+            spica.add_component(a, Spawner.energy_collector())
+        )
     else:
-        if not spica.energy_collector.upgrade():
+        if not spica.energy_collector.can_upgrade():
             return
+
+        trigger_progress_bar(3.0, func():
+            spica.energy_collector.upgrade()
+            if not spica.energy_collector.can_upgrade():
+                queue_free()
+        )
 
     SignalBus.energy_consumed.emit("energy_collector")
 
-    if not spica.energy_collector.can_upgrade():
-        queue_free()
 
 func add_or_upgrade_repair_module():
     if not spica.repair_module:
-        var a = find_free_anchor()
-        if not a:
-            return no_space()
-
-        spica.add_component(a, Spawner.repair_module())
+        trigger_progress_bar(3.0, func():
+            spica.add_component(find_free_anchor(), Spawner.repair_module())
+        )
     else:
-        if not spica.repair_module.upgrade():
+        if not spica.repair_module.can_upgrade():
             return
+
+        trigger_progress_bar(3.0, func():
+            spica.repair_module.upgrade()
+            if not spica.repair_module.can_upgrade():
+                queue_free()
+            )
 
     SignalBus.energy_consumed.emit("repair_module")
 
-    if not spica.repair_module.can_upgrade():
-        queue_free()
 
 func no_space():
     game.hud.queue_message("Spica has no free slots")
+
+func trigger_progress_bar(seconds: float, callback: Callable = Callable()):
+    current_state = State.BUSY
+
+    var tween = create_tween()
+    tween.tween_property(%ProgressBar, "size", Vector2(200, 10), seconds)
+    tween.tween_callback(func():
+        %ProgressBar.size.x = 0
+        current_state = State.READY
+        if callback.is_valid():
+            callback.call()
+    )

@@ -18,6 +18,7 @@ var damage = 0
 var detector_dish: DetectorDish
 var energy_collector: EnergyCollector
 var repair_module: RepairModule
+var trap_launcher: TrapLauncher
 
 func _ready():
     for a in $Anchors.get_children():
@@ -25,6 +26,7 @@ func _ready():
 
     SignalBus.intelligence_detected.connect(_on_intelligence_detected)
     SignalBus.habitat_capacity_changed.connect(_on_habitat_capacity_changed)
+    SignalBus.repair_module_dismantle.connect(_on_repair_module_dismantle)
 
     crash_area.body_entered.connect(_on_body_entered)
     return_area.body_entered.connect(_on_return_area_entered)
@@ -53,10 +55,11 @@ func add_component(anchor, component):
     if component is RepairModule:
         repair_module = component
 
-func trap_launcher():
-    for c in components:
-        if c is TrapLauncher:
-            return c
+    if component is TrapLauncher:
+        trap_launcher = component
+
+#func trap_launcher():
+    #return trap_launcher
 
 func _on_intelligence_detected(planet):
     pass
@@ -120,7 +123,7 @@ func refresh_capacities():
 
 func get_habitat_for(environment: String) -> Habitat:
     for c in components:
-        if c is Habitat and c.environment == environment:
+        if c and c is Habitat and c.environment == environment:
             return c
     return null
 
@@ -157,3 +160,6 @@ func animate_damage(pos: Vector2):
     var damage = load("res://damage.tscn").instantiate()
     add_child(damage)
     damage.position = pos
+
+func _on_repair_module_dismantle():
+    repair_module = null

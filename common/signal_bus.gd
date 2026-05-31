@@ -10,3 +10,4 @@ signal habitat_overcrowded(habitat)
 signal energy_collected
 signal energy_consumed(consumer)
 signal spica_damage
+signal repair_module_dismantle

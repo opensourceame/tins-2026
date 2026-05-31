@@ -32,4 +32,4 @@ func _draw():
         return
 
     for r in range(MIN_RADIUS, radius, GAP):
-        draw_circle(Vector2.ZERO, r, Color(0.268, 0.268, 0.268, 1.7 - 1.0 * radius / MAX_RADIUS), false, 1)
+        draw_circle(Vector2.ZERO, r, Color(0.268, 0.268, 0.268, 2.0 - 1.0 * radius / MAX_RADIUS), false, 1)

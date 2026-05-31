@@ -16,6 +16,12 @@ func _ready():
     repair_timer.timeout.connect(repair)
     repair_timer.start()
 
+    var timer = Timer.new()
+    add_child(timer)
+    timer.wait_time = 30.0
+    timer.timeout.connect(remove_module)
+    timer.start()
+
 func repair():
     if spica.damage < 1:
         return
@@ -35,3 +41,7 @@ func upgrade() -> bool:
     repair_timer.wait_time = _repair_interval
     repair_timer.start()
     return true
+
+func remove_module():
+    SignalBus.repair_module_dismantle.emit()
+    queue_free()

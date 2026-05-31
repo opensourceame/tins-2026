@@ -9,7 +9,8 @@ var target: Planet
 @onready var control: Control = $Control
 
 func _ready():
-    $Control/Label.text = target.planet_name
+    var prefix = target.env_icon(target.environment)
+    $Control/Label.text = prefix + " " + target.planet_name
 
 func _physics_process(delta: float) -> void:
     global_position = target.global_position + OFFSET

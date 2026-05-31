@@ -67,6 +67,7 @@ func _ready():
     SignalBus.moon_trap_returned.connect(on_moon_trap_returned)
     SignalBus.spica_damage.connect(on_spica_damage)
     SignalBus.species_captured.connect(on_species_captured)
+    SignalBus.habitat_overcrowded.connect(on_habitat_overcrowded)
 
     SignalBus.habitat_overcrowded.connect(func(_h): SoundBus.play("alarm-long"))
 
@@ -219,6 +220,9 @@ func on_species_captured(species):
         visitor_interest += 2
     else:
         visitor_interest += 1
+
+func on_habitat_overcrowded(habitat):
+    hud.queue_message("the " + habitat.environment + " habitat is overcrowded!")
 
 func lose_interest():
     visitor_interest -= 1

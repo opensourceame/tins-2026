@@ -12,9 +12,10 @@ func _ready():
     particles.emitting = true
     #pulse_in()
     #queue_redraw()
+    #return
 
 func _draw():
-    draw_circle(Vector2.ZERO, 128, Color.YELLOW * circle_modulation)
+    draw_circle(Vector2.ZERO, 256, Color.YELLOW * circle_modulation)
 
 func pulse_in():
     var tween = create_tween()

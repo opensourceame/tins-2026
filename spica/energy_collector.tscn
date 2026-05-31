@@ -21,6 +21,40 @@ position = Vector2(0, -128)
 color = Color(0.45008665, 0.19163278, 0.13310355, 1)
 polygon = PackedVector2Array(-32, 0, -16, -64, -56, -112, 56, -112, 16, -64, 32, 0)
 
+[node name="Polygon2D" type="Polygon2D" parent="spire" unique_id=1541698301]
+scale = Vector2(0.996598, 1.1499714)
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(-32, -96, -16, -64, -24, -96)
+
+[node name="Polygon2D2" type="Polygon2D" parent="spire" unique_id=162143580]
+scale = Vector2(0.996598, 1.1499714)
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(24, -96, 16, -64, 32, -96)
+
+[node name="Polygon2D3" type="Polygon2D" parent="spire" unique_id=2043893108]
+scale = Vector2(0.996598, 1.1499714)
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(-16, -96, -8, -64, -8, -96)
+
+[node name="Polygon2D4" type="Polygon2D" parent="spire" unique_id=947922705]
+position = Vector2(16, 0)
+scale = Vector2(0.498299, 1.1499714)
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(-16, -96, -16, -64, 0, -96)
+
+[node name="Polygon2D5" type="Polygon2D" parent="spire" unique_id=2004008304]
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(-24, 0, -16, 0, -8, -64)
+
+[node name="Polygon2D7" type="Polygon2D" parent="spire" unique_id=1315561743]
+position = Vector2(8, 0)
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(-16, 0, 0, 0, -8, -64)
+
+[node name="Polygon2D6" type="Polygon2D" parent="spire" unique_id=1105754230]
+color = Color(0.23693943, 0.10770608, 0.08029295, 1)
+polygon = PackedVector2Array(16, 0, 24, 0, 8, -64)
+
 [node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1000203067]
 color = Color(0.51142144, 0.27894917, 0.17434588, 1)
 polygon = PackedVector2Array(-32, -128, 32, -128, 32, 0, -32, 0)
@@ -86,5 +120,6 @@ collision_layer = 131072
 collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=1492398382]
+visible = false
 position = Vector2(0, -255.5)
 shape = SubResource("RectangleShape2D_6lfwl")

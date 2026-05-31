@@ -12,7 +12,7 @@ const MAX_DISTANCE = 3500
 
 var intelligent_planets = []
 var spica: Spica
-var detect_distance: int = 500
+var detect_distance: int = 750
 var colliding: bool = false
 
 func _ready():
@@ -35,10 +35,9 @@ func _physics_process(_delta):
         return
     if detect_ray.is_colliding():
         var area = detect_ray.get_collider()
-        if area.get_parent().has_advanced_life:
-            intelligence_detected.emit(area.get_parent())
-            SignalBus.intelligence_detected.emit(area.get_parent())
-            SoundBus.play("planet-detected")
+        var planet = area.get_parent()
+        if planet.has_advanced_life:
+            detected_intelligence(planet)
             colliding = true
     else:
         colliding = false
@@ -52,7 +51,7 @@ func update_detect_distance():
     if detect_distance >= MAX_DISTANCE:
         return
 
-    detect_distance += 500
+    detect_distance += 250
     detect_ray.target_position.y = -detect_distance
 
     queue_redraw()
@@ -67,6 +66,12 @@ func detected_intelligence(planet):
         return
 
     print("SPICA: detected new intelligent planet ", planet)
+    planet.detect()
+
     intelligent_planets.append(planet)
     if spica:
         spica.register_intelligent_planet(planet)
+
+    intelligence_detected.emit(planet)
+    SignalBus.intelligence_detected.emit(planet)
+    SoundBus.play("planet-detected")

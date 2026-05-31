@@ -14,6 +14,7 @@ var rotation_speed = 60
 var planet_name: String
 var environment: String = "oxygen"
 var species: Species
+var is_detected: bool = false
 
 const COLOR_RANGES = {
     30: Color.AQUAMARINE,
@@ -28,7 +29,7 @@ const PLANET_LABEL = preload("res://solar_system/planet_label.tscn")
 const SPECIES_BY_ENV = {
     "oxygen":    [preload("res://species/humans.gd"),    preload("res://species/wibbles.gd")],
     "water":     [preload("res://species/fishoids.gd"),  preload("res://species/guppiez.gd")],
-    "sulphuric": [preload("res://species/hegrons.gd"), preload("res://species/sherzat.gd")],
+    "sulphuric": [preload("res://species/hegrons.gd"),   preload("res://species/sherzat.gd")],
     "plasma":    [preload("res://species/plasmoids.gd"), preload("res://species/embers.gd")],
 }
 
@@ -39,16 +40,22 @@ func _ready():
     if has_advanced_life:
         add_intelligent_species()
 
+func detect():
+    if is_detected:
+        return
+
+    is_detected = true
+    add_label()
+    add_child(BROADCASTING_COMPONENT.instantiate())
+
 func add_intelligent_species():
     detect_area.monitorable = true
+    orbit_area.input_event.connect(_on_detect_area_input)
     orbit_area.body_entered.connect(_on_orbit_entered)
     if game.planet_names.size() > 0:
         planet_name = game.planet_names.pop_back()
 
     set_random_environment()
-    add_label()
-
-    add_child(BROADCASTING_COMPONENT.instantiate())
 
 func _physics_process(delta: float) -> void:
     rotate(deg_to_rad(delta * rotation_speed))
@@ -69,8 +76,28 @@ func set_random_environment():
 func calculate_color():
     for threshold in COLOR_RANGES:
         if size < threshold:
-            color = COLOR_RANGES[threshold]
+            color = COLOR_RANGES[threshold] - (Color.WHITE * randf_range(0.0, 0.4))
             break
+
+func _on_detect_area_input(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+    if not is_detected:
+        return
+    if not event is InputEventMouseButton:
+        return
+    if not event.pressed or event.button_index != MOUSE_BUTTON_LEFT:
+        return
+
+    var launcher = game.spica.trap_launcher
+
+    if not launcher:
+        game.hud.queue_message("you need a trap launcher")
+        return
+
+    if not launcher.is_ready():
+        game.hud.queue_message("trap launcher is busy")
+        return
+
+    launcher.build(self)
 
 func _on_orbit_entered(body):
     if not body is MoonTrap:
@@ -85,3 +112,16 @@ func _on_orbit_entered(body):
     has_moon_trap = true
 
     body.orbit(self)
+
+func env_icon(env):
+    match env:
+        "water":
+            return "💦"
+        "oxygen":
+            return "💨"
+        "sulphuric":
+            return "🌕"
+        "plasma":
+            return "🌀"
+        _:
+            return ""
