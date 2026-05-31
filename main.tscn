@@ -11,7 +11,6 @@
 [node name="ROOT" type="Node2D" unique_id=2062991433]
 script = ExtResource("1_ig7tw")
 save_strategy = 1
-visitor_interest = null
 
 [node name="World" type="CanvasLayer" parent="." unique_id=1006583992]
 

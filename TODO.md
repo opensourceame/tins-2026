@@ -7,7 +7,6 @@
 * detector deteriorates over time
 * species goes extinct - no chance of capturing more aliens
 * ability to sell off / diable detection dish
-* game over when run out of energy
 * sound effects
 
 # MINOR
@@ -15,7 +14,6 @@
 * colour planets
 * animate breaks in the habitat when overcrowded
 * detection dish should consume energy
-* after rapairs damage particle animations should stop
 * planets can have species captured X (4?) times before species goes extinct
 
 # AESTHETICS
@@ -58,3 +56,6 @@
 * require manual action for each progressive section of habitat building
 * damage to the Spica should drain energy
 * energy required to build moons
+* settings page
+* after rapairs damage particle animations should stop
+* game over when run out of energy

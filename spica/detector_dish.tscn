@@ -23,7 +23,10 @@ color = Color(0.24115604, 0.24115604, 0.24115604, 1)
 polygon = PackedVector2Array(-16, 16, -16, 0, 16, 0, 16, 16)
 
 [node name="DetectRay" type="RayCast2D" parent="." unique_id=809226370]
-target_position = Vector2(0, -2616)
+target_position = Vector2(0, -500)
 collision_mask = 256
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="DetectDistanceTimer" type="Timer" parent="." unique_id=342962588]
+wait_time = 5.0

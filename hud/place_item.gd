@@ -7,6 +7,7 @@ var data = {}
 var current_state = State.ENABLED
 
 @onready var game: = get_tree().current_scene
+@onready var spica = game.spica
 @onready var label: Label = $Label
 @onready var energy_label: Label = $EnergyLabel
 
@@ -15,9 +16,6 @@ func _gui_input(event):
         return
 
     if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-        var game = get_tree().current_scene
-        var spica = game.spica
-
         if game.energy < Game.ENERGY_REQUIRED[type]:
             game.hud.queue_message("not enough energy")
             return
@@ -82,6 +80,8 @@ func _gui_input(event):
                         break
                 if not anchor:
                     return
+
+
                 component = Spawner.energy_collector()
             "trap_launcher":
                 for a in spica.anchors:
@@ -92,20 +92,9 @@ func _gui_input(event):
                     return
                 component = Spawner.trap_launcher()
             "detector_dish":
-                for a in spica.anchors:
-                    if not a.has_component():
-                        anchor = a
-                        break
-                if not anchor:
-                    return
-                component = Spawner.detector_dish()
+                return add_or_upgrade_detector_dish()
             "repair_module":
-                for a in spica.anchors:
-                    if not a.has_component():
-                        anchor = a
-                        break
-                if not anchor:
-                    return
+
                 component = Spawner.repair_module()
             "moon_trap":
                 if not game.spica.trap_launcher():
@@ -121,7 +110,6 @@ func _gui_input(event):
             spica.add_component(anchor, component)
 
         queue_free()
-        SignalBus.energy_consumed.emit(type)
 
 func disable_me():
     modulate = Color.BLACK
@@ -130,3 +118,23 @@ func disable_me():
 func enable_me():
     modulate = Color.WHITE
     current_state = State.ENABLED
+
+func find_free_anchor():
+    for a in spica.anchors:
+        if not a.has_component():
+              return a
+
+func add_or_upgrade_detector_dish():
+    if not spica.detector_dish:
+        var a = find_free_anchor()
+        if not a:
+            return no_space()
+
+        return spica.add_component(a, Spawner.detector_dish())
+    else:
+        spica.detector_dish.update_detect_distance()
+
+    SignalBus.energy_consumed.emit("detector_dish")
+
+func no_space():
+    game.hud.queue_message("Spica has no free slots")

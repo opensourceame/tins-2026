@@ -1,8 +1,8 @@
-class_name Bzzaps
+class_name Sherzat
 extends Species
 
 func _init():
     environment = "sulphuric"
 
 func name():
-    return "bzzaps"
+    return "sherzat"

@@ -8,7 +8,8 @@ var environment: String = "oxygen"
 const SPECIES = [
     preload("res://species/humans.gd"),
     preload("res://species/wibbles.gd"),
-    preload("res://species/bzzaps.gd"),
+    preload("res://species/hegrons.gd"),
+    preload("res://species/sherzat.gd"),
     preload("res://species/fishoids.gd"),
     preload("res://species/guppiez.gd"),
     preload("res://species/plasmoids.gd"),

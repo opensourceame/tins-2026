@@ -6,6 +6,7 @@ func _ready():
     SignalBus.species_captured.connect(update_species)
 
 func update_species(species_or_trap):
+    return
     var species = species_or_trap.species if "species" in species_or_trap else species_or_trap
     var name = species.name()
     if displayed_species.has(name):

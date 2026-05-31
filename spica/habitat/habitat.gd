@@ -48,17 +48,13 @@ func grow() -> bool:
     if capacity > 99:
         return false
 
-
     var v = VERTEBRA.instantiate()
     spine.add_child(v)
     v.scale.y = 0.1
     v.position.y = vertebrae * -192
     vertebrae += 1
+    capacity  += 10
 
-    var tween = create_tween()
-    tween.tween_property(v, "scale.y", 1.0, 2.0)
-
-    capacity += 10
     SignalBus.habitat_capacity_changed.emit(self)
 
     disable_animations()
@@ -84,7 +80,7 @@ func check_overcrowding():
     timer.timeout.connect(check_habitat_collapse)
     timer.start()
 
-    SignalBus.habitat_overcrowded.emit()
+    SignalBus.habitat_overcrowded.emit(self)
 
 func disable_animations():
     for v in spine.get_children():

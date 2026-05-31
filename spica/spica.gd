@@ -15,6 +15,8 @@ var capacity_water     = 0
 var capacity_sulphuric = 0
 var capacity_plasma    = 0
 var damage = 0
+var detector_dish: DetectorDish
+var energy_collector: EnergyCollector
 
 func _ready():
     for a in $Anchors.get_children():
@@ -40,6 +42,12 @@ func add_component(anchor, component):
     anchor.attach_component(component)
     components.append(component)
     component.rotation = anchor.position.angle() + deg_to_rad(90)
+
+    if component is EnergyCollector:
+        energy_collector = component
+
+    if component is DetectorDish:
+        detector_dish = component
 
 func trap_launcher():
     for c in components:

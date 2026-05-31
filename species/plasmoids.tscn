@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dufv2sjj0hxke"]
+
+[node name="Plasmoids" type="Node2D" unique_id=1292575265]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1277412807]
+polygon = PackedVector2Array(14, 17, 16, 8, 23, 16, 24, 6, 33, 17, 36, 4, 42, 16, 48, 8, 43, 21, 56, 16, 45, 33, 56, 45, 45, 40, 48, 56, 40, 45, 37, 55, 30, 49, 16, 56, 21, 48, 8, 48, 18, 41, 4, 35, 15, 26, 5, 22)

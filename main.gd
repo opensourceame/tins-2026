@@ -68,6 +68,11 @@ func _ready():
     SignalBus.spica_damage.connect(on_spica_damage)
     SignalBus.species_captured.connect(on_species_captured)
 
+    SignalBus.energy_collected.connect(func(): SoundBus.play("freesound_community-industrial-alarm-95068"))
+    SignalBus.energy_consumed.connect(func(_c): SoundBus.play("freesound_community-industrial-alarm-95068", -6.0))
+    SignalBus.spica_damage.connect(func(): SoundBus.play("freesound_community-industrial-alarm-95068", -10.0))
+    SignalBus.habitat_overcrowded.connect(func(_h): SoundBus.play("alarm-long"))
+
     spawn = SPAWNER_SCRIPT.new()
 
     hud.permanent_items.add_item("habitat", { "environment": "oxygen" })
@@ -206,11 +211,19 @@ func on_spica_damage():
             return
     hud.item_queue.add_item("repair_module")
 
-func on_species_captured(trap):
+func on_species_captured(species):
     if visitor_interest > 9:
         return
 
-    visitor_interest += 1
+    var count = 0
+    for s in spica.captured_species:
+        if s.name() == species.name():
+            count += 1
+
+    if count == 1:
+        visitor_interest += 2
+    else:
+        visitor_interest += 1
 
 func lose_interest():
     visitor_interest -= 1
