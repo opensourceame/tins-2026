@@ -4,11 +4,16 @@ extends Control
 @onready var saves_container: VBoxContainer = %Saves
 @onready var back_button: Button = %BackButton
 
+var save_manager: Node
+
 
 func _ready():
     back_button.pressed.connect(_on_back_pressed)
 
-    var saves = SaveManager.get_recent_saves()
+    if not save_manager:
+        return
+
+    var saves = save_manager.get_recent_saves()
 
     if saves.is_empty():
         var empty_label = Label.new()
@@ -24,7 +29,6 @@ func _ready():
 
 func _create_save_entry(save: Dictionary) -> Button:
     var btn = Button.new()
-    #btn.theme_override_font_sizes["font_size"] = 28
     btn.size_flags_horizontal = SIZE_EXPAND_FILL
 
     var dt = Time.get_datetime_dict_from_unix_time(save.get("timestamp", 0))
@@ -37,7 +41,8 @@ func _create_save_entry(save: Dictionary) -> Button:
 
 
 func _on_save_selected(save: Dictionary):
-    SaveManager.quick_load(save.get("data", {}))
+    if save_manager:
+        save_manager.quick_load(save.get("data", {}))
 
 
 func _on_back_pressed():

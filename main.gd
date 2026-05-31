@@ -1,6 +1,10 @@
 class_name Game
 extends Node2D
 
+enum SaveStrategy { JSON, SIMPLE }
+
+@export var save_strategy: SaveStrategy = SaveStrategy.JSON
+
 @onready var world: CanvasLayer = $World
 @onready var hud: CanvasLayer = $HUD
 @onready var spica: Spica = $World/Spica
@@ -8,6 +12,7 @@ extends Node2D
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
+
 static var MAX_ENERGY: int = 3000
 
 var zoomed_out: bool = false
@@ -118,10 +123,11 @@ func _input(event: InputEvent):
             tween.tween_property(world, "offset", center * (1.0 - s), ZOOM_TIME)
             tween.tween_callback(toggle_hud)
         if event.keycode == KEY_S:
-            if SaveManager.quick_save():
+            if _save_game():
                 hud.queue_message("Game saved")
         if event.keycode == KEY_L and not get_node_or_null("QuickLoad"):
             var quick_load = preload("res://screens/quick_load.tscn").instantiate()
+            quick_load.save_manager = _save_manager()
             add_child(quick_load)
         if event.keycode == KEY_P and not get_node_or_null("PauseOverlay"):
             var pause = preload("res://screens/pause.tscn").instantiate()
@@ -189,3 +195,21 @@ func check_game_over():
 
 func game_over():
     get_tree().change_scene_to_file("res://screens/game_over.tscn")
+
+
+func _save_game() -> bool:
+    match save_strategy:
+        SaveStrategy.JSON:
+            return SaveManager.quick_save()
+        SaveStrategy.SIMPLE:
+            return SimpleSaveManager.quick_save()
+    return false
+
+
+func _save_manager():
+    match save_strategy:
+        SaveStrategy.JSON:
+            return SaveManager
+        SaveStrategy.SIMPLE:
+            return SimpleSaveManager
+    return SaveManager

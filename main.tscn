@@ -9,6 +9,7 @@
 
 [node name="ROOT" type="Node2D" unique_id=2062991433]
 script = ExtResource("1_ig7tw")
+save_strategy = 1
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=2092498231]
 

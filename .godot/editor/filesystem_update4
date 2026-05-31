@@ -2,3 +2,6 @@ res://main.tscn
 res://screens/quick_load.gd
 res://solar_system/planet_label.gd
 res://common/save_manager.gd
+res://main.gd
+res://docs/quick_save_load.md
+res://screens/quick_load.tscn

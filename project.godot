@@ -21,6 +21,7 @@ SignalBus="*res://common/signal_bus.gd"
 Spawner="*uid://ch8linahqitvw"
 SettingsManager="*res://common/settings_manager.gd"
 SaveManager="*res://common/save_manager.gd"
+SimpleSaveManager="*res://common/simple_save_manager.gd"
 
 [display]
 
