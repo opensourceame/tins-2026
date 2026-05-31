@@ -10,6 +10,7 @@ enum SaveStrategy { JSON, SIMPLE }
 @onready var spica: Spica = $World/Spica
 @onready var visitor_interest_timer: Timer = $VisitorInterestTimer
 @onready var overlays: CanvasLayer = $Overlays
+@onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
@@ -86,6 +87,7 @@ func _ready():
     visitor_interest_timer.timeout.connect(lose_interest)
     visitor_interest_timer.start()
 
+    audio_player.play()
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01

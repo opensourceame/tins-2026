@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud/hud.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://sckxa40vknyj" path="res://solar_system/solar_system.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cb85l082jl45q" path="res://sun.tscn" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://bv6e73kp47uas" path="res://sounds/Mesmerizing Galaxy Loop.mp3" id="7_272bh"]
 
 [node name="ROOT" type="Node2D" unique_id=2062991433]
 script = ExtResource("1_ig7tw")
@@ -53,3 +54,6 @@ limit_bottom = 1440
 
 [node name="VisitorInterestTimer" type="Timer" parent="." unique_id=1091359135]
 wait_time = 20.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1463561401]
+stream = ExtResource("7_272bh")
