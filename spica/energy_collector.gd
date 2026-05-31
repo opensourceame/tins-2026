@@ -6,7 +6,10 @@ extends StaticBody2D
 
 var collecting: bool = false
 
+@export var energy_collection_rate = 0.15
+
 func _ready():
+    energy_collection_rate = SettingsManager.energy_collection_rate
     collect_area.area_entered.connect(_on_collect_area_entered)
     collect_area.area_exited.connect(_on_collect_area_exited)
 
@@ -22,5 +25,5 @@ func _on_collect_area_exited(area: Area2D) -> void:
 
 func _physics_process(_delta: float) -> void:
     if collecting:
-        if randf() < 0.15:
+        if randf() < energy_collection_rate:
             SignalBus.energy_collected.emit()

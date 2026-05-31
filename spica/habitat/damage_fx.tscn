@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://chbhs5auj5xwo"]
+
+[ext_resource type="Script" uid="uid://iiou6syspp10" path="res://spica/habitat/damage_fx.gd" id="1_6bkxr"]
+
+[node name="DamageFX" type="Node" unique_id=559027539]
+script = ExtResource("1_6bkxr")

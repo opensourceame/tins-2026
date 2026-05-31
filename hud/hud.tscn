@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://dsf1g446pdngb" path="res://hud/species.gd" id="3_fjv1a"]
 [ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="3_svhta"]
 [ext_resource type="Theme" uid="uid://b5oqcotryjtm5" path="res://hud/hud_theme.tres" id="4_0ivg5"]
+[ext_resource type="PackedScene" uid="uid://dwwbbr2gx67rp" path="res://species/humans.tscn" id="4_1kkc0"]
+[ext_resource type="PackedScene" uid="uid://lskuu7lww0s" path="res://species/wibbles.tscn" id="5_1kkc0"]
+[ext_resource type="PackedScene" uid="uid://b1i3y5uh8g8yh" path="res://species/fishoids.tscn" id="5_qv4qp"]
 
 [sub_resource type="Theme" id="Theme_8sq4i"]
 default_font_size = 36
@@ -180,6 +183,34 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightBar/VBoxContainer/Species" unique_id=1196593861]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Humans" type="Control" parent="RightBar/VBoxContainer/Species/HBoxContainer" unique_id=1062926198]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Humans" parent="RightBar/VBoxContainer/Species/HBoxContainer/Humans" unique_id=1394043830 instance=ExtResource("4_1kkc0")]
+
+[node name="Wibbles" type="Control" parent="RightBar/VBoxContainer/Species/HBoxContainer" unique_id=754735475]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Wibbles" parent="RightBar/VBoxContainer/Species/HBoxContainer/Wibbles" unique_id=1105051175 instance=ExtResource("5_1kkc0")]
+
+[node name="Fishoids" type="Control" parent="RightBar/VBoxContainer/Species/HBoxContainer" unique_id=176786870]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Fishoids" parent="RightBar/VBoxContainer/Species/HBoxContainer/Fishoids" unique_id=178381417 instance=ExtResource("5_qv4qp")]
+position = Vector2(-4, 0)
 
 [node name="Control2" type="Control" parent="." unique_id=107916139]
 layout_mode = 3

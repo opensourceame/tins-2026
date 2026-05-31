@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4xphjntuuavl" path="res://spica/habitat/vertebra.gd" id="1_seyjc"]
 
-[node name="Spine" type="Node2D" unique_id=88464467]
+[node name="Vertebra" type="Node2D" unique_id=88464467]
 scale = Vector2(1, 0.1)
 script = ExtResource("1_seyjc")
 

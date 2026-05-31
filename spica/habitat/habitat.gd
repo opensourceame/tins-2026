@@ -4,7 +4,7 @@ extends Node2D
 enum State { AVAILABLE, OVERCROWDED, COLLAPSED }
 
 const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
-const COLLAPSE_TIME = 15.0
+const COLLAPSE_TIME = 45
 
 @onready var game: Game = get_tree().current_scene
 @onready var label: Label = $Label
@@ -61,6 +61,7 @@ func grow() -> bool:
     capacity += 10
     SignalBus.habitat_capacity_changed.emit(self)
 
+    disable_animations()
     check_overcrowding()
 
     return true
@@ -69,7 +70,7 @@ func check_overcrowding():
     if not is_over_capacity():
         return
 
-    spine.modulate = Color.RED
+    animate_overcrowding()
 
     game.hud.queue_message("Overcrowding in " + environment + " habitat")
 
@@ -83,6 +84,15 @@ func check_overcrowding():
     timer.timeout.connect(check_habitat_collapse)
     timer.start()
 
+    SignalBus.habitat_overcrowded.emit()
+
+func disable_animations():
+    for v in spine.get_children():
+        v.remove_damage_animation()
+
+func animate_overcrowding():
+    for v in spine.get_children():
+        v.animate_damaged()
 
 
 func is_over_capacity():

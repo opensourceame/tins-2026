@@ -126,8 +126,12 @@ func capture_species(species):
     SignalBus.habitat_capacity_changed.emit(null)
 
 func _on_body_entered(body):
-    if body is MoonTrap and body.is_crashing():
-        body.queue_free()
+    if not body is MoonTrap:
+        return
+    if not body.is_crashing():
+        return
+
+    body.queue_free()
 
     animate_damage(body.global_position - global_position)
 

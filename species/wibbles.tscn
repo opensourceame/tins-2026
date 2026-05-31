@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lskuu7lww0s"]
+
+[node name="Wibbles" type="Node2D" unique_id=1105051175]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=824994968]
+position = Vector2(7, 0)
+polygon = PackedVector2Array(0, 16, 7, 10, 19, 11, 24, 16, 32, 8, 40, 8, 40, 8, 48, 16, 40, 32, 48, 56, 40, 48, 40, 56, 32, 40, 28, 44, 24, 48, 24, 56, 20, 45, 16, 56, 16, 48, 12, 47, 8, 56, 4, 46, 0, 64, 0, 48, 0, 32, 6, 24)

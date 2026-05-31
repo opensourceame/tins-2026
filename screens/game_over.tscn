@@ -25,53 +25,49 @@ grow_vertical = 2
 position = Vector2(2045, 1205)
 
 [node name="Control" type="Control" parent="CenterContainer" unique_id=973177336]
-custom_minimum_size = Vector2(500, 200)
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/Control" unique_id=2013105844]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control" unique_id=797064390]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.0
+offset_top = -284.0
+offset_right = 671.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Control/VBoxContainer" unique_id=2013105844]
+layout_mode = 2
 theme = ExtResource("2_skulm")
 theme_override_font_sizes/font_size = 128
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="TryAgainButton" type="Button" parent="CenterContainer/Control" unique_id=824534919]
+[node name="ReasonLabel" type="Label" parent="CenterContainer/Control/VBoxContainer" unique_id=826480231]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -270.5
-offset_top = 120.0
-offset_right = 270.5
-offset_bottom = 224.0
-grow_horizontal = 2
-grow_vertical = 0
+modulate = Color(1, 0.5649526, 0.3158576, 1)
+layout_mode = 2
+theme = ExtResource("2_skulm")
+theme_override_font_sizes/font_size = 64
+text = "reason"
+horizontal_alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=824534919]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("2_skulm")
 theme_override_font_sizes/font_size = 54
 text = "Try Again"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/Control" unique_id=824534920]
+[node name="SettingsButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=824534920]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -270.5
-offset_top = 240.0
-offset_right = 270.5
-offset_bottom = 344.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 theme = ExtResource("2_skulm")
 theme_override_font_sizes/font_size = 54
 text = "Settings"

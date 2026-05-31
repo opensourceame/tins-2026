@@ -104,7 +104,7 @@ func _input(event: InputEvent):
         if event.keycode == KEY_R:
             get_tree().reload_current_scene()
         if event.keycode == KEY_G:
-            game_over()
+            game_over("user")
         if event.keycode == KEY_1:
             Engine.time_scale = 1.0
         if event.keycode == KEY_2:
@@ -115,12 +115,8 @@ func _input(event: InputEvent):
             var habitat = spica.get_habitat_for("water")
             if habitat:
                 habitat.grow()
-                var count = habitat.capacity + 1
-                for i in count:
-                    var fish = Fishoids.new()
-                    spica.captured_species.append(fish)
-                    habitat.capture(fish, 11)
-                    SignalBus.species_captured.emit(fish)
+                var fish = Fishoids.new()
+                habitat.capture(fish, 11)
                 spica.refresh_capacities()
                 SignalBus.habitat_capacity_changed.emit(null)
             else:
@@ -191,7 +187,7 @@ func on_energy_consumed(consumer):
     energy -= ENERGY_REQUIRED[consumer]
 
     if energy < 1:
-        game_over()
+        game_over("energy")
 
 func on_moon_trap_returned(trap):
     var timer = Timer.new()
@@ -224,11 +220,12 @@ func lose_interest():
 
 func check_game_over():
     if visitor_interest < 0:
-        game_over()
+        game_over("interest")
     if energy < 0:
-        game_over()
+        game_over("energy")
 
-func game_over():
+func game_over(reason):
+    GameOver.reason = reason
     get_tree().change_scene_to_file("res://screens/game_over.tscn")
 
 
