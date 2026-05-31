@@ -16,14 +16,12 @@
 * detection dish should consume energy
 * planets can have species captured X (4?) times before species goes extinct
 
-# AESTHETICS
+# AESTHETICS + FLUFF
 
-* improve habitat
-* Spica core
+* repair module sends out drones which fly around
 
 # BUGS
 
-* unable to create new habitats
 
 # DONE
 
@@ -59,3 +57,7 @@
 * settings page
 * after rapairs damage particle animations should stop
 * game over when run out of energy
+* add improved species capture display
+* detection dish can be upgraded
+* improve habitat look
+* Spica core look

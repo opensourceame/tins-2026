@@ -74,15 +74,8 @@ func _gui_input(event):
                 return
 
             "energy_collector":
-                for a in spica.anchors:
-                    if not a.has_component():
-                        anchor = a
-                        break
-                if not anchor:
-                    return
+                return add_or_upgrade_energy_collector()
 
-
-                component = Spawner.energy_collector()
             "trap_launcher":
                 for a in spica.anchors:
                     if not a.has_component():
@@ -135,6 +128,20 @@ func add_or_upgrade_detector_dish():
         spica.detector_dish.update_detect_distance()
 
     SignalBus.energy_consumed.emit("detector_dish")
+
+func add_or_upgrade_energy_collector():
+    if not spica.energy_collector:
+        var a = find_free_anchor()
+        if not a:
+            return no_space()
+
+        spica.add_component(a, Spawner.energy_collector())
+    else:
+        if not spica.energy_collector.upgrade():
+            return
+
+
+    SignalBus.energy_consumed.emit("energy_collector")
 
 func no_space():
     game.hud.queue_message("Spica has no free slots")

@@ -68,9 +68,6 @@ func _ready():
     SignalBus.spica_damage.connect(on_spica_damage)
     SignalBus.species_captured.connect(on_species_captured)
 
-    SignalBus.energy_collected.connect(func(): SoundBus.play("freesound_community-industrial-alarm-95068"))
-    SignalBus.energy_consumed.connect(func(_c): SoundBus.play("freesound_community-industrial-alarm-95068", -6.0))
-    SignalBus.spica_damage.connect(func(): SoundBus.play("freesound_community-industrial-alarm-95068", -10.0))
     SignalBus.habitat_overcrowded.connect(func(_h): SoundBus.play("alarm-long"))
 
     spawn = SPAWNER_SCRIPT.new()
@@ -100,7 +97,7 @@ func _physics_process(delta: float) -> void:
     hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
 
     visitors += visitor_interest / 100.0
-    energy   -= spica.damage * delta
+    energy   -= spica.damage * delta / 2
 
     check_game_over()
 
@@ -217,7 +214,7 @@ func on_species_captured(species):
 
     var count = 0
     for s in spica.captured_species:
-        if s.name() == species.name():
+        if s == species.name():
             count += 1
 
     if count == 1:

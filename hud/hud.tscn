@@ -212,54 +212,54 @@ offset_bottom = 15.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Humans" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1062926198]
+[node name="humans" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1062926198]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Humans" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Humans" unique_id=1394043830 instance=ExtResource("4_1kkc0")]
+[node name="Humans" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/humans" unique_id=1394043830 instance=ExtResource("4_1kkc0")]
 
-[node name="Wibbles" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=754735475]
+[node name="wibbles" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=754735475]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Wibbles" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Wibbles" unique_id=1105051175 instance=ExtResource("5_1kkc0")]
+[node name="Wibbles" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/wibbles" unique_id=1105051175 instance=ExtResource("5_1kkc0")]
 
-[node name="Fishoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=176786870]
+[node name="fishoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=176786870]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Fishoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Fishoids" unique_id=178381417 instance=ExtResource("5_qv4qp")]
+[node name="Fishoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/fishoids" unique_id=178381417 instance=ExtResource("5_qv4qp")]
 position = Vector2(-4, 0)
 
-[node name="Guppiez" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1500455576]
+[node name="guppiez" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1500455576]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Guppiez" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Guppiez" unique_id=1854008074 instance=ExtResource("7_mq7b8")]
+[node name="Guppiez" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/guppiez" unique_id=1854008074 instance=ExtResource("7_mq7b8")]
 
-[node name="Plasmoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=985502474]
+[node name="plasmoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=985502474]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Plasmoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Plasmoids" unique_id=1292575265 instance=ExtResource("8_jvpmi")]
+[node name="Plasmoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/plasmoids" unique_id=1292575265 instance=ExtResource("8_jvpmi")]
 
-[node name="Embers" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1173759819]
+[node name="embers" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1173759819]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Embers" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Embers" unique_id=1737852085 instance=ExtResource("9_t2ad4")]
+[node name="Embers" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/embers" unique_id=1737852085 instance=ExtResource("9_t2ad4")]
 
-[node name="Sherzat" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1474273403]
+[node name="sherzat" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1474273403]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Sherzat" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Sherzat" unique_id=1919756055 instance=ExtResource("10_0jxvb")]
+[node name="Sherzat" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/sherzat" unique_id=1919756055 instance=ExtResource("10_0jxvb")]
 
-[node name="Hegrons" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1695278953]
+[node name="hegrons" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1695278953]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Hegrons2" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/Hegrons" unique_id=594009044 instance=ExtResource("11_pt78x")]
+[node name="Hegrons2" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/hegrons" unique_id=594009044 instance=ExtResource("11_pt78x")]
 
 [node name="Control2" type="Control" parent="." unique_id=107916139]
 layout_mode = 3

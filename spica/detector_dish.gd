@@ -38,6 +38,7 @@ func _physics_process(_delta):
         if area.get_parent().has_advanced_life:
             intelligence_detected.emit(area.get_parent())
             SignalBus.intelligence_detected.emit(area.get_parent())
+            SoundBus.play("planet-detected")
             colliding = true
     else:
         colliding = false

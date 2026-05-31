@@ -125,7 +125,7 @@ func _on_habitat_capacity_changed(_habitat):
 
 func capture_species(species):
     print("SPICA: trapped ", species)
-    captured_species.append(species)
+    captured_species.append(species.name())
 
     var habitat = get_habitat_for(species.environment)
     habitat.capture(species, randi_range(7, 10))

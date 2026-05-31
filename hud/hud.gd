@@ -17,6 +17,8 @@ func _ready():
     SignalBus.spica_damage.connect(spica_damage)
     SignalBus.species_captured.connect(update_species_captured)
 
+    update_species_captured()
+
 func _physics_process(delta: float) -> void:
     if message_queue.size() > 0 and not message_being_displayed:
         show_next_message()
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
     %EnergyLabel.text = "⚡️ " + str(int(game.energy))
 
     update_visitor_interest()
-    update_species_captured()
+
 
 func queue_message(text):
     message_queue.append(text)
@@ -65,17 +67,12 @@ func capacity_changed(_habitat):
 func spica_damage():
     %DamageLabel.text = "damage: " + str(game.spica.damage)
 
-func update_species_captured(species):
+func update_species_captured(species = null):
     for node in %SpeciesVBoxContainer.get_children():
-        var c = node.get_children()[0]
-        c.modulate = Color.GRAY
-
-        if _is_captured(c.name.to_lower()):
-            c.modulate = Color.LIGHT_GREEN
-
-func _is_captured(species_name: String) -> bool:
-    var tracker = %SpeciesVBoxContainer.get_parent()
-    return tracker.displayed_species.has(species_name)
+        if species and species.name() == node.name:
+            node.modulate = Color.GREEN
+        else:
+            node.modulate = Color(0.313, 0.313, 0.313, 1.0)
 
 func update_visitor_interest():
     var i = 0
