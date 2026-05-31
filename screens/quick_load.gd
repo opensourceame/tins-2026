@@ -19,7 +19,7 @@ func _ready():
         var empty_label = Label.new()
         empty_label.text = "No saves found"
         empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-        empty_label.theme_override_font_sizes["font_size"] = 32
+        #empty_label.theme_override_font_sizes["font_size"] = 16
         saves_container.add_child(empty_label)
     else:
         for save in saves:
@@ -30,6 +30,7 @@ func _ready():
 func _create_save_entry(save: Dictionary) -> Button:
     var btn = Button.new()
     btn.size_flags_horizontal = SIZE_EXPAND_FILL
+    btn.add_theme_font_size_override("font_size", 32)
 
     var dt = Time.get_datetime_dict_from_unix_time(save.get("timestamp", 0))
     var date_str = "%04d-%02d-%02d %02d:%02d:%02d" % [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second]

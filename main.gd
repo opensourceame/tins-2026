@@ -9,6 +9,7 @@ enum SaveStrategy { JSON, SIMPLE }
 @onready var hud: CanvasLayer = $HUD
 @onready var spica: Spica = $World/Spica
 @onready var visitor_interest_timer: Timer = $VisitorInterestTimer
+@onready var overlays: CanvasLayer = $Overlays
 
 const ZOOM_OUT_SCALE: float = 0.4
 const ZOOM_TIME: float = 0.3
@@ -128,7 +129,7 @@ func _input(event: InputEvent):
         if event.keycode == KEY_L and not get_node_or_null("QuickLoad"):
             var quick_load = preload("res://screens/quick_load.tscn").instantiate()
             quick_load.save_manager = _save_manager()
-            add_child(quick_load)
+            overlays.add_child(quick_load)
         if event.keycode == KEY_P and not get_node_or_null("PauseOverlay"):
             var pause = preload("res://screens/pause.tscn").instantiate()
             add_child(pause)

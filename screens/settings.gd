@@ -7,13 +7,13 @@ extends Control
 
 
 func _ready():
-	visitor_interest_spinbox.value = SettingsManager.start_visitor_interest
-	max_energy_spinbox.value = SettingsManager.max_energy
+    visitor_interest_spinbox.value = SettingsManager.start_visitor_interest
+    max_energy_spinbox.value = SettingsManager.max_energy
 
-	start_button.pressed.connect(_on_start_pressed)
+    start_button.pressed.connect(_on_start_pressed)
 
 
 func _on_start_pressed():
-	SettingsManager.start_visitor_interest = visitor_interest_spinbox.value
-	SettingsManager.max_energy = max_energy_spinbox.value
-	get_tree().change_scene_to_file("res://main.tscn")
+    SettingsManager.start_visitor_interest = visitor_interest_spinbox.value
+    SettingsManager.max_energy = max_energy_spinbox.value
+    get_tree().change_scene_to_file("res://main.tscn")
