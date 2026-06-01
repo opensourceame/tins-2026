@@ -14,7 +14,8 @@ var capacity_oxygen    = 0
 var capacity_water     = 0
 var capacity_methane = 0
 var capacity_plasma    = 0
-var damage = 0
+var damage = 5
+var damage_animation
 var detector_dish: DetectorDish
 var energy_collector: EnergyCollector
 var repair_module: RepairModule
@@ -84,9 +85,12 @@ func crash_moon_trap(trap):
     SoundBus.play("no-" + trap.target_planet.environment + "-capacity")
     game.hud.queue_message("no space for these victims")
 
-    damage += randi_range(3, 5)
+    inflict_damage(randi_range(3, 5))
 
+func inflict_damage(amount):
+    damage += amount
     SignalBus.spica_damage.emit()
+    animate_damage()
 
 func can_accomodate(species):
     return get_capacity_for(species.environment) > 0
@@ -151,16 +155,22 @@ func _on_crash_area_entered(body):
     if body.is_outbound():
         return
 
-    animate_damage(body.global_position - global_position)
+    crash_moon_trap(body)
 
     SoundBus.play("spica-damaged")
     game.hud.queue_message("trap crashed")
     body.queue_free()
 
-func animate_damage(pos: Vector2):
-    var damage = load("res://damage.tscn").instantiate()
-    add_child(damage)
-    damage.position = pos
+func remove_damage_animation():
+    damage_animation.queue_free()
+
+func animate_damage(pos: Vector2 = Vector2.ZERO):
+    if damage_animation:
+        return true
+
+    damage_animation = load("res://damage.tscn").instantiate()
+    add_child(damage_animation)
+    damage_animation.position = pos
 
     SoundBus.play("alarm-long")
 

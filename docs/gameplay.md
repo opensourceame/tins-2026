@@ -84,13 +84,15 @@ If you run out of energy, or visitors stop visiting due to lack of interest, the
 
 # Input
 
-Use the mouse to click on things to build in the left menu.
-Click a planet to launch a moon trap at the planet.
-You can change the game time using the keys 1, 2 and 3
-Press R to restart the game
-Press S to save, L to load
-Press G to to to Game Over screen
+* Use the mouse to click on things to build in the left menu.
+* Click a planet to launch a moon trap at the planet.
+* You can change the game time using the keys 1, 2 and 3
+* Press R to restart the game
+* Press S to save, L to load
+* Press G to to to Game Over screen
 
 ### For testing
 
 When you have a water habitat you can press W multiple times to generate overcrowded habitat segments until the habitat collapses.
+
+Pressing D will inflict damage on the Spica

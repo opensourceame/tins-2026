@@ -11,7 +11,7 @@ script = ExtResource("1_dtqah")
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1075865864]
 position = Vector2(-64.237366, -128.47473)
 color = Color(0.09362079, 0.29689673, 0.30270457, 1)
-polygon = PackedVector2Array(-32.118683, 128.47473, 0, 80.29671, 128.47473, 80.29671, 176.65276, 128.47473)
+polygon = PackedVector2Array(-32.118683, 128.47473, 0, 80.29671, 128.47473, 80.29671, 160.59341, 128.47473)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1756759948]
 offset_left = -64.237366
@@ -34,3 +34,12 @@ horizontal_alignment = 1
 
 [node name="Spine" type="Node2D" parent="." unique_id=2070355240]
 position = Vector2(0, -128.47473)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=480294698]
+color = Color(1, 1, 1, 0.23137255)
+polygon = PackedVector2Array(-64.237366, -128.47473, -32.118683, -128.47473, -32.118683, -48.178024, -80.29671, 0, -96.35605, 0, -64.237366, -48.178024)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1661577181]
+scale = Vector2(-1, 1)
+color = Color(0.09225613, 0.09225613, 0.09225613, 0.23137255)
+polygon = PackedVector2Array(-64.237366, -128.47473, -32.118683, -128.47473, -32.118683, -48.178024, -80.29671, 0, -96.35605, 0, -64.237366, -48.178024)

@@ -132,6 +132,8 @@ func _input(event: InputEvent):
         if event.keycode == KEY_S:
             if _save_game():
                 hud.queue_message("Game saved")
+        if event.keycode == KEY_D:
+            spica.inflict_damage(1)
         if event.keycode == KEY_L and not get_node_or_null("QuickLoad"):
             var quick_load = preload("res://screens/quick_load.tscn").instantiate()
             quick_load.save_manager = _save_manager()

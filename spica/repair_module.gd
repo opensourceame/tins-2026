@@ -31,6 +31,7 @@ func repair():
 
     if spica.damage == 0:
         SoundBus.play("spica-repaired")
+        spica.remove_damage_animation()
 
 func can_upgrade() -> bool:
     return level < MAX_LEVEL
@@ -46,5 +47,6 @@ func upgrade() -> bool:
     return true
 
 func remove_module():
+    SoundBus.play("repair-module-dismantled")
     SignalBus.repair_module_dismantle.emit()
     queue_free()

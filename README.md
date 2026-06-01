@@ -9,3 +9,5 @@ https://tins.amarillion.org/2026/
 ## Playing the game
 
 Open this project in Godot, or run the bundled .exe on Windows
+
+Read the docs/gameplay.md for full game playing instructions

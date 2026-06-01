@@ -9,6 +9,8 @@ radius = 433.02887
 [sub_resource type="CircleShape2D" id="CircleShape2D_n32vl"]
 radius = 199.44925
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dt85o"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1h6m0"]
 radius = 96.0
 
@@ -63,8 +65,10 @@ polygon = PackedVector2Array(-192, -64, -192, 56, -144, 144, -64, 192, 64, 192, 
 [node name="Sphere2" type="Polygon2D" parent="Body" unique_id=1189229788]
 position = Vector2(0, -8)
 scale = Vector2(0.81848, 0.81848)
-color = Color(0.30032244, 0.2757508, 0.30599284, 1)
-polygon = PackedVector2Array(-192, -64, -195.48431, 39.096863, -156.38745, 156.38745, -78.193726, 195.48431, 78.193726, 195.48431, 156.38745, 156.38745, 195.48431, 78.193726, 195.48431, -78.193726, 156.38745, -156.38745, 78.193726, -195.48431, -78.193726, -195.48431, -156.38745, -156.38745)
+color = Color(0.36518145, 0.36518145, 0.36518145, 1)
+texture = SubResource("NoiseTexture2D_dt85o")
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(-205.25853, -58.645294, -205.25853, 87.96794, -156.38745, 156.38745, -78.193726, 215.03275, 78.193726, 215.03275, 156.38745, 156.38745, 205.25853, 87.96794, 205.25853, -68.41951, 156.38745, -156.38745, 78.193726, -195.48431, -78.193726, -195.48431, -156.38745, -156.38745)
 
 [node name="Sphere3" type="Polygon2D" parent="Body" unique_id=1696923819]
 rotation = 0.77009076
