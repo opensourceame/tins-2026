@@ -39,7 +39,7 @@ func env_icon(env):
             return "💦"
         "oxygen":
             return "💨"
-        "sulphuric":
+        "methane":
             return "🌕"
         "plasma":
             return "🌀"

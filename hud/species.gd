@@ -23,7 +23,7 @@ func _icon_for(species):
     match species.environment:
         "water":
             return "💦"
-        "sulphuric":
+        "methane":
             return "🌕"
         "plasma":
             return "🌀"

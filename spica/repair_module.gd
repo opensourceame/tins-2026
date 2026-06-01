@@ -29,6 +29,9 @@ func repair():
     spica.damage -= level + 1
     SignalBus.spica_damage.emit()
 
+    if spica.damage == 0:
+        SoundBus.play("spica-repaired")
+
 func can_upgrade() -> bool:
     return level < MAX_LEVEL
 

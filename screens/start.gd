@@ -8,7 +8,7 @@ extends Control
 
 const PRESETS = {
     "easy": {
-        "start_visitor_interest": 5,
+        "start_visitor_interest": 10,
         "max_energy": 3000,
         "start_damage": 0,
         "intelligent_planets_count": 10,
@@ -16,19 +16,19 @@ const PRESETS = {
         "skip_tutorial": false,
     },
     "medium": {
-        "start_visitor_interest": 3,
+        "start_visitor_interest": 7,
         "max_energy": 2000,
         "start_damage": 0,
         "intelligent_planets_count": 8,
-        "energy_collection_rate": 0.15,
+        "energy_collection_rate": 0.2,
         "skip_tutorial": false,
     },
     "hard": {
-        "start_visitor_interest": 1,
+        "start_visitor_interest": 5,
         "max_energy": 1000,
         "start_damage": 0,
         "intelligent_planets_count": 5,
-        "energy_collection_rate": 0.1,
+        "energy_collection_rate": 0.15,
         "skip_tutorial": false,
     },
 }

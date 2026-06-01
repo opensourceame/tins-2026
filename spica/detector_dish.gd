@@ -12,7 +12,7 @@ const MAX_DISTANCE = 3500
 
 var detected_planets = []
 var spica: Spica
-var detect_distance: int = 2750
+var detect_distance: int = 750
 var colliding: bool = false
 
 func _ready():

@@ -4,13 +4,14 @@ extends Node2D
 enum State { AVAILABLE, OVERCROWDED, COLLAPSED }
 
 const VERTEBRA = preload("res://spica/habitat/vertebra.tscn")
-const COLLAPSE_TIME = 45
+const COLLAPSE_TIME = 30
 
 @onready var game: Game = get_tree().current_scene
 @onready var label: Label = $Label
 @onready var spine: Node2D = $Spine
 @onready var color_rect: ColorRect = $ColorRect
 
+var spica: Spica
 var capacity = 0
 var captured = 0
 var vertebrae = 0
@@ -25,11 +26,13 @@ func _ready():
     label.text = name
     update_environment()
 
+    spica = find_parent("Spica")
+
 func update_environment():
     match environment:
         "water":
             modulate = Color(0.4, 0.6, 1.0)
-        "sulphuric":
+        "methane":
             modulate = Color(0.5, 1.0, 0.4)
         "plasma":
             modulate = Color(1.0, 0.3, 0.6)
@@ -57,13 +60,13 @@ func grow() -> bool:
 
     SignalBus.habitat_capacity_changed.emit(self)
 
-    disable_animations()
     check_overcrowding()
 
     return true
 
 func check_overcrowding():
     if not is_over_capacity():
+        clear_overcrowding()
         return
 
     animate_overcrowding()
@@ -84,11 +87,15 @@ func check_overcrowding():
 
 func disable_animations():
     for v in spine.get_children():
-        v.remove_damage_animation()
+        v.clear_damage()
 
 func animate_overcrowding():
     for v in spine.get_children():
         v.animate_damaged()
+
+func clear_overcrowding():
+    for v in spine.get_children():
+        v.clear_damage()
 
 func is_over_capacity():
     return capacity < 0
@@ -101,6 +108,9 @@ func check_habitat_collapse():
         return
 
     current_state = State.COLLAPSED
+
+    spica.damage += 4
+    spica.animate_damage(get_parent().position)
 
     var rigid_body = RigidBody2D.new()
     game.world.add_child(rigid_body)

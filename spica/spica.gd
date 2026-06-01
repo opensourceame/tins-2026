@@ -12,7 +12,7 @@ var components = []
 var captured_species = []
 var capacity_oxygen    = 0
 var capacity_water     = 0
-var capacity_sulphuric = 0
+var capacity_methane = 0
 var capacity_plasma    = 0
 var damage = 0
 var detector_dish: DetectorDish
@@ -28,7 +28,7 @@ func _ready():
     SignalBus.habitat_capacity_changed.connect(_on_habitat_capacity_changed)
     SignalBus.repair_module_dismantle.connect(_on_repair_module_dismantle)
 
-    crash_area.body_entered.connect(_on_body_entered)
+    crash_area.body_entered.connect(_on_crash_area_entered)
     return_area.body_entered.connect(_on_return_area_entered)
 
     SignalBus.spica_damage.emit(0)
@@ -95,8 +95,8 @@ func get_capacity_for(env: String) -> int:
     match env:
         "water":
             return capacity_water
-        "sulphuric":
-            return capacity_sulphuric
+        "methane":
+            return capacity_methane
         "plasma":
             return capacity_plasma
         "oxygen":
@@ -107,7 +107,7 @@ func get_capacity_for(env: String) -> int:
 func refresh_capacities():
     capacity_oxygen = 0
     capacity_water = 0
-    capacity_sulphuric = 0
+    capacity_methane = 0
     capacity_plasma = 0
     for c in components:
         if c and c is Habitat:
@@ -115,8 +115,8 @@ func refresh_capacities():
             match c.environment:
                 "water":
                     capacity_water += available
-                "sulphuric":
-                    capacity_sulphuric += available
+                "methane":
+                    capacity_methane += available
                 "plasma":
                     capacity_plasma += available
                 "oxygen":
@@ -145,22 +145,25 @@ func capture_species(species):
     SignalBus.species_captured.emit(species)
     SignalBus.habitat_capacity_changed.emit(null)
 
-func _on_body_entered(body):
+func _on_crash_area_entered(body):
     if not body is MoonTrap:
         return
     if not body.is_crashing():
         return
 
-    body.queue_free()
 
     animate_damage(body.global_position - global_position)
 
     game.hud.queue_message("trap crashed")
+    body.queue_free()
 
 func animate_damage(pos: Vector2):
     var damage = load("res://damage.tscn").instantiate()
     add_child(damage)
     damage.position = pos
+
+    SoundBus.play("spica-damaged")
+    SoundBus.play("alarm-long")
 
 func _on_repair_module_dismantle():
     repair_module = null

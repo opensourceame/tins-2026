@@ -75,7 +75,7 @@ func _ready():
 
     hud.permanent_items.add_item("habitat", { "environment": "oxygen" })
     hud.permanent_items.add_item("habitat", { "environment": "water" })
-    hud.permanent_items.add_item("habitat", { "environment": "sulphuric" })
+    hud.permanent_items.add_item("habitat", { "environment": "methane" })
     hud.permanent_items.add_item("habitat", { "environment": "plasma" })
     hud.permanent_items.add_item("trap_launcher")
     hud.permanent_items.add_item("detector_dish")

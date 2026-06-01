@@ -62,7 +62,7 @@ func alert_trap_returning(trap):
 
 func capacity_changed(_habitat):
     var s = game.spica
-    %CapacityLabel.text = "Capacities: 💨" + str(s.capacity_oxygen) + "  💦: " + str(s.capacity_water) + "  🌕: " + str(s.capacity_sulphuric) + "  🌀: " + str(s.capacity_plasma)
+    %CapacityLabel.text = "Capacities: 💨" + str(s.capacity_oxygen) + "  💦: " + str(s.capacity_water) + "  🌕: " + str(s.capacity_methane) + "  🌀: " + str(s.capacity_plasma)
 
 func spica_damage():
     %DamageLabel.text = "⚠️ " + str(game.spica.damage)

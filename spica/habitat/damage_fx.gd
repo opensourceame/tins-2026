@@ -1,13 +1,16 @@
 class_name SpineDamageFX
 extends Node
 
-const ROCK_TIME: float = 1.0
+const ROCK_TIME:  float = 1.0
 const PULSE_TIME: float = 1.0
 
 @onready var parent = get_parent()
 
 func _ready():
     pulse_in()
+
+func reset():
+    parent.modulate = Color.WHITE
 
 func rock_clockwise():
     var t = create_tween()

@@ -1,7 +1,7 @@
 class_name MoonTrap
 extends CharacterBody2D
 
-enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
+enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING, CRASHED }
 
 const MIN_MOON_SCALE = 0.1
 

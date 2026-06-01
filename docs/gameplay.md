@@ -43,9 +43,9 @@ These house species like humans and other air-breathing creatures.
 
 These house creatures that survive in water
 
-#### Sulphuric
+#### Methane
 
-A sulphuric atmoshphere is the home of some strange looking creatures
+A methane atmosphere is the home of some strange looking creatures
 
 #### Plasma
 

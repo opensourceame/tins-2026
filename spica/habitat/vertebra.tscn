@@ -20,7 +20,7 @@ polygon = PackedVector2Array(-32, 0, -32, -1360, -48, -1520, 0, -1680, 48, -1520
 [node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1980197417]
 position = Vector2(-8, 160)
 color = Color(0.36094868, 0.36094868, 0.36094865, 1)
-polygon = PackedVector2Array(112, -1520, 56, -1840, 56, -1680, 96, -1360, 96, -720, 72, -480, 72, -160, 88, -480, 136, -720, 136, -1280)
+polygon = PackedVector2Array(112, -1520, 80, -1760, 56, -1840, 56, -1680, 96, -1360, 96, -720, 72, -480, 72, -160, 88, -480, 136, -720, 136, -1280)
 
 [node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1203814276]
 position = Vector2(-51, -80)

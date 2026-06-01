@@ -2,7 +2,7 @@ class_name Hegrons
 extends Species
 
 func _init():
-    environment = "sulphuric"
+    environment = "methane"
 
 func name():
     return "hegrons"

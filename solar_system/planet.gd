@@ -30,7 +30,7 @@ const PLANET_LABEL = preload("res://solar_system/planet_label.tscn")
 const SPECIES_BY_ENV = {
     "oxygen":    [preload("res://species/humans.gd"),    preload("res://species/wibbles.gd")],
     "water":     [preload("res://species/fishoids.gd"),  preload("res://species/guppiez.gd")],
-    "sulphuric": [preload("res://species/hegrons.gd"),   preload("res://species/sherzat.gd")],
+    "methane": [preload("res://species/hegrons.gd"),   preload("res://species/sherzat.gd")],
     "plasma":    [preload("res://species/plasmoids.gd"), preload("res://species/embers.gd")],
 }
 
@@ -75,7 +75,7 @@ func add_label():
     game.get_node("World").call_deferred("add_child", label)
 
 func set_random_environment():
-    var environments = ["oxygen", "water", "sulphuric", "plasma"]
+    var environments = ["oxygen", "water", "methane", "plasma"]
     environment = environments.pick_random()
     species = SPECIES_BY_ENV[environment].pick_random().new()
 
@@ -103,9 +103,16 @@ func _on_detect_area_input(viewport: Node, event: InputEvent, shape_idx: int) ->
         game.hud.queue_message("trap launcher is busy")
         return
 
+    if not launcher.trap:
+        SoundBus.play("moon-required")
+        return
+
     launcher.launch(self)
 
 func _on_orbit_entered(body):
+    if not is_detected:
+        return
+
     if not body is MoonTrap:
         return
 
@@ -125,7 +132,7 @@ func env_icon(env):
             return "💦"
         "oxygen":
             return "💨"
-        "sulphuric":
+        "methane":
             return "🌕"
         "plasma":
             return "🌀"

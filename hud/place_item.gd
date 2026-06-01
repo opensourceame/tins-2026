@@ -88,6 +88,7 @@ func create_or_grow_habitat(environment):
                 game.hud.queue_message("habitat full")
                 return
             habitat.grow()
+            SoundBus.play("habitat-extended")
         else:
 
             var a = find_free_anchor()
@@ -106,6 +107,8 @@ func create_or_grow_habitat(environment):
             new_habitat.grow()
             habitat = new_habitat
 
+            SoundBus.play("constructed")
+
         var item_type = type
         var item_data = data
 
@@ -117,6 +120,8 @@ func add_or_upgrade_detector_dish():
         SignalBus.energy_consumed.emit("detector_dish")
 
         trigger_progress_bar(5.0, func():
+            SoundBus.play("constructed")
+
             spica.add_component(find_free_anchor(), Spawner.detector_dish())
             if not spica.detector_dish.can_upgrade():
                 queue_free()
@@ -124,6 +129,7 @@ func add_or_upgrade_detector_dish():
         return
 
     trigger_progress_bar(5.0, func():
+        SoundBus.play("upgraded")
         spica.detector_dish.update_detect_distance()
         if not spica.detector_dish.can_upgrade():
             queue_free()
@@ -137,6 +143,8 @@ func add_trap_launcher():
         SignalBus.energy_consumed.emit("trap_launcher")
 
         trigger_progress_bar(10.0, func():
+            SoundBus.play("constructed")
+
             spica.add_component(find_free_anchor(), Spawner.trap_launcher())
             queue_free()
 
@@ -150,6 +158,8 @@ func add_or_upgrade_energy_collector():
             #return no_space()
 
         trigger_progress_bar(5.0, func():
+            SoundBus.play("constructed")
+
             var a = find_free_anchor()
             spica.add_component(a, Spawner.energy_collector())
         )
@@ -158,6 +168,7 @@ func add_or_upgrade_energy_collector():
             return
 
         trigger_progress_bar(3.0, func():
+            SoundBus.play("upgraded")
             spica.energy_collector.upgrade()
             if not spica.energy_collector.can_upgrade():
                 queue_free()
@@ -169,6 +180,8 @@ func add_or_upgrade_energy_collector():
 func add_or_upgrade_repair_module():
     if not spica.repair_module:
         trigger_progress_bar(3.0, func():
+            SoundBus.play("constructed")
+
             spica.add_component(find_free_anchor(), Spawner.repair_module())
         )
     else:
@@ -176,6 +189,7 @@ func add_or_upgrade_repair_module():
             return
 
         trigger_progress_bar(3.0, func():
+            SoundBus.play("upgraded")
             spica.repair_module.upgrade()
             if not spica.repair_module.can_upgrade():
                 queue_free()

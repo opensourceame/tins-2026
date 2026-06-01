@@ -3,11 +3,13 @@ extends Node2D
 
 const DAMAGE_FX = preload("res://spica/habitat/damage_fx.tscn")
 
+var fx: SpineDamageFX
+
 func animate_damaged():
-   add_child(DAMAGE_FX.instantiate())
+    fx = DAMAGE_FX.instantiate()
+    add_child(fx)
 
-func remove_damage_animation():
-    var fx = find_child("SpineDamageFX")
-
+func clear_damage():
     if fx:
+        fx.reset()
         fx.queue_free()
