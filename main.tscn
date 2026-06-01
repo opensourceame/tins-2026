@@ -47,6 +47,8 @@ position = Vector2(1163.196, -929.2998)
 [node name="SolarSystem6" parent="World" unique_id=972098454 instance=ExtResource("4_lquwl")]
 position = Vector2(4427, -1037)
 
+[node name="HUD" parent="." unique_id=1601605167 instance=ExtResource("4_1bvp3")]
+
 [node name="Overlays" type="CanvasLayer" parent="." unique_id=2092498231]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=681715049]
@@ -56,8 +58,6 @@ limit_left = -1
 limit_top = 0
 limit_right = 2559
 limit_bottom = 1440
-
-[node name="HUD" parent="." unique_id=1601605167 instance=ExtResource("4_1bvp3")]
 
 [node name="VisitorInterestTimer" type="Timer" parent="." unique_id=1091359135]
 wait_time = 20.0

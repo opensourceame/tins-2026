@@ -17,7 +17,7 @@ func _ready():
     SignalBus.spica_damage.connect(spica_damage)
     SignalBus.species_captured.connect(update_species_captured)
 
-    update_species_captured()
+    call_deferred("update_species_captured")
 
 func _physics_process(delta: float) -> void:
     if message_queue.size() > 0 and not message_being_displayed:

@@ -62,7 +62,7 @@ func quick_load(data: Dictionary):
     _apply_all_data(game, data)
     game.hud.capacity_changed(null)
     SignalBus.spica_damage.emit()
-    game.add_child(preload("res://screens/pause.tscn").instantiate())
+    game.overlays.add_child(preload("res://screens/pause.tscn").instantiate())
 
 
 func delete_all_saves():
@@ -127,6 +127,8 @@ func _collect_spica_data(spica: Spica) -> Dictionary:
     }
 
     for component in spica.components:
+        if not is_instance_valid(component):
+            continue
         var comp_data = _collect_component_data(spica, component)
         if comp_data:
             data["components"].append(comp_data)
@@ -187,6 +189,7 @@ func _collect_solar_systems(game: Game) -> Array:
                     continue
                 planets.append({
                     "planet_name": p.planet_name,
+                    "is_detected": p.is_detected,
                     "environment": p.environment,
                     "size": p.size,
                     "distance_from_sun": p.distance_from_sun,
@@ -424,6 +427,7 @@ func _apply_solar_systems(game: Game, systems_data: Array):
             planet.position.x = p_data.get("position_x", 0.0)
             planet.position.y = p_data.get("position_y", 0.0)
             planet.planet_name = p_data.get("planet_name", "")
+            planet.is_detected = p_data.get("is_detected", false)
 
             var species_script_path = p_data.get("species_script_path", "")
             if not species_script_path.is_empty():

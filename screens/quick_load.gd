@@ -7,7 +7,6 @@ extends Control
 
 var save_manager: Node
 
-
 func _ready():
     back_button.pressed.connect(_on_back_pressed)
     clear_all_button.pressed.connect(_on_clear_all_pressed)

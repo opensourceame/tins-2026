@@ -49,4 +49,5 @@ func upgrade() -> bool:
 func remove_module():
     SoundBus.play("repair-module-dismantled")
     SignalBus.repair_module_dismantle.emit()
+    spica.components.erase(self)
     queue_free()

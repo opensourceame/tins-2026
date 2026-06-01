@@ -90,6 +90,8 @@ If you run out of energy, or visitors stop visiting due to lack of interest, the
 * Press R to restart the game
 * Press S to save, L to load
 * Press G to to to Game Over screen
+* Press P to pause
+
 
 ### For testing
 

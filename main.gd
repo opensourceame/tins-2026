@@ -90,9 +90,9 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
     years_elapsed += 0.01
-    hud.get_node("%Years/Label").text = str(round(years_elapsed)) + " years"
+    hud.get_node("%Years/Label").text = str(int(years_elapsed)) + " years elapsed"
 
-    visitors += visitor_interest / 100.0
+    visitors += visitor_interest / 10.0
     energy   -= spica.damage * delta / 2
 
     check_game_over()
@@ -140,7 +140,8 @@ func _input(event: InputEvent):
             overlays.add_child(quick_load)
         if event.keycode == KEY_P and not get_node_or_null("PauseOverlay"):
             var pause = preload("res://screens/pause.tscn").instantiate()
-            add_child(pause)
+            overlays.add_child(pause)
+
 
 func run_pre_start_checks():
     var eligible = []
