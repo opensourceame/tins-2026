@@ -148,12 +148,12 @@ func capture_species(species):
 func _on_crash_area_entered(body):
     if not body is MoonTrap:
         return
-    if not body.is_crashing():
+    if body.is_outbound():
         return
-
 
     animate_damage(body.global_position - global_position)
 
+    SoundBus.play("spica-damaged")
     game.hud.queue_message("trap crashed")
     body.queue_free()
 
@@ -162,8 +162,16 @@ func animate_damage(pos: Vector2):
     add_child(damage)
     damage.position = pos
 
-    SoundBus.play("spica-damaged")
     SoundBus.play("alarm-long")
+
+    var timer = Timer.new()
+    add_child(timer)
+    timer.wait_time = 6.0
+    timer.one_shot = true
+    timer.timeout.connect(func():
+        SoundBus.play("spica-damaged")
+    )
+    timer.start()
 
 func _on_repair_module_dismantle():
     repair_module = null

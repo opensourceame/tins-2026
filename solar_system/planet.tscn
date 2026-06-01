@@ -27,3 +27,18 @@ collision_mask = 65536
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrbitArea" unique_id=1367162517]
 shape = SubResource("CircleShape2D_1odxm")
 debug_color = Color(9.62615e-08, 0.62907267, 0.4893219, 0.41960785)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=385302061]
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1605749583]
+scale = Vector2(0.5, 0.5)
+color = Color(0.22378641, 0.22378641, 0.22378641, 0.21960784)
+polygon = PackedVector2Array(-38, -57, -3, -68, 29, -65, 60, -47, 74, -17, 71, 23, 48, 58, 9, 68, -29, 66, 29, 55, 49, 36, 60, 6, 57, -27, 31, -45, -5, -55)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1148574665]
+color = Color(0.05882353, 0.05882353, 0.05882353, 0.5254902)
+polygon = PackedVector2Array(-13, 30, -29, 19, -32, 9, -31, -10, -22, -20, -25, -10, -27, 3, -23, 16, -11, 23, 14, 19, -5, 24, 5, 26)
+
+[node name="Polygon2D4" type="Polygon2D" parent="." unique_id=1773259037]
+color = Color(1, 1, 1, 0.20784314)
+polygon = PackedVector2Array(-14, -8, -5, -13, 0, -9, 6, -14, 13, -9, 12, -2, 17, 5, 13, 10, 5, 13, -3, 13, -5, 8, -12, 9, -17, 6, -16, 0, -15, -4)

@@ -131,6 +131,9 @@ func is_crashing():
 func is_orbiting():
     return current_state == State.ORBITING
 
+func is_outbound():
+    return current_state == State.IDLE or current_state == State.LAUNCHED
+
 func returned():
     current_state = State.RETURNED
 

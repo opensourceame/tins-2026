@@ -28,9 +28,15 @@ func _ready():
 
 func _draw():
     if colliding:
-        draw_line(Vector2.ZERO, Vector2(0, -detect_distance), Color(0.812, 0.702, 0.129, 0.694) , 30, true)
+        draw_line(Vector2(0, -50), Vector2(0, -detect_distance), Color(0.812, 0.702, 0.129, 0.694) , 30, true)
     else:
-        draw_line(Vector2.ZERO, Vector2(0, -detect_distance), Color(0.812, 0.702, 0.129, 0.396) , 4, true)
+        var color
+        if randf() > 0.95:
+            color = Color.BLACK
+        else:
+            color = Color(0.812, 0.702, 0.129, 0.396)
+
+        draw_line(Vector2(0, -50), Vector2(0, -detect_distance), color , 4, true)
 
 func _physics_process(_delta):
     if not detect_ray.enabled:

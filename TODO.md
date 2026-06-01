@@ -4,11 +4,6 @@
 
 # ESSENTIAL FOR JAM
 
-* sound effects
-    - clicking a planet
-    - moon launcher
-
-* only discover one new intelligence per sweep of a solar system
 
 # MAJOR
 
@@ -76,3 +71,5 @@
 * start screen with easy, medium, hard, custom buttons
 * colour planets
 * add delay to completion of building / upgrading things (dish etc)
+* sound effects
+* only discover one new intelligence per sweep of a solar system
