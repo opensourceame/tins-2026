@@ -41,14 +41,8 @@ const ENERGY_REQUIRED = {
     "repair_module":    300,
 }
 
-var planet_names = [
-    "Zephyra", "Arkanis", "Thalassa", "Vortigern", "Calypsos",
-    "Draconis", "Eryndor", "Fenris", "Gorath", "Heliopolis",
-    "Iridia", "Jotunheim", "Krynn", "Lyra", "Myrkr",
-    "Nyx", "Oblivion", "Pandora", "Quor", "Ryloth"
-]
-
 func _ready():
+    Config.reset()
     print("GAME: starting")
 
     visitor_interest = SettingsManager.start_visitor_interest
@@ -240,6 +234,7 @@ func check_game_over():
 func game_over(reason):
     GameOver.reason = reason
     get_tree().change_scene_to_file("res://screens/game_over.tscn")
+
 
 
 func _save_game() -> bool:

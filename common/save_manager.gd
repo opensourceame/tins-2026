@@ -115,7 +115,7 @@ func _collect_game_data(game: Game) -> Dictionary:
         "visitors": game.visitors,
         "years_elapsed": game.years_elapsed,
         "zoomed_out": game.zoomed_out,
-        "planet_names": game.planet_names.duplicate(),
+        "planet_names": Config.planet_names.duplicate(),
     }
 
 
@@ -316,7 +316,7 @@ func _apply_game_data(game: Game, data: Dictionary):
     game.visitor_interest = data.get("visitor_interest", 3)
     game.visitors = data.get("visitors", 0.0)
     game.years_elapsed = data.get("years_elapsed", 0.0)
-    game.planet_names = data.get("planet_names", game.planet_names)
+    Config.planet_names = data.get("planet_names", Config.planet_names)
 
 
 func _apply_spica_data(spica: Spica, data: Dictionary):
