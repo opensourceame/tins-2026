@@ -15,7 +15,12 @@ func _physics_process(delta: float) -> void:
         build_cooldown -= delta
 
 func launch(target_planet):
-    trap.target = target_planet
+    if not trap:
+        return
+
+    SoundBus.play("launching")
+
+    trap.target_planet = target_planet
     trap.launch()
 
     trap = null
@@ -26,11 +31,12 @@ func build():
 
     building = true
     SoundBus.play("build-moon")
+
     trap = Spawner.moon_trap()
+    trap.scale = Vector2.ONE * 0.1
 
     launcher.add_child(trap)
 
-    trap.scale = Vector2.ONE * 0.1
     var tween = create_tween()
     tween.tween_property(trap, "scale", Vector2.ONE, TRAP_BUILD_TIME)
     tween.finished.connect(_on_build_finished)

@@ -8,7 +8,6 @@ const MIN_MOON_SCALE = 0.1
 #@onready var game: Game = get_tree().current_scene
 @onready var moon: Node2D = $Moon
 @onready var particle_trail: GPUParticles2D = $ParticleTrail
-@onready var launcher: Marker2D = $Launcher
 
 var target_planet
 var target:
@@ -64,7 +63,8 @@ func speed():
             return 50
 
 func launch():
-    distance_to_target = global_position.distance_to(target.global_position)
+    target = target_planet
+    distance_to_target = global_position.distance_to(target_planet.global_position)
 
     detach_from_spica()
 

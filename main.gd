@@ -223,6 +223,7 @@ func on_species_captured(species):
 
 func on_habitat_overcrowded(habitat):
     hud.queue_message("the " + habitat.environment + " habitat is overcrowded!")
+    SoundBus.play("habitat-overcrowded")
 
 func lose_interest():
     visitor_interest -= 1

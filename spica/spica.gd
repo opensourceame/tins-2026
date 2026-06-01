@@ -81,6 +81,7 @@ func _on_return_area_entered(trap):
 
 func crash_moon_trap(trap):
     trap.crash_into_spica()
+    SoundBus.play("no-" + trap.target_planet.environment + "-capacity")
     game.hud.queue_message("no space for these victims")
 
     damage += randi_range(3, 5)

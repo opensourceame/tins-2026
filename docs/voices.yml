@@ -1,5 +1,11 @@
-constructed: Constructed
-moon-ready: Moon ready
-habitat-extended: Habitat extended
-launching:  Launching
-planet-discovered: New intelligence discovered
+voice: Tessa
+sounds:
+    constructed: Constructed
+    moon-ready: Moon ready
+    habitat-extended: Habitat extended
+    launching:  Launching
+    planet-discovered: New intelligence discovered
+    no-oxygen-capacity:  Insufficient oxygen habitat capacity
+    no-sulphur-capacity: Insufficient sulphur habitat capacity
+    no-plasma-capacity: Insufficient plasma habitat capacity
+    no-water-capacity: Insufficient water habitat capacity

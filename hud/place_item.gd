@@ -69,9 +69,10 @@ func find_free_anchor():
               return a
 
 func construct_moon_trap():
+    game.spica.trap_launcher.build()
+    SignalBus.energy_consumed.emit("moon_trap")
     trigger_progress_bar(5, func():
-        game.spica.trap_launcher.build()
-        SignalBus.energy_consumed.emit("moon_trap")
+        pass
     )
 func create_or_grow_habitat(environment):
     var habitat: Habitat
