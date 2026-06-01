@@ -15,5 +15,5 @@ polygon = PackedVector2Array(0, 0, -192, 0, -384, -200, -386.3818, -386.3818, -3
 color = Color(0.110049196, 0.3235907, 0.18518633, 1)
 polygon = PackedVector2Array(-241.48863, -289.78635, 0, -193.1909, 241.48863, -289.78635, 144.89317, -48.297726, -144.89317, -48.297726)
 
-[node name="BuildMarker" type="Marker2D" parent="." unique_id=1574256737]
+[node name="Launcher" type="Marker2D" parent="." unique_id=1574256737]
 position = Vector2(0, -64)

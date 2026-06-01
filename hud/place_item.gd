@@ -54,28 +54,25 @@ func _gui_input(event):
             "repair_module":
                 return add_or_upgrade_repair_module()
             "moon_trap":
-                if not game.spica.trap_launcher():
+                if not game.spica.trap_launcher:
                     game.hud.queue_message("you need a trap launcher")
                     return
-                var launcher = game.spica.trap_launcher()
-                if not launcher.is_ready():
+                var launcher = game.spica.trap_launcher
+                if not game.spica.trap_launcher.is_ready():
                     return
+                return construct_moon_trap()
 
-                launcher.build(data.get("target"))
-
-                SignalBus.energy_consumed.emit("moon_trap")
-
-        if component:
-            spica.add_component(anchor, component)
-
-        queue_free()
 
 func find_free_anchor():
     for a in spica.anchors:
         if not a.has_component():
               return a
 
-
+func construct_moon_trap():
+    trigger_progress_bar(5, func():
+        game.spica.trap_launcher.build()
+        SignalBus.energy_consumed.emit("moon_trap")
+    )
 func create_or_grow_habitat(environment):
     var habitat: Habitat
 
@@ -138,12 +135,12 @@ func add_trap_launcher():
     if not spica.trap_launcher:
         SignalBus.energy_consumed.emit("trap_launcher")
 
-        trigger_progress_bar(5.0, func():
+        trigger_progress_bar(10.0, func():
             spica.add_component(find_free_anchor(), Spawner.trap_launcher())
             queue_free()
-        )
-        return
 
+            game.hud.permanent_items.add_item("moon_trap")
+        )
 
 func add_or_upgrade_energy_collector():
     if not spica.energy_collector:

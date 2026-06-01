@@ -5,8 +5,10 @@ enum State { IDLE, LAUNCHED, ORBITING, RETURNING, RETURNED, CRASHING }
 
 const MIN_MOON_SCALE = 0.1
 
+#@onready var game: Game = get_tree().current_scene
 @onready var moon: Node2D = $Moon
 @onready var particle_trail: GPUParticles2D = $ParticleTrail
+@onready var launcher: Marker2D = $Launcher
 
 var target_planet
 var target:
@@ -15,10 +17,6 @@ var target:
         if target and is_inside_tree():
             target_distance = global_position.distance_to(target.global_position)
 var target_distance: float
-
-func _ready():
-    if target and target_distance == 0.0:
-        target_distance = global_position.distance_to(target.global_position)
 var current_direction: Vector2
 var distance_to_target: float
 var current_state = State.IDLE
@@ -45,7 +43,6 @@ func is_moving():
         _:
             return true
 
-
 func scale_change():
     match current_state:
         State.LAUNCHED:
@@ -68,12 +65,29 @@ func speed():
 
 func launch():
     distance_to_target = global_position.distance_to(target.global_position)
+
+    detach_from_spica()
+
+func travel_to_target():
     current_state = State.LAUNCHED
 
     var travel_time = distance_to_target / speed()
     var tween = create_tween()
     tween.tween_property(moon, "scale", Vector2(0.1, 0.1), travel_time)
 
+func detach_from_spica():
+    var game = get_tree().current_scene
+    reparent(game.world)
+
+    var spica         = game.spica
+    var spica_pos     = spica.global_position if spica else global_position
+    var direction     = (global_position - spica_pos).normalized()
+    var distance      = randf_range(200, 400)
+    var hold_position = spica_pos + direction * distance
+
+    var tween = create_tween()
+    tween.tween_property(self, "global_position", hold_position, 2.0)
+    tween.tween_callback(travel_to_target)
 
 func orbit(planet):
     if current_state == State.ORBITING:

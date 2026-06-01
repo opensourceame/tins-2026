@@ -6,6 +6,7 @@ signal planets_generated
 const PLANET = preload("res://solar_system/planet.tscn")
 
 var rotation_speed: int
+var cooldown: Timer = null
 
 var MIN_SIZE = 20
 var MAX_SIZE = 50
@@ -50,3 +51,20 @@ func add_planets():
         planets.append(planet)
 
     planets_generated.emit()
+
+func start_detection_cooldown():
+    print("SOLAR SYSTEM: detection cooldown started for ", name)
+
+    var timer = Timer.new()
+    add_child(timer)
+    timer.wait_time = 10.0
+    timer.one_shot = true
+    timer.timeout.connect(end_detection_cooldown)
+    timer.start()
+
+    cooldown = timer
+
+func end_detection_cooldown():
+    print("SOLAR SYSTEM: detection cooldown ended for ", name)
+
+    cooldown.queue_free()

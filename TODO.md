@@ -5,6 +5,10 @@
 # ESSENTIAL FOR JAM
 
 * sound effects
+    - clicking a planet
+    - moon launcher
+
+* only discover one new intelligence per sweep of a solar system
 
 # MAJOR
 

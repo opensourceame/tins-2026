@@ -23,9 +23,9 @@ func add_item(type, data = {}):
     if env:
         item.label.text += " " + env_icon(env)
 
-    if type == "moon_trap":
-        var t = data.get("target")
-        item.label.text = "🌖 " +t.planet_name + " " + env_icon(t.environment)
+    #if type == "moon_trap":
+        #var t = data.get("target")
+        #item.label.text = "🌖 " +t.planet_name + " " + env_icon(t.environment)
 
     if Game.ENERGY_REQUIRED[type]:
         item.energy_label.text = "⚡️ " + str(Game.ENERGY_REQUIRED[type])

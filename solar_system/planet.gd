@@ -8,13 +8,14 @@ extends Node2D
 var size: int = 20
 var color: Color = Color.RED
 var distance_from_sun: int
-var has_advanced_life: bool = false
+var has_advanced_life: bool = true
 var has_moon_trap: bool = false
 var rotation_speed = 60
 var planet_name: String
 var environment: String = "oxygen"
 var species: Species
 var is_detected: bool = false
+var solar_system: SolarSystem
 
 const COLOR_RANGES = {
     30: Color.AQUAMARINE,
@@ -34,6 +35,8 @@ const SPECIES_BY_ENV = {
 }
 
 func _ready():
+    solar_system = get_parent()
+
     calculate_color()
     queue_redraw()
 
@@ -41,12 +44,15 @@ func _ready():
         add_intelligent_species()
 
 func detect():
-    if is_detected:
+    if is_detected or get_parent().cooldown:
         return
 
     is_detected = true
+    solar_system.start_detection_cooldown()
+
     add_label()
     add_child(BROADCASTING_COMPONENT.instantiate())
+
 
 func add_intelligent_species():
     detect_area.monitorable = true
@@ -97,7 +103,7 @@ func _on_detect_area_input(viewport: Node, event: InputEvent, shape_idx: int) ->
         game.hud.queue_message("trap launcher is busy")
         return
 
-    launcher.build(self)
+    launcher.launch(self)
 
 func _on_orbit_entered(body):
     if not body is MoonTrap:
