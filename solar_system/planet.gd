@@ -98,7 +98,7 @@ func _on_detect_area_input(viewport: Node, event: InputEvent, shape_idx: int) ->
         game.hud.queue_message("you need a trap launcher")
         return
 
-    if not launcher.is_ready():
+    if not launcher.is_ready_to_launch():
         game.hud.queue_message("trap launcher is busy")
         return
 

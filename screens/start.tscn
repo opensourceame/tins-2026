@@ -4,6 +4,8 @@
 [ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="2_8sjn0"]
 [ext_resource type="PackedScene" uid="uid://soq7wuw3tuth" path="res://moon_trap.tscn" id="3_y4iue"]
 
+[sub_resource type="Theme" id="Theme_y4iue"]
+
 [node name="Start" type="Control" unique_id=640776605]
 layout_mode = 3
 anchors_preset = 15
@@ -21,6 +23,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MoonTrap" parent="CenterContainer" unique_id=1343835292 instance=ExtResource("3_y4iue")]
+position = Vector2(704, 480)
+scale = Vector2(5.36, 5.36)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=294413442]
 layout_mode = 2
 theme = ExtResource("2_8sjn0")
@@ -28,6 +34,9 @@ theme_override_constants/separation = 30
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=115500475]
 layout_mode = 2
+theme = SubResource("Theme_y4iue")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 38
 theme_override_font_sizes/font_size = 128
 text = "Spica Zoo"
 horizontal_alignment = 1
@@ -63,7 +72,3 @@ custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Custom"
-
-[node name="MoonTrap" parent="CenterContainer" unique_id=1343835292 instance=ExtResource("3_y4iue")]
-position = Vector2(952, 592)
-scale = Vector2(5.36, 5.36)

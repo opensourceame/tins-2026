@@ -2,17 +2,11 @@ class_name TrapLauncher
 extends Node2D
 
 const TRAP_BUILD_TIME     = 5.0
-const TRAP_BUILD_COOLDOWN = 1.0
 
 @onready var launcher: Marker2D = $Launcher
 
 var trap: MoonTrap
 var building: bool = false
-var build_cooldown = 0.0
-
-func _physics_process(delta: float) -> void:
-    if build_cooldown > 0:
-        build_cooldown -= delta
 
 func launch(target_planet):
     if not trap:
@@ -26,7 +20,7 @@ func launch(target_planet):
     trap = null
 
 func build():
-    if building or build_cooldown > 0:
+    if building or trap:
         return
 
     building = true
@@ -45,6 +39,8 @@ func _on_build_finished():
     SoundBus.play("moon-ready")
     building = false
 
+func is_ready_to_launch():
+    return trap
 
-func is_ready():
-    return building == false
+func is_ready_to_build():
+    return not building and not trap

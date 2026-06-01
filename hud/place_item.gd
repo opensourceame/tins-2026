@@ -58,7 +58,7 @@ func _gui_input(event):
                     game.hud.queue_message("you need a trap launcher")
                     return
                 var launcher = game.spica.trap_launcher
-                if not game.spica.trap_launcher.is_ready():
+                if not game.spica.trap_launcher.is_ready_to_build():
                     return
                 return construct_moon_trap()
 
@@ -69,7 +69,9 @@ func find_free_anchor():
               return a
 
 func construct_moon_trap():
-    game.spica.trap_launcher.build()
+    if not game.spica.trap_launcher.build():
+        return
+
     SignalBus.energy_consumed.emit("moon_trap")
     trigger_progress_bar(5, func():
         pass
@@ -81,6 +83,8 @@ func create_or_grow_habitat(environment):
         if c and c is Habitat and c.environment == environment:
             habitat = c
             break
+
+    SignalBus.energy_consumed.emit(type)
 
     trigger_progress_bar(10, func():
         if habitat:
@@ -96,11 +100,6 @@ func create_or_grow_habitat(environment):
                 return no_space()
 
             var new_habitat = Spawner.habitat()
-            #var i = 1
-            #for c in spica.components:
-                #if c is Habitat:
-                    #i += 1
-            #new_habitat.name = str(i)
             new_habitat.name = environment[0]
             new_habitat.environment = environment
             spica.add_component(a, new_habitat)
@@ -111,9 +110,8 @@ func create_or_grow_habitat(environment):
 
         var item_type = type
         var item_data = data
-
-        SignalBus.energy_consumed.emit(type)
     )
+
 
 func add_or_upgrade_detector_dish():
     if not spica.detector_dish:

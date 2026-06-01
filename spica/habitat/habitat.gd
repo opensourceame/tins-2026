@@ -109,7 +109,7 @@ func check_habitat_collapse():
 
     current_state = State.COLLAPSED
 
-    spica.damage += 4
+    spica.inflict_damage(4)
     spica.animate_damage(get_parent().position)
 
     var rigid_body = RigidBody2D.new()
