@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dj7owq2xkri5p"]
+
+[ext_resource type="Script" uid="uid://4xphjntuuavl" path="res://spica/habitat/vertebra.gd" id="1_seyjc"]
+
+[node name="Vertebra" type="Node2D" unique_id=88464467]
+scale = Vector2(1, 0.1)
+script = ExtResource("1_seyjc")
+
+[node name="LivingTube" type="Polygon2D" parent="." unique_id=26174815]
+position = Vector2(4.7683716e-07, -640.00006)
+rotation = 1.5693394
+scale = Vector2(1.2520156, 0.91216326)
+color = Color(0.5033745, 0.5033746, 0.5033746, 1)
+polygon = PackedVector2Array(-766.6883, -71.696144, -511.0727, -97.49608, 65.90451, -98.81875, 255.67143, -78.42204, 511.2497, -69.14058, 511.09146, 79.955376, 255.49455, 88.214615, 63.77594, 114.142334, -511.29614, 112.99233, -766.8372, 68.62946, -830.7155, 50.960983, -1022.3968, 41.8073, -1022.3038, -45.896206, -830.6037, -54.28322)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1878892013]
+color = Color(0.56576514, 0.56576514, 0.56576514, 1)
+polygon = PackedVector2Array(-32, 0, -32, -1360, -48, -1520, 0, -1680, 48, -1520, 32, -1360, 32, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1980197417]
+position = Vector2(-8, 160)
+color = Color(0.36094868, 0.36094868, 0.36094865, 1)
+polygon = PackedVector2Array(112, -1520, 80, -1760, 56, -1840, 56, -1680, 96, -1360, 96, -720, 72, -480, 72, -160, 88, -480, 136, -720, 136, -1280)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1203814276]
+position = Vector2(-51, -80)
+scale = Vector2(0.875, 1)
+color = Color(0.585062, 0.585062, 0.5850621, 1)
+polygon = PackedVector2Array(-64.237366, -1284.7473, -24, -1520, 3.4285698, -1600, 3.4285698, -1440, -42.285717, -1120, -42.285717, -800, -42.285717, -480, -32, -240, -24.000004, 80, -48, -240, -88, -480, -88, -1040)

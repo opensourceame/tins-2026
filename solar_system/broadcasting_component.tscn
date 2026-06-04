@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8vig0ra0nmnl"]
+
+[ext_resource type="Script" uid="uid://cwn5pdeev78c2" path="res://solar_system/broadcasting_component.gd" id="1_8m0jt"]
+
+[node name="BroadcastingComponent" type="Node2D" unique_id=816191014]
+script = ExtResource("1_8m0jt")

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cg05ycjjghemp"]
+
+[ext_resource type="Script" uid="uid://cmkcipts1110i" path="res://screens/pause.gd" id="1_ql6c"]
+[ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="2_um08"]
+
+[node name="PauseOverlay" type="Control" unique_id=1407643322]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ql6c")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=618197627]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=379302345]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=938198115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_um08")
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=1172544647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=121422511]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Resume"

@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TINS 2026"
+run/main_scene="res://screens/start.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+config/disable_3d=true
+
+[autoload]
+
+SignalBus="*res://common/signal_bus.gd"
+Spawner="*uid://ch8linahqitvw"
+SettingsManager="*res://common/settings_manager.gd"
+SaveManager="*res://common/save_manager.gd"
+SimpleSaveManager="*res://common/simple_save_manager.gd"
+SoundBus="*res://common/sound_bus.gd"
+Config="*res://common/config.gd"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/mode=4
+window/size/initial_position_type=0
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_ratio"
+
+[layer_names]
+
+2d_physics/layer_17="moon trap"
+2d_physics/layer_18="energy"
+
+[physics]
+
+2d/default_gravity=0
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true
+environment/default_clear_color=Color(0, 0, 0, 1)

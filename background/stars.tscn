@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bood0qx8p14yl"]
+
+[ext_resource type="Script" uid="uid://7j8ubc0m33mt" path="res://background/stars.gd" id="1_tkrrp"]
+
+[node name="Stars" type="Node2D" unique_id=149245613]
+script = ExtResource("1_tkrrp")

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://l3l6nwdr2id0"]
+
+[ext_resource type="FontFile" uid="uid://vbtjyb0tsffb" path="res://fonts/StalinistOne-Regular.ttf" id="1_ttblx"]
+
+[resource]
+default_font = ExtResource("1_ttblx")
+default_font_size = 64

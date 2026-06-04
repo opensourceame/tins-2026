@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cmh5pggi88bib"]
+
+[node name="Guppiez" type="Node2D" unique_id=1854008074]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1016085026]
+polygon = PackedVector2Array(8, 56, 13, 41, 16, 27, 9, 28, 13, 18, 13, 11, 32, 6, 50, 15, 55, 33, 49, 42, 41, 44, 34, 52, 31, 43, 20, 46)

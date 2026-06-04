@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lcpojq2pqgj1"]
+
+[ext_resource type="Script" uid="uid://ct35n8yt37jlp" path="res://anchor.gd" id="1_tillw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eorob"]
+radius = 32.0
+
+[node name="Anchor" type="Area2D" unique_id=1972042639]
+script = ExtResource("1_tillw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593676282]
+shape = SubResource("CircleShape2D_eorob")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1694360647]
+position = Vector2(-1.4305115e-06, -1.4305115e-06)
+scale = Vector2(0.75000006, 0.74999994)
+color = Color(0.3802415, 0.0018420601, 0.72205937, 1)
+polygon = PackedVector2Array(-32, 0, -32, -16, -16, -32, 16, -32, 32, -16, 32, 16, 16, 32, -16, 32, -32, 16)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1709450714]
+position = Vector2(-1.4305115e-06, -1.4305115e-06)
+scale = Vector2(0.5, 0.5)
+color = Color(0.4453025, 0.38718772, 0.49671173, 1)
+polygon = PackedVector2Array(-32, 0, -32, -16, -16, -32, 16, -32, 32, -16, 32, 16, 16, 32, -16, 32, -32, 16)
+
+[node name="ComponentMarker" type="Marker2D" parent="." unique_id=1591579912]

@@ -1,0 +1,16 @@
+voice: Tessa
+sounds:
+    constructed: Constructed
+    upgraded: Upgraded
+    moon-ready: Moon ready
+    moon-required: Moon trap required
+    habitat-extended: Habitat extended
+    launching:  Launching
+    planet-discovered: New intelligence discovered
+    no-oxygen-capacity:  Insufficient oxygen capacity
+    no-methane-capacity: Insufficient methane capacity
+    no-plasma-capacity: Insufficient plasma capacity
+    no-water-capacity: Insufficient water capacity
+    spica-repaired: Spica damage repaired
+    spica-damaged: Spica damaged
+    repair-module-dismantled: Repair module dismantled

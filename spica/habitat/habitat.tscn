@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cuurv4iclj7d"]
+
+[ext_resource type="Script" uid="uid://d8x66fy0pp2l" path="res://spica/habitat/habitat.gd" id="1_dtqah"]
+
+[sub_resource type="Theme" id="Theme_3d8m1"]
+
+[node name="Habitat" type="Node2D" unique_id=1005623594]
+scale = Vector2(0.49815243, 0.49815243)
+script = ExtResource("1_dtqah")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1075865864]
+position = Vector2(-64.237366, -128.47473)
+color = Color(0.09362079, 0.29689673, 0.30270457, 1)
+polygon = PackedVector2Array(-32.118683, 128.47473, 0, 80.29671, 128.47473, 80.29671, 160.59341, 128.47473)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1756759948]
+offset_left = -64.237366
+offset_top = -128.47473
+offset_right = 64.237366
+offset_bottom = -48.178024
+color = Color(0.14558512, 0.42133367, 0.42863873, 1)
+
+[node name="Label" type="Label" parent="." unique_id=809655452]
+visible = false
+offset_left = -64.237366
+offset_top = -144.53407
+offset_right = 64.237366
+offset_bottom = 20.465927
+theme = SubResource("Theme_3d8m1")
+theme_override_colors/font_color = Color(0.2574758, 0.25747576, 0.25747573, 1)
+theme_override_font_sizes/font_size = 120
+text = "A"
+horizontal_alignment = 1
+
+[node name="Spine" type="Node2D" parent="." unique_id=2070355240]
+position = Vector2(0, -128.47473)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=480294698]
+color = Color(1, 1, 1, 0.23137255)
+polygon = PackedVector2Array(-64.237366, -128.47473, -32.118683, -128.47473, -32.118683, -48.178024, -80.29671, 0, -96.35605, 0, -64.237366, -48.178024)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1661577181]
+scale = Vector2(-1, 1)
+color = Color(0.09225613, 0.09225613, 0.09225613, 0.23137255)
+polygon = PackedVector2Array(-64.237366, -128.47473, -32.118683, -128.47473, -32.118683, -48.178024, -80.29671, 0, -96.35605, 0, -64.237366, -48.178024)

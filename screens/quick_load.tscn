@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://tuaolc47whvf"]
+
+[ext_resource type="Script" uid="uid://cd1r6pbs2ciks" path="res://screens/quick_load.gd" id="1_2ql6c"]
+[ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="2_qum08"]
+
+[node name="QuickLoad" type="Control" unique_id=694675378]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ql6c")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=547328683]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1820774420]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=1670523040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qum08")
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=986854021]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "QUICK LOAD"
+horizontal_alignment = 1
+
+[node name="Saves" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer" unique_id=81686987]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClearAllButton" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Clear All Saves"
+
+[node name="Spacer" type="Control" parent="CenterContainer/Panel/VBoxContainer" unique_id=283579579]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1122301579]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back"

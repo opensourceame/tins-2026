@@ -1,0 +1,414 @@
+[gd_scene format=3 uid="uid://dvewtmm6d837k"]
+
+[ext_resource type="Script" uid="uid://ckjkairqnp32d" path="res://hud/hud.gd" id="1_w8tcp"]
+[ext_resource type="Script" uid="uid://dd1hcajcvlc0a" path="res://hud/item_queue.gd" id="2_svhta"]
+[ext_resource type="Script" uid="uid://dsf1g446pdngb" path="res://hud/species.gd" id="3_fjv1a"]
+[ext_resource type="Theme" uid="uid://l3l6nwdr2id0" path="res://themes/retro_theme.tres" id="3_svhta"]
+[ext_resource type="Theme" uid="uid://b5oqcotryjtm5" path="res://hud/hud_theme.tres" id="4_0ivg5"]
+[ext_resource type="PackedScene" uid="uid://dwwbbr2gx67rp" path="res://species/humans.tscn" id="4_1kkc0"]
+[ext_resource type="PackedScene" uid="uid://lskuu7lww0s" path="res://species/wibbles.tscn" id="5_1kkc0"]
+[ext_resource type="PackedScene" uid="uid://b1i3y5uh8g8yh" path="res://species/fishoids.tscn" id="5_qv4qp"]
+[ext_resource type="PackedScene" uid="uid://cmh5pggi88bib" path="res://species/guppiez.tscn" id="7_mq7b8"]
+[ext_resource type="PackedScene" uid="uid://dufv2sjj0hxke" path="res://species/plasmoids.tscn" id="8_jvpmi"]
+[ext_resource type="PackedScene" uid="uid://dalyp1igvxdja" path="res://species/embers.tscn" id="9_t2ad4"]
+[ext_resource type="PackedScene" uid="uid://co8s41d0tm8fj" path="res://species/sherzat.tscn" id="10_0jxvb"]
+[ext_resource type="PackedScene" uid="uid://s410xly7v4sr" path="res://species/hegrons.tscn" id="11_pt78x"]
+
+[sub_resource type="Theme" id="Theme_8sq4i"]
+default_font_size = 36
+
+[node name="HUD" type="CanvasLayer" unique_id=1601605167]
+script = ExtResource("1_w8tcp")
+
+[node name="Message" type="Control" parent="." unique_id=296554277]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Message" unique_id=1631386522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_svhta")
+theme_override_colors/font_color = Color(1, 0.5519944, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightBar" type="Control" parent="." unique_id=631157263]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightBar" unique_id=1667902562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Years" type="Control" parent="RightBar/VBoxContainer" unique_id=840990189]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Years" unique_id=1340040383]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -413.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 60
+text = "1000 years"
+horizontal_alignment = 2
+
+[node name="Years2" type="Control" parent="RightBar/VBoxContainer" unique_id=1337718301]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Years2" unique_id=1362242409]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -413.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "visitor interest"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VisitorInterest" type="Control" parent="RightBar/VBoxContainer" unique_id=790834728]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="InterestProgressBar" type="HBoxContainer" parent="RightBar/VBoxContainer/VisitorInterest" unique_id=1150570924]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1239781343]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=308261614]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1276181207]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1259121412]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=500897882]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1553263496]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect7" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=989856757]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect8" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1080157143]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect9" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1924001013]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="ColorRect10" type="ColorRect" parent="RightBar/VBoxContainer/VisitorInterest/InterestProgressBar" unique_id=1555775058]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="Visitors" type="Control" parent="RightBar/VBoxContainer" unique_id=248585175]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Visitors" unique_id=122609238]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "1234 visitors"
+
+[node name="Control" type="Control" parent="RightBar/VBoxContainer" unique_id=228174204]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Control" unique_id=374405015]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -27.0
+offset_right = -39.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Captured:"
+horizontal_alignment = 1
+
+[node name="Species" type="Control" parent="RightBar/VBoxContainer" unique_id=295739418]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_fjv1a")
+
+[node name="Label" type="Label" parent="RightBar/VBoxContainer/Species" unique_id=1290490472]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+
+[node name="SpeciesVBoxContainer" type="VBoxContainer" parent="RightBar/VBoxContainer/Species" unique_id=1405738352]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = 15.0
+offset_right = -166.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="humans" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1062926198]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Humans" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/humans" unique_id=1394043830 instance=ExtResource("4_1kkc0")]
+scale = Vector2(1.3, 1.3)
+
+[node name="wibbles" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=754735475]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Wibbles" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/wibbles" unique_id=1105051175 instance=ExtResource("5_1kkc0")]
+scale = Vector2(1.3, 1.3)
+
+[node name="fishoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=176786870]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Fishoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/fishoids" unique_id=178381417 instance=ExtResource("5_qv4qp")]
+position = Vector2(-4, 0)
+scale = Vector2(1.3, 1.3)
+
+[node name="guppiez" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1500455576]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Guppiez" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/guppiez" unique_id=1854008074 instance=ExtResource("7_mq7b8")]
+scale = Vector2(1.3, 1.3)
+
+[node name="plasmoids" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=985502474]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Plasmoids" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/plasmoids" unique_id=1292575265 instance=ExtResource("8_jvpmi")]
+scale = Vector2(1.3, 1.3)
+
+[node name="embers" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1173759819]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Embers" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/embers" unique_id=1737852085 instance=ExtResource("9_t2ad4")]
+scale = Vector2(1.3, 1.3)
+
+[node name="sherzat" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1474273403]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Sherzat" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/sherzat" unique_id=1919756055 instance=ExtResource("10_0jxvb")]
+scale = Vector2(1.3, 1.3)
+
+[node name="hegrons" type="Control" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer" unique_id=1695278953]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Hegrons2" parent="RightBar/VBoxContainer/Species/SpeciesVBoxContainer/hegrons" unique_id=594009044 instance=ExtResource("11_pt78x")]
+scale = Vector2(1.3, 1.3)
+
+[node name="Control2" type="Control" parent="." unique_id=107916139]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2" unique_id=744062703]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -704.0
+offset_top = 32.0
+offset_right = 704.0
+offset_bottom = 74.0
+grow_horizontal = 2
+theme = SubResource("Theme_8sq4i")
+
+[node name="Control" type="Control" parent="Control2/HBoxContainer" unique_id=1360751159]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+
+[node name="CapacityLabel" type="Label" parent="Control2/HBoxContainer/Control" unique_id=1192660003]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.0
+offset_right = 137.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme = ExtResource("4_0ivg5")
+theme_override_font_sizes/font_size = 50
+text = "CAPACITIES"
+
+[node name="Control2" type="Control" parent="Control2/HBoxContainer" unique_id=1646413092]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="Control2/HBoxContainer/Control2" unique_id=461073288]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_right = 71.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "⚡️ 0"
+
+[node name="Control3" type="Control" parent="Control2/HBoxContainer" unique_id=1909364967]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="Control2/HBoxContainer/Control3" unique_id=7968745]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Control3" type="Control" parent="." unique_id=1130484763]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control3" unique_id=726454435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "keys:  Z for zoom, 1, 2, 3 for game speed, R to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftBar" type="HBoxContainer" parent="." unique_id=165768283]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="PermanentItems" type="Control" parent="LeftBar" unique_id=135557051]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("2_svhta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftBar/PermanentItems" unique_id=1424261492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0008509, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemQueue" type="Control" parent="LeftBar" unique_id=1625810702]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("2_svhta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftBar/ItemQueue" unique_id=180169571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0008509, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
