@@ -126,7 +126,7 @@ func _input(event: InputEvent):
             tween = create_tween()
             tween.set_parallel(true)
             var s = ZOOM_OUT_SCALE if zoomed_out else 1.0
-            tween.tween_property(world, "scale", Vector2(s, s), ZOOM_OUT_SCALE)
+            tween.tween_property(world, "scale", Vector2(s, s), ZOOM_TIME)
             tween.tween_property(world, "offset", center * (1.0 - s), ZOOM_TIME)
             tween.tween_callback(toggle_hud)
         if event.keycode == KEY_S:
